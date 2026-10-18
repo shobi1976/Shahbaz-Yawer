@@ -1,0 +1,212 @@
+@import "tailwindcss";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: #030712;
+    color: #f8fafc;
+  }
+
+  body {
+    background-color: #030712;
+    color: #f8fafc;
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.97); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Sophisticated Dark Slate Hover Effects for Cards with Neon Accents */
+.neon-hover-cyan:hover {
+  border-color: rgba(6, 182, 212, 0.7) !important;
+  box-shadow: 0 10px 25px -4px rgba(6, 182, 212, 0.25), 0 0 12px rgba(6, 182, 212, 0.15);
+  background-color: #0f172a !important;
+}
+.neon-hover-magenta:hover {
+  border-color: rgba(217, 70, 239, 0.7) !important;
+  box-shadow: 0 10px 25px -4px rgba(217, 70, 239, 0.25), 0 0 12px rgba(217, 70, 239, 0.15);
+  background-color: #0f172a !important;
+}
+.neon-hover-green:hover {
+  border-color: rgba(34, 197, 94, 0.7) !important;
+  box-shadow: 0 10px 25px -4px rgba(34, 197, 94, 0.25), 0 0 12px rgba(34, 197, 94, 0.15);
+  background-color: #0f172a !important;
+}
+.neon-hover-yellow:hover {
+  border-color: rgba(234, 179, 8, 0.7) !important;
+  box-shadow: 0 10px 25px -4px rgba(234, 179, 8, 0.25), 0 0 12px rgba(234, 179, 8, 0.15);
+  background-color: #0f172a !important;
+}
+.neon-hover-red:hover {
+  border-color: rgba(239, 68, 68, 0.7) !important;
+  box-shadow: 0 10px 25px -4px rgba(239, 68, 68, 0.25), 0 0 12px rgba(239, 68, 68, 0.15);
+  background-color: #0f172a !important;
+}
+.neon-hover-orange:hover {
+  border-color: rgba(249, 115, 22, 0.7) !important;
+  box-shadow: 0 10px 25px -4px rgba(249, 115, 22, 0.25), 0 0 12px rgba(249, 115, 22, 0.15);
+  background-color: #0f172a !important;
+}
+.neon-hover-pink:hover {
+  border-color: rgba(236, 72, 153, 0.7) !important;
+  box-shadow: 0 10px 25px -4px rgba(236, 72, 153, 0.25), 0 0 12px rgba(236, 72, 153, 0.15);
+  background-color: #0f172a !important;
+}
+.neon-hover-teal:hover {
+  border-color: rgba(20, 184, 166, 0.7) !important;
+  box-shadow: 0 10px 25px -4px rgba(20, 184, 166, 0.25), 0 0 12px rgba(20, 184, 166, 0.15);
+  background-color: #0f172a !important;
+}
+.neon-hover-purple:hover {
+  border-color: rgba(168, 85, 247, 0.7) !important;
+  box-shadow: 0 10px 25px -4px rgba(168, 85, 247, 0.25), 0 0 12px rgba(168, 85, 247, 0.15);
+  background-color: #0f172a !important;
+}
+.neon-hover-mint:hover {
+  border-color: rgba(45, 212, 191, 0.7) !important;
+  box-shadow: 0 10px 25px -4px rgba(45, 212, 191, 0.25), 0 0 12px rgba(45, 212, 191, 0.15);
+  background-color: #0f172a !important;
+}
+.neon-hover-lime:hover {
+  border-color: rgba(132, 204, 22, 0.7) !important;
+  box-shadow: 0 10px 25px -4px rgba(132, 204, 22, 0.25), 0 0 12px rgba(132, 204, 22, 0.15);
+  background-color: #0f172a !important;
+}
+.neon-hover-gold:hover {
+  border-color: rgba(234, 179, 8, 0.7) !important;
+  box-shadow: 0 10px 25px -4px rgba(234, 179, 8, 0.25), 0 0 12px rgba(234, 179, 8, 0.15);
+  background-color: #0f172a !important;
+}
+.neon-hover-skyblue:hover {
+  border-color: rgba(14, 165, 233, 0.7) !important;
+  box-shadow: 0 10px 25px -4px rgba(14, 165, 233, 0.25), 0 0 12px rgba(14, 165, 233, 0.15);
+  background-color: #0f172a !important;
+}
+.neon-hover-limegreen:hover {
+  border-color: rgba(101, 163, 13, 0.7) !important;
+  box-shadow: 0 10px 25px -4px rgba(101, 163, 13, 0.25), 0 0 12px rgba(101, 163, 13, 0.15);
+  background-color: #0f172a !important;
+}
+.neon-hover-amber:hover {
+  border-color: rgba(245, 158, 11, 0.7) !important;
+  box-shadow: 0 10px 25px -4px rgba(245, 158, 11, 0.25), 0 0 12px rgba(245, 158, 11, 0.15);
+  background-color: #0f172a !important;
+}
+.neon-hover-blue:hover {
+  border-color: rgba(59, 130, 246, 0.7) !important;
+  box-shadow: 0 10px 25px -4px rgba(59, 130, 246, 0.25), 0 0 12px rgba(59, 130, 246, 0.15);
+  background-color: #0f172a !important;
+}
+
+.rule-card {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid rgba(51, 65, 85, 0.6);
+  box-shadow: 0 4px 16px -2px rgba(0, 0, 0, 0.4), 0 2px 6px -1px rgba(0, 0, 0, 0.2);
+  background-color: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(10px);
+}
+
+.rule-card:hover {
+  transform: translateY(-2px);
+  background-color: #0b1120 !important;
+  box-shadow: 0 16px 36px -4px rgba(0, 0, 0, 0.6), 0 0 24px rgba(6, 182, 212, 0.25);
+  border-color: rgba(6, 182, 212, 0.5) !important;
+}
+
+.rule-card:hover .card-title {
+  color: #ffffff !important;
+}
+
+.rule-card:hover .card-subtitle {
+  color: #94a3b8 !important;
+}
+
+.rule-card:hover .card-desc {
+  color: #cbd5e1 !important;
+}
+
+.rule-card:hover .card-pill {
+  background-color: #030712 !important;
+  border-color: #334155 !important;
+  color: #cbd5e1 !important;
+}
+
+.rule-card:hover .card-pill strong {
+  color: #ffffff !important;
+}
+
+.rule-card:hover .card-footer {
+  border-color: #1e293b !important;
+}
+
+.rule-card:hover .card-footer span {
+  color: #e2e8f0 !important;
+}
+
+.rule-card:hover .accent-bar {
+  height: 4px;
+}
+
+.accent-bar {
+  transition: height 0.2s ease;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 0;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #030712;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.25);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(6, 182, 212, 0.7);
+}
+
+/* 3D Orbit Matrix & Perspective Utilities */
+.preserve-3d {
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+.perspective-1400 {
+  perspective: 1400px;
+}
+
+@keyframes orbitSpinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes radarPulse {
+  0%, 100% { opacity: 0.15; transform: scale(1); }
+  50% { opacity: 0.35; transform: scale(1.02); }
+}
+
+.animate-radar-pulse {
+  animation: radarPulse 6s ease-in-out infinite;
+}
+
+.orbit-glow-halo {
+  filter: drop-shadow(0 0 25px var(--glow-color, rgba(6, 182, 212, 0.35)));
+}
+

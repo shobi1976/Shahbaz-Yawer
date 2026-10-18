@@ -1,0 +1,17 @@
+# Ludo Emperor 5 Way
+
+> The definitive 5-player pentagonal dual-dice asymmetric Ludo web application.
+
+- Homepage: https://ludoemperor.com/
+- Game Mode: 5-Player Pentagonal Warzone (4v1 Anti-Leader Coalition)
+- Dice Mechanics: 2d6 Dual-Dice with Split Movement (allocating pips across 2 tokens or combined boost)
+- Deployment System: Lucky 7 Rule (any roll summing to 7 or a single 6 deploys from base)
+- Track Dimensions: 72 contested cells with 5 sanctuary star havens
+- Deck: 16 Sacred Decrees protocol archive
+- Audio Deck: 8 adaptive synthwave soundtrack stems (105-140 BPM)
+- Social Features: Real-time voice taunts, 5-seat private lounges, cross-platform browser play
+
+## Key Gameplay Guides & Rules
+- [The 16 Sacred Decrees](https://ludoemperor.com/#rules-section): Complete tactical rules breakdown.
+- [5-Player Pentagonal Strategy Guide](https://ludoemperor.com/#strategy-guide): Probability analysis, split movement tactics, and anti-leader survival guide.
+- [Frequently Asked Questions](https://ludoemperor.com/#faq-section): Direct answers for rules, multiplayer rooms, dice mechanics, and browser compatibility.

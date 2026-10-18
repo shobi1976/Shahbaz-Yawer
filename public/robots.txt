@@ -1,0 +1,25 @@
+# User-agent rules for Ludo Emperor 5 Way
+User-agent: *
+Allow: /
+
+# Explicitly allow AI search crawlers for GEO / Answer Engine indexing
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+# Sitemap declaration
+Sitemap: https://ludoemperor.com/sitemap.xml

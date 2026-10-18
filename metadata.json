@@ -1,0 +1,6 @@
+{
+  "name": "Ludo Emperor 5 Way",
+  "description": "Experience 5-player asymmetric Ludo with dual-dice splitting, Lucky 7 base deployments, and anti-leader warzone mechanics.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
