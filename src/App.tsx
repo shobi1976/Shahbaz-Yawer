@@ -5,6 +5,7 @@ import { RuleCardGrid } from './components/RuleCardGrid';
 import { RuleModal } from './components/RuleModal';
 import { FeaturesHub } from './components/FeaturesHub';
 import { ContentAndFaqSection } from './components/ContentAndFaqSection';
+import { SearchGroundingHub } from './components/SearchGroundingHub';
 import { Footer } from './components/Footer';
 import { CursorRevealer } from './components/CursorRevealer';
 import { HowToPlayModal } from './components/HowToPlayModal';
@@ -129,6 +130,9 @@ export default function App() {
 
         {/* 4. Comparison Table, Strategy Guide, FAQ & E-E-A-T Trust Center */}
         <ContentAndFaqSection />
+
+        {/* 5. Google Search Grounding Oracle with Gemini 3.8 Flash */}
+        <SearchGroundingHub />
       </main>
 
       {/* Footer */}

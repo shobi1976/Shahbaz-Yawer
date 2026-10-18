@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Volume2, VolumeX, Menu, X, Sparkles, BookOpen, ShieldAlert, Table, HelpCircle, Radio } from 'lucide-react';
+import { Volume2, VolumeX, Menu, X, Sparkles, BookOpen, ShieldAlert, Table, HelpCircle, Radio, Globe } from 'lucide-react';
 import { sound } from '../utils/audio';
 
 interface HeaderProps {
@@ -106,6 +106,15 @@ export const Header: React.FC<HeaderProps> = ({
           </a>
 
           <a
+            href="#grounding-hub"
+            onClick={() => sound.playClick(400)}
+            className="hover:text-cyan-300 text-cyan-400 transition-colors flex items-center gap-1 font-bold"
+          >
+            <Globe className="w-3.5 h-3.5" />
+            <span>Search Oracle</span>
+          </a>
+
+          <a
             href="#features-hub"
             onClick={() => sound.playClick(400)}
             className="hover:text-white transition-colors"
@@ -184,6 +193,15 @@ export const Header: React.FC<HeaderProps> = ({
           >
             <HelpCircle className="w-4 h-4 text-emerald-400" />
             <span>FREQUENTLY ASKED QUESTIONS</span>
+          </a>
+
+          <a
+            href="#grounding-hub"
+            onClick={() => handleMobileNavClick()}
+            className="block py-2.5 px-3 rounded-xl bg-cyan-950/50 border border-cyan-500/40 text-cyan-300 font-mono font-bold text-xs flex items-center gap-2"
+          >
+            <Globe className="w-4 h-4 text-cyan-400" />
+            <span>🌐 GOOGLE SEARCH GROUNDING ORACLE</span>
           </a>
 
           <a

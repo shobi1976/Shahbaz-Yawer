@@ -1,6 +1,7 @@
 import React from 'react';
-import { Shield, Sparkles, Flame, Dices, ArrowUp } from 'lucide-react';
+import { ArrowUp } from 'lucide-react';
 import { sound } from '../utils/audio';
+import { DeveloperDispatch } from './DeveloperDispatch';
 
 export const Footer: React.FC = () => {
   const scrollToTop = () => {
@@ -9,8 +10,11 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="relative z-10 border-t border-slate-850/80 bg-slate-950 pt-16 pb-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+    <footer className="relative z-10 border-t border-slate-850/80 bg-slate-950 pt-12 pb-12 px-4 sm:px-6 lg:px-8">
+      {/* Official Developer Dispatch #01 Manifesto */}
+      <DeveloperDispatch />
+
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8 pt-6">
         {/* Brand Info */}
         <div className="text-center md:text-left space-y-2">
           <div className="font-['Chakra_Petch'] font-black text-2xl text-white tracking-wider flex items-center justify-center md:justify-start gap-2">
