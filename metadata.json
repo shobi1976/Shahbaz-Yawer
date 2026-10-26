@@ -1,6 +1,6 @@
 {
-  "name": "Ludo Emperor 5 Way",
-  "description": "Experience 5-player asymmetric Ludo with dual-dice splitting, Lucky 7 base deployments, and anti-leader warzone mechanics.",
+  "name": "Ludo Dethroned 5 Way & 4 Way Two Dice",
+  "description": "Ludo Dethroned 5 Way & 4 Way Two Dice is a five-player, 3D Ludo-style strategy game played with two dice, where the first player to get all four tokens onto their coloured home path wins.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

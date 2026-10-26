@@ -6,7 +6,7 @@ export interface RuleCard {
   hex: string;
   glowHex: string;
   iconName: string;
-  category: 'Chaos & Core' | 'Combat & Powers' | 'Social & Voice' | 'Metrics & Timers';
+  category: 'Core Rules' | 'Movement & Combat' | 'Bonuses & Special' | 'Match Settings';
   shortDesc: string;
   fullDesc: string;
   tacticalTip: string;
@@ -28,9 +28,9 @@ export interface PlayerState {
   name: string;
   colorName: string;
   hex: string;
-  pawnsHome: number;
-  pawnsActive: number;
-  pawnsBase: number;
+  tokensHome: number;
+  tokensActive: number;
+  tokensBase: number;
   progressPercent: number;
   isLeader: boolean;
   score: number;
@@ -38,6 +38,19 @@ export interface PlayerState {
   avatar: string;
   statusMessage?: string;
   emoji?: string;
+}
+
+export interface FaqItem {
+  category: string;
+  question: string;
+  answer: string;
+}
+
+export interface TutorialSlide {
+  number: number;
+  title: string;
+  content: string;
+  example: string;
 }
 
 export type BackgroundMode = 'flaming-dice' | 'neon-glow' | 'monochrome-cursor-reveal' | 'dark-minimal';

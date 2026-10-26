@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Crown, BookOpen, ChevronDown, ChevronUp, Mail, Copy, Check, Sparkles, Flame, ShieldAlert, Dice5 } from 'lucide-react';
+import { Crown, BookOpen, ChevronDown, ChevronUp, Copy, Check, Sparkles, Flame, ShieldAlert } from 'lucide-react';
 import { sound } from '../utils/audio';
 
 export const DeveloperDispatch: React.FC = () => {
@@ -13,41 +13,40 @@ export const DeveloperDispatch: React.FC = () => {
 
   const copyDispatch = () => {
     sound.playClick(600);
-    const text = `👑 LUDO EMPEROR 5 WAY — OFFICIAL DEVELOPER DISPATCH #01
+    const text = `👑 LUDO DETHRONED 5 WAY & 4 WAY TWO DICE — OFFICIAL DEVELOPER DISPATCH #01
 Author: Shahbaz Yawer Khan (Creator & Lead Developer)
-Contact: support@ludoemperor.com | https://ludoemperor.com
+Official Site: https://ludodethroned.com
 
-"Don't Let the Winner Win the Match." — The 5-Way Anti-Leader Tabletop Revolution.`;
+"Don't Let the Winner Win the Match." — The 5 Way & 4 Way Two Dice Tabletop Revolution.`;
     navigator.clipboard?.writeText(text);
     setCopied(true);
     setTimeout(() => setCopied(false), 2500);
   };
 
   return (
-    <div className="w-full max-w-7xl mx-auto my-10 rounded-2xl border border-amber-500/30 bg-gradient-to-b from-slate-900/90 via-slate-950 to-black p-6 sm:p-8 shadow-2xl relative overflow-hidden backdrop-blur-md">
-      {/* Background ambient glow */}
-      <div className="absolute top-0 right-0 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-80 h-80 bg-pink-500/10 rounded-full blur-3xl pointer-events-none" />
+    <div className="w-full max-w-7xl mx-auto my-10 rounded-3xl border-2 border-white/65 bg-white/24 hover:bg-white/34 p-6 sm:p-8 shadow-xl relative overflow-hidden backdrop-blur-md transition-all">
+      {/* Frosted Specular Sheen */}
+      <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-white/10 to-transparent pointer-events-none opacity-80" />
 
       {/* Header Banner */}
-      <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6 pb-6 border-b border-slate-800">
+      <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6 pb-6 border-b border-white/60">
         <div className="space-y-2">
           <div className="flex flex-wrap items-center gap-2.5">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/15 border border-amber-500/40 text-amber-300 font-mono text-xs font-bold uppercase tracking-wider">
-              <Crown className="w-3.5 h-3.5 text-amber-400" />
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/35 backdrop-blur-sm border border-amber-500/70 text-amber-800 font-mono text-xs font-black uppercase tracking-wider">
+              <Crown className="w-3.5 h-3.5 text-amber-600" />
               Official Developer Dispatch #01
             </span>
-            <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-pink-500/15 border border-pink-500/30 text-pink-300 text-[11px] font-bold">
-              <Flame className="w-3 h-3 text-pink-400" />
+            <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-white/35 backdrop-blur-sm border border-pink-500/70 text-pink-700 text-[11px] font-black">
+              <Flame className="w-3 h-3 text-pink-600" />
               Manifesto
             </span>
           </div>
 
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-black text-white font-['Chakra_Petch'] tracking-wide">
-            A New Reign of Tactical Warfare: <span className="bg-gradient-to-r from-amber-400 via-pink-400 to-rose-400 bg-clip-text text-transparent">The 5-Way Anti-Leader Arena</span>
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-black text-slate-950 font-['Chakra_Petch'] tracking-wide">
+            A New Reign of Tactical Warfare: <span className="text-[#0077be]">The 5 Way & 4 Way Two Dice Anti-Leader Arena</span>
           </h2>
-          <p className="text-xs sm:text-sm text-slate-400 font-['Outfit']">
-            By <strong className="text-slate-200">Shahbaz Yawer Khan</strong>, Creator & Lead Developer • <span className="text-slate-400 font-mono">support@ludoemperor.com</span>
+          <p className="text-xs sm:text-sm text-slate-800 font-medium font-['Outfit']">
+            By <strong className="text-slate-950">Shahbaz Yawer Khan</strong>, Creator & Lead Developer • <span className="text-slate-700 font-mono font-bold">https://ludodethroned.com</span>
           </p>
         </div>
 
@@ -55,16 +54,16 @@ Contact: support@ludoemperor.com | https://ludoemperor.com
         <div className="flex items-center gap-3 shrink-0">
           <button
             onClick={copyDispatch}
-            className="px-3.5 py-2 rounded-xl bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700 text-slate-300 hover:text-white text-xs font-mono font-semibold flex items-center gap-2 transition-all cursor-pointer shadow-sm"
+            className="px-3.5 py-2 rounded-xl bg-white/35 hover:bg-white/55 backdrop-blur-sm border border-white/75 text-slate-950 text-xs font-mono font-black flex items-center gap-2 transition-all cursor-pointer shadow-xs"
             title="Copy Dispatch Summary"
           >
-            {copied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
+            {copied ? <Check className="w-3.5 h-3.5 text-emerald-700" /> : <Copy className="w-3.5 h-3.5" />}
             <span>{copied ? 'COPIED!' : 'SHARE'}</span>
           </button>
 
           <button
             onClick={toggleOpen}
-            className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-rose-500 hover:from-amber-400 hover:to-rose-400 text-slate-950 font-black text-xs sm:text-sm font-mono tracking-wider flex items-center gap-2 transition-all shadow-lg shadow-amber-500/20 cursor-pointer"
+            className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-rose-500 hover:from-amber-400 hover:to-rose-400 text-slate-950 font-black text-xs sm:text-sm font-mono tracking-wider flex items-center gap-2 transition-all shadow-lg cursor-pointer"
           >
             <BookOpen className="w-4 h-4 text-slate-950" />
             <span>{isOpen ? 'COLLAPSE DISPATCH' : 'READ DISPATCH'}</span>
@@ -75,161 +74,151 @@ Contact: support@ludoemperor.com | https://ludoemperor.com
 
       {/* Quick Summary Teaser when collapsed */}
       {!isOpen && (
-        <div className="relative z-10 pt-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs font-['Outfit'] text-slate-400">
+        <div className="relative z-10 pt-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs font-['Outfit'] text-slate-800 font-medium">
           <p className="leading-relaxed">
-            <strong className="text-amber-300">"Jeetne wale ko match mat jeetne do"</strong> — An unapologetic critique of passive luck games and the engineering behind the 5-Wing Pentagonal Matrix, Dual-Dice Split Movement, and 4v1 Anti-Leader Coalitions.
+            <strong className="text-slate-950 font-black">"Jeetne wale ko match mat jeetne do"</strong> — An unapologetic critique of passive luck games and the engineering behind the 5 Way & 4 Way Matrix, Dual-Dice Split Movement, and stopping the frontrunner.
           </p>
           <button
             onClick={toggleOpen}
-            className="text-amber-400 hover:text-amber-300 font-mono font-bold shrink-0 flex items-center gap-1 cursor-pointer"
+            className="text-[#0077be] hover:text-black font-mono font-black shrink-0 flex items-center gap-1 cursor-pointer"
           >
             Read Full Article &rarr;
           </button>
         </div>
       )}
 
-      {/* Expanded Full Article */}
+      {/* Expanded Full Article — Frosted Glass Subboxes */}
       {isOpen && (
-        <div className="relative z-10 mt-6 pt-6 border-t border-slate-800/80 space-y-8 text-slate-300 font-['Outfit'] text-sm sm:text-base leading-relaxed animate-in fade-in duration-300">
-          {/* Introductory Paragraphs */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-bold text-white font-['Chakra_Petch'] flex items-center gap-2">
-              <span className="text-amber-400">#</span> Dear Tabletop Strategists & Board Champions,
+        <div className="relative z-10 mt-6 pt-6 border-t border-white/60 space-y-8 text-slate-900 font-['Outfit'] text-sm sm:text-base leading-relaxed animate-in fade-in duration-300">
+          <div className="space-y-4 font-medium">
+            <h3 className="text-lg font-black text-slate-950 font-['Chakra_Petch']">
+              Dear Tabletop Strategists & Board Champions,
             </h3>
-            <p className="text-slate-300">
-              When I set out to build <strong className="text-white">Ludo Emperor 5 Way</strong>, it wasn't to churn out another mundane digital dice simulator.
+            <p>
+              When I set out to build <strong className="text-slate-950 font-black">Ludo Dethroned 5 Way & 4 Way Two Dice</strong>, it wasn't to churn out another mundane digital dice simulator.
             </p>
-            <p className="text-slate-300">
-              We have all lived through those stale, predictable matches: players waiting endlessly for their turn, passively begging luck for a single six, watching helplessly as one player gets an early lucky streak and coasts undisturbed to the finish line. When someone pulls ahead by twenty squares and the table simply watches them cross the threshold unchallenged, that is not real competition—that is an automated screensaver masquerading as a game.
+            <p>
+              We have all lived through those stale, predictable matches: players waiting endlessly for their turn, passively begging luck for a single six, watching helplessly as one player gets an early lucky streak and coasts undisturbed to the finish line. When someone pulls ahead and the table simply watches them cross the threshold unchallenged, that is not real competition—that is an automated screensaver masquerading as a game.
             </p>
-            <p className="text-slate-300">
-              In the spirit of Saadat Hasan Manto’s unapologetic gaze into raw human nature: <em className="text-amber-200">you never truly understand human instinct until you place people around a game board and watch them fight for their lives.</em> When the stakes are real, when your pride is on the line, politeness evaporates. True competitive fire is not about wishing someone good luck—it is about looking the runaway leader dead in the eye and declaring:
+            <p>
+              In the spirit of Saadat Hasan Manto’s unapologetic gaze into raw human nature: <em className="text-slate-950 font-bold">you never truly understand human instinct until you place people around a game board and watch them fight for their lives.</em> When the stakes are real, when your pride is on the line, politeness evaporates. True competitive fire is not about wishing someone good luck—it is about looking the runaway leader dead in the eye and declaring:
             </p>
 
-            {/* Core Manifesto Callout */}
-            <div className="my-6 p-5 sm:p-6 rounded-xl bg-gradient-to-r from-rose-950/60 via-slate-900 to-amber-950/50 border-l-4 border-rose-500 shadow-xl">
-              <p className="text-base sm:text-xl font-black text-rose-200 font-['Chakra_Petch'] italic tracking-wide">
+            {/* Core Manifesto Callout — Frosted Glass */}
+            <div className="my-6 p-5 sm:p-6 rounded-2xl bg-white/32 backdrop-blur-md border-2 border-rose-400/70 shadow-md">
+              <p className="text-base sm:text-xl font-black text-rose-800 font-['Chakra_Petch'] italic tracking-wide">
                 "Jeetne wale ko match mat jeetne do."
               </p>
-              <p className="text-xs sm:text-sm text-slate-400 mt-1 font-mono">
+              <p className="text-xs sm:text-sm text-slate-800 mt-1 font-mono font-bold">
                 — Never let the frontrunner coast to victory.
               </p>
-              <p className="text-xs text-slate-300 mt-2 font-['Outfit']">
-                That singular psychological truth is the beating heart of <strong className="text-white">Ludo Emperor 5 Way</strong>.
+              <p className="text-xs text-slate-900 mt-2 font-['Outfit'] font-medium">
+                That singular psychological truth is the beating heart of <strong className="text-slate-950">Ludo Dethroned 5 Way & 4 Way Two Dice</strong>.
               </p>
             </div>
           </div>
 
-          {/* Pillars Grid */}
+          {/* Pillars Grid — Frosted Glass */}
           <div className="space-y-6">
-            <h3 className="text-xl font-bold text-white font-['Chakra_Petch'] flex items-center gap-2">
-              <Sparkles className="w-5 h-5 text-amber-400" />
-              What Makes Ludo Emperor 5 Way Radically Different?
+            <h3 className="text-xl font-black text-slate-950 font-['Chakra_Petch'] flex items-center gap-2">
+              <Sparkles className="w-5 h-5 text-amber-600" />
+              What Makes Ludo Dethroned 5 Way & 4 Way Two Dice Radically Different?
             </h3>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {/* Feature 1 */}
-              <div className="p-4 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-blue-500/40 transition-all">
-                <div className="flex items-center gap-2 text-blue-400 font-bold font-mono text-sm mb-2">
-                  <span className="w-6 h-6 rounded-full bg-blue-500/20 flex items-center justify-center text-xs">1</span>
-                  5-Wing Pentagonal Matrix 🖐️
+              <div className="p-4 rounded-xl bg-white/28 hover:bg-white/42 backdrop-blur-sm border border-white/70 transition-all">
+                <div className="flex items-center gap-2 text-blue-800 font-black font-mono text-sm mb-2">
+                  <span className="w-6 h-6 rounded-full bg-blue-500/25 flex items-center justify-center text-xs">1</span>
+                  5 Way & 4 Way Matrix
                 </div>
-                <p className="text-xs sm:text-sm text-slate-300 leading-normal">
-                  Five sovereign factions—<strong className="text-white">Red, Green, Yellow, Blue, and Purple</strong>—converge on an interlocking pentagonal board. Expanding to five factions creates <strong>72-degree flanking angles</strong>, eliminating safe perimeters and keeping danger active from multiple blind spots.
+                <p className="text-xs sm:text-sm text-slate-900 font-medium leading-normal">
+                  Five sovereign factions—<strong className="text-slate-950">Red, Green, Yellow, Blue, and Orange</strong>—converge on an interlocking 5 Way & 4 Way board. Expanding to five factions creates dynamic interactions where safe perimeters disappear and you are always within striking distance.
                 </p>
               </div>
 
-              {/* Feature 2 */}
-              <div className="p-4 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-amber-500/40 transition-all">
-                <div className="flex items-center gap-2 text-amber-400 font-bold font-mono text-sm mb-2">
-                  <span className="w-6 h-6 rounded-full bg-amber-500/20 flex items-center justify-center text-xs">2</span>
-                  Dual-Dice Split Movement 🎲🎲
+              <div className="p-4 rounded-xl bg-white/28 hover:bg-white/42 backdrop-blur-sm border border-white/70 transition-all">
+                <div className="flex items-center gap-2 text-amber-800 font-black font-mono text-sm mb-2">
+                  <span className="w-6 h-6 rounded-full bg-amber-500/25 flex items-center justify-center text-xs">2</span>
+                  Dual-Dice Split Movement
                 </div>
-                <p className="text-xs sm:text-sm text-slate-300 leading-normal">
-                  Every turn delivers <strong>two dice</strong> (36 permutations). Split the numbers between two pawns, or stack both values onto one pawn. Move with chess-like calculation rather than helpless one-die rolls.
+                <p className="text-xs sm:text-sm text-slate-900 font-medium leading-normal">
+                  Every turn delivers <strong>two dice</strong>. Split the numbers between two tokens, or move the total of both dice onto a single token. Move with calculation rather than helpless one-die rolls.
                 </p>
               </div>
 
-              {/* Feature 3 */}
-              <div className="p-4 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-rose-500/40 transition-all">
-                <div className="flex items-center gap-2 text-rose-400 font-bold font-mono text-sm mb-2">
-                  <span className="w-6 h-6 rounded-full bg-rose-500/20 flex items-center justify-center text-xs">3</span>
-                  The 4v1 Anti-Leader Alliance ⚔️
+              <div className="p-4 rounded-xl bg-white/28 hover:bg-white/42 backdrop-blur-sm border border-white/70 transition-all">
+                <div className="flex items-center gap-2 text-rose-800 font-black font-mono text-sm mb-2">
+                  <span className="w-6 h-6 rounded-full bg-rose-500/25 flex items-center justify-center text-xs">3</span>
+                  Stopping the Leader
                 </div>
-                <p className="text-xs sm:text-sm text-slate-300 leading-normal">
-                  Our real-time engine continuously identifies the match leader. The other four factions form an organic <strong>Hunter-Killer Coalition</strong> to intercept and eliminate the leader’s advanced pawns before they reach the sanctuary.
+                <p className="text-xs sm:text-sm text-slate-900 font-medium leading-normal">
+                  Because the match ends the moment someone wins, trailing players are incentivized to intercept and capture the leader's vulnerable tokens on the open track before they reach their safe coloured home path.
                 </p>
               </div>
 
-              {/* Feature 4 */}
-              <div className="p-4 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-emerald-500/40 transition-all">
-                <div className="flex items-center gap-2 text-emerald-400 font-bold font-mono text-sm mb-2">
-                  <span className="w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center text-xs">4</span>
-                  The Lucky 7 Royal Surge ✨7
+              <div className="p-4 rounded-xl bg-white/28 hover:bg-white/42 backdrop-blur-sm border border-white/70 transition-all">
+                <div className="flex items-center gap-2 text-emerald-800 font-black font-mono text-sm mb-2">
+                  <span className="w-6 h-6 rounded-full bg-emerald-500/25 flex items-center justify-center text-xs">4</span>
+                  The Lucky 7 Bonus
                 </div>
-                <p className="text-xs sm:text-sm text-slate-300 leading-normal">
-                  Roll any combination totaling <strong>7</strong> (4+3, 5+2, 6+1) to instantly trigger a royal surge: both dice become a devastating <strong>Double-Six (6+6)</strong> with an immediate bonus turn.
+                <p className="text-xs sm:text-sm text-slate-900 font-medium leading-normal">
+                  When none of your tokens are on the open track, rolling a total of <strong>7</strong> (4+3, 5+2, 6+1) counts as a massive <strong>6+6 with an immediate extra turn</strong>, allowing two tokens to emerge from base simultaneously.
                 </p>
               </div>
 
-              {/* Feature 5 */}
-              <div className="p-4 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-pink-500/40 transition-all">
-                <div className="flex items-center gap-2 text-pink-400 font-bold font-mono text-sm mb-2">
-                  <span className="w-6 h-6 rounded-full bg-pink-500/20 flex items-center justify-center text-xs">5</span>
-                  Missed Capture Penalty ⚡
+              <div className="p-4 rounded-xl bg-white/28 hover:bg-white/42 backdrop-blur-sm border border-white/70 transition-all">
+                <div className="flex items-center gap-2 text-pink-800 font-black font-mono text-sm mb-2">
+                  <span className="w-6 h-6 rounded-full bg-pink-500/25 flex items-center justify-center text-xs">5</span>
+                  Missed Capture Penalty
                 </div>
-                <p className="text-xs sm:text-sm text-slate-300 leading-normal">
-                  Mercy has no place on the Emperor's board. If the dice offer a valid capture opportunity and you move a different token, the <strong>Sacred Decrees penalize the blunder</strong>: your pawn is sent straight back to home base.
+                <p className="text-xs sm:text-sm text-slate-900 font-medium leading-normal">
+                  Capturing is compulsory. If the dice offer a valid capture opportunity on the open track and you move without capturing, your token that could have captured is sent back to base.
                 </p>
               </div>
 
-              {/* Feature 6 */}
-              <div className="p-4 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-purple-500/40 transition-all">
-                <div className="flex items-center gap-2 text-purple-400 font-bold font-mono text-sm mb-2">
-                  <span className="w-6 h-6 rounded-full bg-purple-500/20 flex items-center justify-center text-xs">6</span>
-                  Golden Star Wish Roll ✨
+              <div className="p-4 rounded-xl bg-white/28 hover:bg-white/42 backdrop-blur-sm border border-white/70 transition-all">
+                <div className="flex items-center gap-2 text-purple-800 font-black font-mono text-sm mb-2">
+                  <span className="w-6 h-6 rounded-full bg-purple-500/25 flex items-center justify-center text-xs">6</span>
+                  Golden Star Wish Roll
                 </div>
-                <p className="text-xs sm:text-sm text-slate-300 leading-normal">
-                  Set two sacred numbers during pre-match setup. Once per match, tap the <strong>Golden Star</strong> to activate your guaranteed wish roll when survival demands nothing less.
+                <p className="text-xs sm:text-sm text-slate-900 font-medium leading-normal">
+                  Set two sacred numbers before match setup (6 and 6 not allowed). Once per match, tap the <strong>Golden Star</strong> to activate your guaranteed wish roll when survival demands it.
                 </p>
               </div>
             </div>
           </div>
 
-          {/* 16 Sacred Decrees & Modern Architecture */}
-          <div className="p-5 rounded-xl bg-slate-900/50 border border-slate-800 space-y-3">
-            <h4 className="text-sm font-bold text-white font-mono uppercase tracking-wider flex items-center gap-2">
-              <ShieldAlert className="w-4 h-4 text-amber-400" />
-              Codified in the 16 Sacred Decrees
+          {/* Codified in the 12 Rules — Frosted Glass */}
+          <div className="p-5 rounded-xl bg-white/28 backdrop-blur-sm border border-white/70 space-y-3">
+            <h4 className="text-sm font-black text-slate-950 font-mono uppercase tracking-wider flex items-center gap-2">
+              <ShieldAlert className="w-4 h-4 text-amber-600" />
+              Codified in the 12 Canonical Rules
             </h4>
-            <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
-              From <strong className="text-slate-200">Uncapped Double-Six Chains</strong> (no arbitrary 3-six forfeitures) to the <strong className="text-slate-200">90-Second Royal Turn Clock</strong> preventing stall tactics, our complete compendium of 16 decrees guarantees deterministic, eSports-grade transparency.
+            <p className="text-xs sm:text-sm text-slate-800 font-medium leading-relaxed">
+              From <strong className="text-slate-950">Unlimited Sixes</strong> (no arbitrary 3-six forfeitures) to the <strong className="text-slate-950">Optional Turn Timer</strong> set by the room host, every rule in Ludo Dethroned 5 Way & 4 Way Two Dice is verified and documented in the official brief.
             </p>
           </div>
 
           {/* Signoff */}
-          <div className="pt-6 border-t border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+          <div className="pt-6 border-t border-white/60 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
             <div>
-              <p className="font-['Chakra_Petch'] font-bold text-white text-base">
+              <p className="font-['Chakra_Petch'] font-black text-slate-950 text-base">
                 Roll true. Strike ruthlessly. Never let the winner win the match.
               </p>
-              <p className="text-xs text-slate-400 mt-1">
+              <p className="text-xs text-slate-800 font-medium mt-1">
                 Yours on the battlefield,
               </p>
-              <p className="text-sm font-bold text-amber-400 mt-0.5">
+              <p className="text-sm font-black text-[#0077be] mt-0.5">
                 Shahbaz Yawer Khan
               </p>
-              <p className="text-xs font-mono text-slate-400">
-                Creator & Lead Developer, Ludo Emperor 5 Way
+              <p className="text-xs font-mono font-bold text-slate-800">
+                Creator & Lead Developer, Ludo Dethroned 5 Way & 4 Way Two Dice
               </p>
             </div>
 
-            <div className="flex flex-col sm:items-end gap-1.5 font-mono text-xs text-slate-400">
-              <a href="mailto:support@ludoemperor.com" className="hover:text-amber-300 transition-colors flex items-center gap-1.5">
-                <Mail className="w-3.5 h-3.5 text-amber-400" />
-                support@ludoemperor.com
-              </a>
-              <span className="text-slate-400">https://ludoemperor.com</span>
+            <div className="flex flex-col sm:items-end gap-1.5 font-mono text-xs text-slate-800">
+              <span className="text-slate-950 font-black">https://ludodethroned.com</span>
+              <span className="font-bold">Official Game Website</span>
             </div>
           </div>
         </div>

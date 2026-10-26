@@ -1,24 +1,34 @@
 import React, { useState } from 'react';
+import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
 import { Header } from './components/Header';
-import { HeroSection } from './components/HeroSection';
-import { RuleCardGrid } from './components/RuleCardGrid';
-import { RuleModal } from './components/RuleModal';
-import { FeaturesHub } from './components/FeaturesHub';
-import { ContentAndFaqSection } from './components/ContentAndFaqSection';
-import { SearchGroundingHub } from './components/SearchGroundingHub';
 import { Footer } from './components/Footer';
 import { CursorRevealer } from './components/CursorRevealer';
+import { RuleModal } from './components/RuleModal';
 import { HowToPlayModal } from './components/HowToPlayModal';
 import { BackgroundMode, CursorMode, RuleCard } from './types';
 import { sound } from './utils/audio';
 
-export default function App() {
-  const [bgMode, setBgMode] = useState<BackgroundMode>('flaming-dice');
-  const [cursorMode, setCursorMode] = useState<CursorMode>('neon-die');
+// Import Pages
+import { HomePage } from './pages/HomePage';
+import { HowToPlayPage } from './pages/HowToPlayPage';
+import { RulesPage } from './pages/RulesPage';
+import { StrategiesPage } from './pages/StrategiesPage';
+import { FaqPage } from './pages/FaqPage';
+import { AboutPage } from './pages/AboutPage';
+import { ContactPage } from './pages/ContactPage';
+import { PrivacyPage } from './pages/PrivacyPage';
+import { GlobalCompendiumPage } from './pages/GlobalCompendiumPage';
+import { Play4WayPage, Play5WayPage } from './pages/GameArenaPage';
+import silverDotsDiceBg from './assets/images/silver_dots_dice_1792673707473.jpg';
+
+function AppContent() {
+  const [bgMode] = useState<BackgroundMode>('flaming-dice');
+  const [cursorMode] = useState<CursorMode>('neon-die');
   const [hoveredRuleColor, setHoveredRuleColor] = useState<string | null>(null);
   const [selectedRule, setSelectedRule] = useState<RuleCard | null>(null);
   const [isGuideOpen, setIsGuideOpen] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
+  const navigate = useNavigate();
 
   const handleToggleMute = () => {
     const muted = sound.toggleMute();
@@ -26,7 +36,6 @@ export default function App() {
   };
 
   const handleExitClick = () => {
-    // Scrolls to top smoothly
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -34,62 +43,67 @@ export default function App() {
     const el = document.getElementById('rules-section');
     if (el) {
       el.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      navigate('/rules');
     }
   };
 
   return (
-    <div className={`relative min-h-screen bg-[#030712] text-slate-100 selection:bg-cyan-500 selection:text-white font-['Outfit'] ${
+    <div className={`relative min-h-screen bg-sky-50/40 text-slate-950 selection:bg-cyan-500 selection:text-white font-['Outfit'] ${
       bgMode === 'monochrome-cursor-reveal' ? 'monochrome-base' : ''
     }`}>
       {/* ══════════════════════════════════════════════════════════════════════
-          FLAMING NEON DICE DYNAMIC BACKGROUND
-          Uses the glowing blue & violet flaming dice as a responsive background
+          GALAXY FLAMING NEON DICE DYNAMIC BACKGROUND (VISIBLE ON ALL PAGES)
+          Shines through all frosted glass boxes & cards from top to bottom
          ══════════════════════════════════════════════════════════════════════ */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
         {/* Responsive Flaming Dice Wallpaper */}
         <div 
           className={`absolute inset-0 transition-all duration-700 ${
             bgMode === 'flaming-dice'
-              ? 'opacity-65 scale-100'
+              ? 'opacity-100 scale-100'
               : bgMode === 'neon-glow'
-              ? 'opacity-40 scale-100'
+              ? 'opacity-85 scale-100'
               : bgMode === 'monochrome-cursor-reveal'
-              ? 'opacity-25 grayscale contrast-125 scale-100'
-              : 'opacity-10 scale-100'
+              ? 'opacity-35 grayscale contrast-125 scale-100'
+              : 'opacity-30 scale-100'
           }`}
         >
-          <picture>
-            <source media="(max-width: 640px)" srcSet="/neon_flame_dice_vert.jpg?v=6" />
-            <img
-              src="/neon_flame_dice_bg.jpg?v=6"
-              alt="Glowing Blue Flaming Neon Dice Background"
-              referrerPolicy="no-referrer"
-              className="w-full h-full object-cover object-center filter brightness-110 contrast-120 select-none"
-            />
-          </picture>
+          <img
+            src={silverDotsDiceBg}
+            onError={(e) => {
+              const target = e.currentTarget;
+              if (!target.src.endsWith('/assets/images/silver_dots_dice.jpg')) {
+                target.src = '/assets/images/silver_dots_dice.jpg';
+              }
+            }}
+            alt="Ludo Dethroned Light Galaxy Flaming Dice with Silver Dots Background"
+            referrerPolicy="no-referrer"
+            className="w-full h-full object-cover object-center filter brightness-105 contrast-105 select-none"
+          />
 
-          {/* Animated Electric Flame Core Aura */}
+          {/* Subtle Dynamic Neon Aura */}
           <div 
             style={{
               background: hoveredRuleColor 
-                ? `radial-gradient(circle at 50% 45%, ${hoveredRuleColor}33 0%, transparent 65%)`
-                : 'radial-gradient(circle at 50% 45%, rgba(6, 182, 212, 0.28) 0%, rgba(59, 130, 246, 0.15) 35%, transparent 70%)'
+                ? `radial-gradient(circle at 50% 45%, ${hoveredRuleColor}30 0%, transparent 65%)`
+                : 'radial-gradient(circle at 50% 45%, rgba(6, 182, 212, 0.14) 0%, rgba(59, 130, 246, 0.08) 35%, transparent 70%)'
             }}
-            className="absolute inset-0 transition-all duration-500 pointer-events-none mix-blend-screen animate-pulse" 
+            className="absolute inset-0 transition-all duration-500 pointer-events-none" 
           />
         </div>
 
-        {/* Cinematic Vignette & Deep Space Gradients for Legibility */}
+        {/* Delicate Light Veil Preserving Full Wallpaper Visibility Behind Frosted Glass */}
         <div className={`absolute inset-0 transition-colors duration-700 ${
           bgMode === 'flaming-dice'
-            ? 'bg-gradient-to-b from-[#030712]/75 via-[#030712]/55 to-[#030712]/85'
+            ? 'bg-gradient-to-b from-white/10 via-white/5 to-white/15'
             : bgMode === 'neon-glow'
-            ? 'bg-gradient-to-b from-[#030712]/85 via-[#030712]/70 to-[#030712]/95'
-            : 'bg-[#030712]/90'
+            ? 'bg-gradient-to-b from-white/25 via-white/15 to-white/30'
+            : 'bg-white/65'
         }`} />
 
-        {/* Ambient Grid Matrix Lines */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b10_1px,transparent_1px),linear-gradient(to_bottom,#1e293b10_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_75%_65%_at_50%_50%,#000_70%,transparent_100%)]" />
+        {/* Subtle Ambient Grid Matrix Lines */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff18_1px,transparent_1px),linear-gradient(to_bottom,#ffffff18_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_80%_75%_at_50%_50%,#000_70%,transparent_100%)]" />
       </div>
 
       {/* Dynamic Cursor Spotlight & Background Neon Glow System */}
@@ -99,46 +113,95 @@ export default function App() {
         hoveredRuleColor={hoveredRuleColor}
       />
 
-      {/* Main Header (Double height, Triple logo, colorful badges) */}
+      {/* Main Header (Double height, Triple logo, colorful badges, normal navigation links) */}
       <Header
         isMuted={isMuted}
         onToggleMute={handleToggleMute}
         onOpenGuide={() => setIsGuideOpen(true)}
       />
 
-      {/* Main Content Sections */}
-      <main className="relative z-10">
-        {/* 1. Hero Section with Central Video & Surrounding 16-Card Dynamic Orbit Matrix */}
-        <HeroSection
-          onExitClick={handleExitClick}
-          onRuleJump={handleRuleJump}
-          bgMode={bgMode}
-          hoveredColor={hoveredRuleColor}
-          onHoverRule={setHoveredRuleColor}
-          onSelectRule={setSelectedRule}
-          onOpenGuide={() => setIsGuideOpen(true)}
+      {/* Real Router Page Content */}
+      <Routes>
+        <Route 
+          path="/" 
+          element={
+            <HomePage
+              bgMode={bgMode}
+              hoveredRuleColor={hoveredRuleColor}
+              onHoverRule={setHoveredRuleColor}
+              onSelectRule={setSelectedRule}
+              onExitClick={handleExitClick}
+              onRuleJump={handleRuleJump}
+            />
+          } 
         />
-
-        {/* 2. The 16 Interactive Rule Cards */}
-        <RuleCardGrid
-          onHoverRule={setHoveredRuleColor}
-          onSelectRule={setSelectedRule}
+        <Route 
+          path="/play-4-way" 
+          element={<Play4WayPage />} 
         />
+        <Route 
+          path="/play-5-way" 
+          element={<Play5WayPage />} 
+        />
+        <Route 
+          path="/how-to-play" 
+          element={
+            <HowToPlayPage onOpenTutorial={() => setIsGuideOpen(true)} />
+          } 
+        />
+        <Route 
+          path="/rules" 
+          element={
+            <RulesPage
+              onHoverRule={setHoveredRuleColor}
+              onSelectRule={setSelectedRule}
+            />
+          } 
+        />
+        <Route 
+          path="/strategies" 
+          element={<StrategiesPage />} 
+        />
+        <Route 
+          path="/global-compendium" 
+          element={<GlobalCompendiumPage />} 
+        />
+        <Route 
+          path="/faq" 
+          element={<FaqPage />} 
+        />
+        <Route 
+          path="/about" 
+          element={<AboutPage />} 
+        />
+        <Route 
+          path="/contact" 
+          element={<ContactPage />} 
+        />
+        <Route 
+          path="/privacy" 
+          element={<PrivacyPage />} 
+        />
+        {/* Fallback to Home */}
+        <Route 
+          path="*" 
+          element={
+            <HomePage
+              bgMode={bgMode}
+              hoveredRuleColor={hoveredRuleColor}
+              onHoverRule={setHoveredRuleColor}
+              onSelectRule={setSelectedRule}
+              onExitClick={handleExitClick}
+              onRuleJump={handleRuleJump}
+            />
+          } 
+        />
+      </Routes>
 
-        {/* 3. Social, Voice, Rooms, Tournaments & Synth Soundtrack Hub */}
-        <FeaturesHub />
-
-        {/* 4. Comparison Table, Strategy Guide, FAQ & E-E-A-T Trust Center */}
-        <ContentAndFaqSection />
-
-        {/* 5. Google Search Grounding Oracle with Gemini 3.8 Flash */}
-        <SearchGroundingHub />
-      </main>
-
-      {/* Footer */}
+      {/* Footer with normal links to all pages */}
       <Footer />
 
-      {/* 16 Rules Detail Modal */}
+      {/* 12 Rules Detail Modal */}
       {selectedRule && (
         <RuleModal
           rule={selectedRule}
@@ -146,14 +209,22 @@ export default function App() {
         />
       )}
 
-      {/* "HOW TO PLAY" Official 10-Slide Tutorial Modal */}
+      {/* "HOW TO PLAY" Official Slide Tutorial Modal */}
       <HowToPlayModal
         isOpen={isGuideOpen}
         onClose={() => setIsGuideOpen(false)}
-        onStartPlay={() => {
+        onExploreRules={() => {
           handleRuleJump();
         }}
       />
     </div>
+  );
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <AppContent />
+    </BrowserRouter>
   );
 }

@@ -1,17 +1,29 @@
-# Ludo Emperor 5 Way
+# Ludo Dethroned 5 Way & 4 Way Two Dice
 
-> The definitive 5-player pentagonal dual-dice asymmetric Ludo web application.
+> Ludo Dethroned 5 Way & 4 Way Two Dice is a five-player, 3D Ludo-style strategy game played with two dice, where the first player to get all four tokens onto their coloured home path wins. The game is played on a 3D board with 3D tokens and dice.
 
-- Homepage: https://ludoemperor.com/
-- Game Mode: 5-Player Pentagonal Warzone (4v1 Anti-Leader Coalition)
-- Dice Mechanics: 2d6 Dual-Dice with Split Movement (allocating pips across 2 tokens or combined boost)
-- Deployment System: Lucky 7 Rule (any roll summing to 7 or a single 6 deploys from base)
-- Track Dimensions: 72 contested cells with 5 sanctuary star havens
-- Deck: 16 Sacred Decrees protocol archive
-- Audio Deck: 8 adaptive synthwave soundtrack stems (105-140 BPM)
-- Social Features: Real-time voice taunts, 5-seat private lounges, cross-platform browser play
+- Homepage: https://ludodethroned.com/
+- Play 4 Way Arena: https://ludodethroned.com/play-4-way
+- Play 5 Way Arena: https://ludodethroned.com/play-5-way
+- How to Play: https://ludodethroned.com/how-to-play
+- Rules (12 Rules): https://ludodethroned.com/rules
+- Strategies: https://ludodethroned.com/strategies
+- Global Compendium (15 Languages): https://ludodethroned.com/global-compendium
+- FAQ: https://ludodethroned.com/faq
+- About: https://ludodethroned.com/about
+- Contact: https://ludodethroned.com/contact
+- Privacy Policy: https://ludodethroned.com/privacy
 
-## Key Gameplay Guides & Rules
-- [The 16 Sacred Decrees](https://ludoemperor.com/#rules-section): Complete tactical rules breakdown.
-- [5-Player Pentagonal Strategy Guide](https://ludoemperor.com/#strategy-guide): Probability analysis, split movement tactics, and anti-leader survival guide.
-- [Frequently Asked Questions](https://ludoemperor.com/#faq-section): Direct answers for rules, multiplayer rooms, dice mechanics, and browser compatibility.
+## Summary of Confirmed Rules & Facts
+- Players and tokens: Five players, four tokens each. Player colours: red, green, yellow, blue and orange.
+- Dice: Two dice used on every turn. Use both on one token, or one on each of two tokens. If you have no legal move, the turn passes. Tokens and turns move clockwise.
+- Sixes: A single 6 brings a token out of base. Every 6 gives an extra turn, with no limit on how many in a row.
+- Capturing: Landing on a lone opponent token on the open track sends it to base and gives you a reroll. Compulsory under Rule 7.
+- Safe from capture: Star squares, coloured home paths and base. A pair is safe from a single token.
+- Pairs: Two tokens of the same colour on the same square. Captured only when two opposing tokens land together, one with each die. Capturing a pair gives one reroll. A pair can be split freely.
+- Missed Capture Penalty: If you could capture and did not, the token that could have captured goes back to base.
+- Centre home: Reaching it needs an exact roll and gives an extra turn, but it is not needed to win.
+- Lucky 7: With no token on the open track, a total of 7 counts as 6+6 and gives an extra turn. Two tokens can come out of base.
+- Lucky Wish: Two numbers chosen before the match, used once on any turn, 6 and 6 not allowed. A wish totalling 7 can trigger Lucky 7.
+- Turn timer: Optional, set by the room host (60, 90, 120 seconds or off). When it runs out, the turn passes.
+- End of the match: The match ends as soon as a player wins. The other players are ranked by progress percentage.

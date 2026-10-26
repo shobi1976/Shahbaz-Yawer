@@ -1,0 +1,346 @@
+Ludo Emperor 5 Way — Content Brief: How to Play, Rules, Strategies and FAQ
+Prepared for the website rebuild in Google AI Studio. Every rule in this brief was confirmed by the game’s creator. Version: October 2026.
+1. Instructions for AI Studio (read this first)
+Goal. Replace all existing rules text, FAQ answers, tutorial slides and structured data on the Ludo Emperor 5 Way website with the content in this brief, so the site is accurate, professional and easy to read.
+Golden rules
+1.	This brief is the only source of truth. Do not invent, add, improve or reword any rule, number, feature, prize, statistic, name, quote or claim. If something is not in this brief, do not write it.
+2.	Anything listed in Section 8 (Not confirmed) must not appear on the website.
+3.	The game has 12 rules. Remove every mention of “16 decrees”, “10 decrees” and “Sacred Decrees”.
+4.	Use the exact rule wording from Section 5 everywhere a rule appears: the rules page, tutorial slides, rule cards, FAQ, schema and footer. A rule must never be worded two different ways.
+5.	Build separate pages with their own URLs (see Section 2). All text must be real, visible HTML. No hidden text, no text with near-zero opacity, and no content that exists only inside a pop-up or behind a click.
+6.	Write in plain, calm, professional English with short paragraphs, clear headings and an example after each rule. Remove role-play and hype words such as “decree”, “sacred”, “sovereign”, “devastating”, “blood sacrifice”, “impenetrable” and “eSports-grade”.
+7.	Readability: body text at least 16px, no text smaller than 14px anywhere, strong contrast (no small grey text on dark backgrounds), generous spacing, and a layout that works on a phone.
+8.	Every page needs one H1, a one-paragraph introduction, a table of contents with anchor links, numbered section headings, a “Related pages” block and a “Last updated: October 2026” line.
+9.	Structured data: add FAQPage schema on /faq using only the questions and answers that appear on that page, word for word. Do not add social profile links (sameAs), contact details, prize information, app-store information, operating systems or play modes that do not exist.
+10.	Apply the removal and replacement checklist in Section 9.
+11.	Urdu and Roman Urdu: add them only as separate pages when the creator supplies the text. Do not machine-translate the rules.
+2. Site structure
+•	Home: a clear one-sentence description of the game (see Section 10), a play button only when the real game link exists, and four large links to the pages below.
+•	/how-to-play: Section 4.
+•	/rules: Section 5.
+•	/strategies: Section 6.
+•	/faq: Section 7.
+•	/about: who makes the game, using the creator’s real name and a real contact address supplied by the creator.
+•	/contact: one working email address supplied by the creator.
+•	/privacy: a privacy policy that matches reality, including an honest statement about cookies and advertising if ads are used.
+Every page shares one header and one footer, and the footer links to every page above with normal links.
+3. Glossary (use these terms exactly)
+•	Token: a player’s playing piece. Each player has four.
+•	Board: a five-wing board with one wing for each player colour, a shared open track and the centre home in the middle.
+•	Player colours: red, green, yellow, blue and orange.
+•	Base: where a player’s tokens wait before entering the board. Tokens in base are not on the track and cannot be captured.
+•	Open track: the shared squares that every player’s tokens travel around. It does not include bases, coloured home paths or the centre home.
+•	Star square: a marked safe square on the open track. A token on a star square cannot be captured.
+•	Coloured home path: the final stretch in a player’s own colour. Tokens cannot be captured there.
+•	Centre home: the centre of the board. Moving a token into it needs an exact roll and gives an extra turn.
+•	Capture: landing on an opponent’s token on the open track and sending it back to its base.
+•	Reroll / extra turn: rolling the dice again after your move.
+•	Pair: two tokens of the same colour on the same square.
+•	Leader: the player who is closest to winning.
+•	Progress percentage: the percentage on each player’s progress bar. It shows how close the player is to winning, and it ranks the players who did not win when the match ends.
+•	Room host: the player who hosts the match room. The room host sets the turn timer.
+•	Missed Capture Penalty: the rule that sends a token back to base if it could have captured and did not.
+•	Lucky 7: the rule that turns a total of 7 into 6+6 and an extra turn when none of your tokens are on the open track.
+•	Lucky Wish: a once-per-match guaranteed roll of two numbers you choose before the match. You can use it on any turn.
+•	Golden Star: the control used to activate the Lucky Wish.
+•	AI opponent: a computer-controlled player.
+4. How to Play (page: /how-to-play)
+Ludo Emperor 5 Way is a five-player, Ludo-style strategy game played with two dice. Each player has four tokens. The first player to get all four tokens onto their coloured home path wins, and the match ends as soon as someone wins. Think of it as a T20 match rather than a Test match: many Ludo games play on until every player has finished, but here the match is over once a winner is decided. That is why every player fights to win or to stop the winner. This guide takes you from your first roll to your first win. Matches can include AI opponents.
+4.1 The game in 30 seconds
+•	Five players, four tokens each, two dice every turn.
+•	A single 6 brings a token out of base. Every 6 you roll also gives you an extra turn.
+•	Tokens travel around the shared open track. Landing on a lone opponent token captures it, and you roll again.
+•	If you can capture, you must. Skipping a capture sends your token back to base.
+•	Star squares and your coloured home path are safe.
+•	The first player to get all four tokens onto their coloured home path wins, and the match ends there.
+4.2 Before the match
+•	Choose your Lucky Wish numbers. Pick two dice numbers, but not 6 and 6. You can use the wish once, on any turn.
+•	The room host chooses the turn timer. 60, 90 or 120 seconds, or off.
+4.3 Your turn, step by step
+1.	Roll both dice.
+2.	Check for captures first. If a capture is possible, it is compulsory (see 4.9).
+3.	Decide how to use the dice: both on one token, which moves the total, or one die on each of two tokens.
+4.	Move your token or tokens. If you have no legal move, your turn passes to the next player.
+5.	If you earned an extra turn, roll again. Extra turns come from rolling a 6, from a capture, from moving a token into the centre home, and from Lucky 7.
+6.	Otherwise your turn passes to the next player, clockwise around the board.
+4.4 Bringing tokens out of base
+All four of your tokens start in base. A single 6 brings one token out onto the open track. You do not need a double 6. Tokens in base are safe. Every 6 you roll also gives you an extra turn, and there is no limit on how many times in a row.
+4.5 Moving with two dice
+You can use both dice on one token, which then moves the total of the two dice, or use one die on each of two different tokens. Example: you roll 3 and 4. You can move one token 7 squares, or move one token 3 squares and another token 4 squares.
+4.6 Capturing
+If your token lands on a square where a single opponent token stands on the open track, that token is captured and returns to its base. You can capture with one die or with the total of both dice. Every capture gives you a reroll.
+4.7 Safe places
+A token cannot be captured when it is on a star square, on its coloured home path or in base. Star squares are safe for every player.
+4.8 Pairs
+Two tokens of the same colour on the same square form a pair. A single token landing on a pair does not capture it. To capture a pair, two of your tokens must land on that square together, one with each die, even if they start from different squares. Capturing a pair gives you one reroll. A pair on a star square is always safe. A pair is not locked together: you can move its tokens separately whenever you like.
+4.9 The Missed Capture Penalty in plain words
+Capturing is compulsory. If one of your tokens could capture an opponent’s token and you finish your move without capturing, that token is sent back to base. The full rule, with every case, is Rule 7 on the Rules page.
+4.10 Heading home
+After travelling around the open track, your token enters your coloured home path, where it is safe. A token can go on to reach the centre home, but it needs an exact roll to move into it. Moving into the centre home gives you an extra turn. You do not need to reach the centre to win.
+4.11 How to win
+Be the first player to get all four tokens onto your coloured home path. A token that reaches the centre home also counts. The match ends as soon as a player wins, and the other players are ranked by the progress percentage shown on the progress bar.
+4.12 Special features
+•	Lucky 7: when none of your tokens are on the open track, a total of 7 counts as 6+6 and gives you an extra turn (Rule 9).
+•	Lucky Wish: once per match, on any turn, roll the two numbers you chose before the match (Rule 10).
+•	Turn timer: optional, set by the room host: 60, 90 or 120 seconds, or off (Rule 11).
+•	Progress bar: shows each player’s progress percentage and decides the ranking when the match ends (Rule 12).
+4.13 Four example turns
+Example 1: a capture and a reroll. An opponent’s single token is 5 squares ahead of your token on a normal square. You roll 5 and 2. You use the 5 to land on it and capture it, then use the 2 on another token. Because you captured, you roll again.
+Example 2: a missed capture. One of your tokens is 4 squares behind an opponent’s single token on a normal square. You roll 4 and 2. A capture is possible with the 4, so it is compulsory. If you use both dice on other tokens, the token that could have captured goes back to base.
+Example 3: Lucky 7. Two of your tokens are in base and two are on your coloured home path, so none are on the open track. You roll 4 and 3, a total of 7. Because none of your tokens are on the open track, it counts as 6+6. Each 6 can bring a token out of base, so both tokens in base can come out together, and you also take an extra turn.
+Example 4: sixes and extra turns. You roll 6 and 2. You use the 6 to bring a token out of base and the 2 to move another token. Because you rolled a 6, you roll again.
+4.14 First-match checklist
+•	Find your base, your coloured home path and the star squares.
+•	Check for captures before every move.
+•	Keep lone tokens out of an opponent’s reach when you can.
+•	Use the safe places.
+•	Watch the leader.
+4.15 Where to go next
+Read the full Rules, learn tactics on the Strategies page, and find quick answers on the FAQ page.
+5. Rules (page: /rules)
+Ludo Emperor 5 Way is played by five players. Each player has four tokens in their own colour, and every turn uses two dice. The game has 12 rules.
+Rule 1: The goal. The first player to get all four of their tokens onto their coloured home path wins. A token does not need to reach the centre home. A token that reaches the centre home also counts.
+Rule 2: Two dice. On your turn you roll two dice. You can use both dice on one token, which moves the total of the two dice, or use one die on each of two different tokens. If you have no legal move, your turn passes to the next player. Tokens travel clockwise around the open track, and turns pass clockwise from player to player. For example, after green it is red’s turn.
+Rule 3: Sixes. A single 6 brings a token out of base. Rolling a 6 also gives you an extra turn, and there is no limit on how many extra turns you can earn in a row.
+Rule 4: Capturing. If your token lands on a square where a single opponent token stands on the open track, that token is captured and returns to its base. A capture can be made with one die or with the total of both dice. Every capture gives the capturing player a reroll.
+Rule 5: Safe places. A token cannot be captured when it is on a star square, on its coloured home path or in base. Star squares are safe for every player.
+Rule 6: Pairs. Two tokens of the same colour on the same square are a pair. A pair cannot be captured by a single token landing on it. A pair can be captured only when two of an opponent’s tokens land on that square together, one with each die, even if they start from different squares. Capturing a pair gives one reroll. A pair on a star square is always safe. You can split your own pair freely.
+Rule 7: Missed Capture Penalty.
+•	If one of your tokens could capture an opponent’s token on the open track, you must capture.
+•	If you finish your move without capturing, the token that could have captured is sent back to its base.
+•	When each die can make a different capture (for example a 6 for one capture and a 5 for another), you must make both captures. Each capture you skip sends the capturing token back to base.
+•	Capturing with the total of both dice uses both dice. When a capture by the total competes with captures by each die separately (for example with a 2 and a 3, where you could capture by the total of 5, by the 2 or by the 3), you may choose one of them. Capturing the leader is usually the best choice.
+•	Doubles: when both dice show the same number and a token can capture with that number, using the first die elsewhere is not penalised. If you use the second die elsewhere as well, the token that could have captured goes back to base. If each of the two dice could capture a different opponent and you capture neither, both capturing tokens go back to base.
+•	Making a pair capture (two of your tokens landing together on a pair) is also compulsory when it is possible.
+•	Only tokens on the open track can be captured. Tokens on star squares, on coloured home paths or in base cannot be captured, so they never cause a penalty.
+Rule 8: Centre home bonus. Moving a token into the centre home needs an exact roll. It gives you an extra turn.
+Rule 9: Lucky 7. If none of your tokens are on the open track, a roll that totals 7 counts as 6+6 and gives you an extra turn. Each of the two 6s can bring a token out of base, so two tokens can come out together. A token is not on the open track if it is in your base, on your coloured home path or in the centre home. If even one of your tokens is on the open track, a total of 7 is an ordinary 7. A Lucky Wish that adds up to 7 also triggers Lucky 7 when this condition is met.
+Rule 10: Lucky Wish. Before the match, you choose two dice numbers. Once per match, on any turn, you can use the Golden Star to roll exactly those two numbers instead of rolling randomly. You cannot choose 6 and 6. Each wish can be used once.
+Rule 11: Turn timer. The room host sets the turn timer: 60, 90 or 120 seconds, or off. When the timer is on and your time runs out, your turn passes to the next player.
+Rule 12: End of the match. The match ends as soon as a player wins. The other players are ranked by the progress percentage shown on the progress bar. Once a winner is decided there is nothing left to play for, so every other player aims to win or to stop the winner.
+Rules at a glance
+•	Extra turns come from: rolling a 6 (Rule 3), a capture (Rule 4), moving a token into the centre home (Rule 8) and Lucky 7 (Rule 9).
+•	Safe from capture: star squares, coloured home paths, base, and pairs against single tokens.
+•	Compulsory: capturing whenever it is possible (Rule 7).
+•	Used once per match: the Lucky Wish (Rule 10).
+•	The match ends as soon as a player wins (Rule 12).
+6. Strategies (page: /strategies)
+These tactics follow directly from the rules. The dice decide what is possible on a turn, and your choices decide what you do with it. Read the Rules page first.
+6.1 Learn the safe places
+Star squares, your coloured home path and your base are safe. A token on a star square cannot be captured, so use star squares as safe stops while you travel. Once a token reaches your coloured home path, it cannot be captured there.
+6.2 The opening: get tokens out
+You need a 6 to leave base. With two dice, the chance that at least one die shows a 6 is 11 in 36, about 31%, on any roll. Every 6 also gives you an extra turn. Waiting with all four tokens in base wastes turns, so bring a token out when you can. Remember that a token on the open track means Lucky 7 will not work for you (see 6.10).
+6.3 Using two dice well
+•	Combine both dice on one token to travel far, or to hit a target at the total distance.
+•	Split the dice to advance two tokens, or to use one die for a capture and the other for safety.
+•	Before you decide, list every option: the first die, the second die and the total.
+6.4 Always scan for captures first
+Capturing is compulsory, so check every turn for these four options: a capture with the first die, a capture with the second die, a capture with the total, and a pair capture with two of your tokens. Missing one can cost you a token. This habit is the most valuable one in the game.
+6.5 Choosing what to capture
+When the rules let you choose between captures, prefer these targets in order:
+1.	The leader’s token.
+2.	The opponent token that has travelled furthest.
+3.	A token that threatens your own tokens.
+Every capture also gives you a reroll, so a capture that sets up another one is especially good.
+6.6 Defence
+•	On an ordinary stretch of track, an opponent token up to 12 squares behind yours can reach it with one roll, because the total of two dice is at most 12. Squares close in front of an opponent’s token are the riskiest, because a single die or the total can reach them.
+•	A pair is safe from a single token, but two opponent tokens can capture it by landing together. Do not leave a pair where two opponent tokens can both reach it.
+•	When a lone token is under threat, move it to a star square or onto your coloured home path if you can.
+6.7 If you are the leader
+•	Only your tokens on the open track can be captured. Star squares and your coloured home path are safe.
+•	Move tokens in pairs where you can, stop on star squares, and get tokens onto your coloured home path quickly.
+•	Expect pressure. AI opponents are designed to go after the leader.
+•	Do not skip captures yourself. The penalty sends a token back to base.
+6.8 If you are behind: beating the leader
+•	Only the leader’s tokens on the open track can be captured.
+•	Every capture gives a reroll, so one hit can lead to another.
+•	You do not need to be the closest player. Any trailing player can make the hit.
+•	Set up captures for each other. AI opponents do this on purpose: when a player is close to winning, trailing players may place a token in front of another trailing player. That player captures it, gets a reroll, and may use the reroll to hit the leader. The sacrificed token goes back to base, so this is only worth doing when it creates a real chance to hit the leader.
+6.9 Using the Missed Capture Penalty on purpose
+Rule 7 sends a token back to base if it could have captured and did not. Experienced players sometimes accept that penalty deliberately, for two reasons:
+•	To re-enter behind the leader. If the leader’s coloured home path starts next to your base, a token sent back to base can come out later behind the leader and chase him. You need a 6 to bring it out.
+•	To clear the open track. Lucky 7 only works when none of your tokens are on the open track. Sending your last token on the track back to base can set up Lucky 7.
+The cost is the progress that token had made. The dice maths shows the gain is modest. With all your tokens in base, a 6 on either die gets a token out about 31% of the time (11 in 36). With Lucky 7, a 6 or a total of 7 gets a token out about 42% of the time (15 in 36). Do this when the token has little progress to lose, or when stopping the leader matters more than your own race.
+6.10 Planning for Lucky 7
+•	A total of 7 comes up 6 times in 36, about 17% of rolls.
+•	It only works when none of your tokens are on the open track.
+•	It counts as 6+6 and gives you an extra turn, which is a big swing when you are starting from base.
+•	Do not empty the open track only to chase a 7 unless the cost is low.
+6.11 Choosing your Lucky Wish numbers
+You choose before the match, so pick numbers that stay useful.
+•	Include a 6 if you want a guaranteed way out of base.
+•	Two numbers that total 7 (6 and 1, 5 and 2, or 4 and 3) trigger Lucky 7 when none of your tokens are on the open track.
+•	6 and 6 is not allowed.
+•	You can use the wish on any turn, but only once. A player who uses it early wastes it. A wise player keeps it for the turn that wins the match or stops the winner, such as a capture on the leader or getting the last token onto the coloured home path.
+6.12 The endgame
+•	You win with all four tokens on your coloured home path. You do not need the centre.
+•	Your last tokens on the open track are your only weak points. Use star squares as stops where you can.
+•	The centre home gives an extra turn but needs an exact roll, so do not waste turns chasing it.
+•	Keep checking for compulsory captures. A penalty near the end can cost a token’s whole journey.
+•	The match ends the moment someone wins. If you cannot win, stopping the leader is worth more than a small gain in your own race.
+•	If you can neither win nor stop the leader, your progress percentage decides your ranking, so keep your tokens moving.
+6.13 Choosing a turn timer
+•	60 seconds: fast pace.
+•	90 seconds: a middle setting.
+•	120 seconds: more time to think.
+•	Off: a relaxed game.
+The room host chooses the timer. When it is on and your time runs out, your turn passes to the next player.
+6.14 Common mistakes
+•	Forgetting to check for captures.
+•	Leaving a lone token close in front of an opponent’s token when a safe option exists.
+•	Using the Lucky Wish too early.
+•	Ignoring the leader until it is too late.
+•	Emptying the open track for Lucky 7 and losing more than you gain.
+•	Parking a pair where two opponent tokens can both reach it.
+6.15 Quick decision guide
+•	Can I capture? Then I must.
+•	Do I have several captures to choose from? Take the leader’s token.
+•	Is one of my tokens close in front of an opponent’s token? Move it to safety or onto a star square.
+•	Is someone close to winning? Hunt their tokens on the open track.
+•	Are none of my tokens on the open track? A total of 7 will count as 6+6.
+6.16 Think T20, not Test
+A Test match runs until everyone has finished. This game is a T20: it ends the moment someone wins. That changes how you play. Do not wait for a perfect position. Once a rival gets close, every turn should be about stopping them, because there is nothing left to play for after they win. And if you cannot win, your progress percentage decides your rank.
+7. FAQ (page: /faq)
+Use these questions and answers word for word on the FAQ page and in the FAQPage schema.
+The game
+What is Ludo Emperor 5 Way? A five-player, Ludo-style strategy game played with two dice. Each player has four tokens, and the first player to get all four onto their coloured home path wins.
+How many players can play? Five. Matches can include AI opponents.
+How many tokens does each player have? Four.
+How many dice are used? Two dice are used on every turn.
+Can I play against AI opponents? Yes. Matches can include AI opponents.
+How is it different from classic four-player Ludo? It is built for five players, uses two dice each turn, makes capturing compulsory with a penalty if you skip it, and adds Lucky 7 and the Lucky Wish. The match also ends as soon as someone wins, like a T20 match compared with a Test match.
+Is it a game of luck or skill? Both. The dice decide what is possible on a turn, and your choices decide what you do with it: which token to move, when to capture and when to protect your tokens.
+Winning
+How do I win? Be the first player to get all four of your tokens onto your coloured home path. The match ends as soon as someone wins.
+Do I have to reach the centre home to win? No. Getting all four tokens onto your coloured home path is enough. A token that reaches the centre home also counts.
+What happens when a token reaches the centre home? You get an extra turn. Moving into the centre home needs an exact roll.
+When does the match end? As soon as one player wins.
+How are the other players ranked? By the progress percentage shown on the progress bar when the match ends.
+What is the progress bar? It shows each player’s progress as a percentage. When the match ends, those percentages decide the ranking of the players who did not win.
+Why does the match end when someone wins? The game is built to be fast and tense, like a T20 match compared with a Test match. Once a winner is decided there is nothing left to play for, so every player tries to win or to stop the winner.
+Starting and moving
+How do I bring a token out of base? Roll a 6. A single 6 brings one token out.
+Do I need a double 6 to start? No. A single 6 is enough.
+Can I use both dice on one token? Yes. The token moves the total of the two dice.
+Can I split the dice between two tokens? Yes. You can use one die on each of two different tokens.
+Are tokens in base safe? Yes. Tokens in base cannot be captured.
+Do I get an extra turn for rolling a 6? Yes. Every 6 gives you an extra turn.
+Is there a limit on sixes in a row? No. There is no limit on how many extra turns you can earn by rolling sixes.
+What happens if I have no legal move? Your turn passes to the next player.
+Do I need an exact roll to enter the centre home? Yes. Moving into the centre home needs an exact roll.
+Which way do tokens and turns move? Clockwise. Tokens travel clockwise around the open track, and turns pass clockwise from player to player.
+Whose turn is next? The next player clockwise. For example, after green it is red’s turn.
+Capturing and safety
+How do I capture an opponent’s token? Land on a square where a single opponent token stands on the open track.
+What happens to a captured token? It returns to its base.
+Do I get anything for capturing? Yes. Every capture gives you a reroll.
+Can I capture using the total of both dice? Yes. A capture can be made with one die or with the total of both dice.
+Can a token be captured on a star square? No. Star squares are safe for every player.
+Can a token be captured on its coloured home path? No. Nothing can be captured on the coloured home path.
+Can a token be captured in base? No.
+What is a pair? Two tokens of the same colour on the same square.
+Can a pair be captured? Yes, but not by a single token. A pair can be captured only when two of an opponent’s tokens land on its square together.
+How do I capture a pair? Two of your tokens must land on the pair’s square together, one with each die. They can start from different squares.
+Is a pair on a star square safe? Yes. A pair on a star square is always safe.
+Are there blockades in the game? No. Two tokens of the same colour on a square form a pair, which protects against a single token only.
+Does capturing a pair give two rerolls? No. Capturing a pair gives one reroll.
+Can I split a pair? Yes. You can move the tokens of your pair separately.
+Missed Capture Penalty
+What is the Missed Capture Penalty? If one of your tokens could capture an opponent’s token and you finish your move without capturing, that token is sent back to its base.
+Is capturing compulsory? Yes, whenever a capture is possible on the open track.
+Which token is sent back to base? The token that could have captured.
+What if each die can capture a different opponent? You must make both captures. Each capture you skip sends the capturing token back to base.
+What if I can capture by the total or by each die separately? Capturing by the total uses both dice, so you may choose one of the options. Capturing the leader is usually the best choice.
+What happens with doubles such as 5 and 5? If a token can capture with a 5 and you use the first 5 elsewhere, nothing happens yet. If you use the second 5 elsewhere as well, that token goes back to base. If each 5 could capture a different opponent and you capture neither, both capturing tokens go back to base.
+Does the penalty apply if the target is on a star square or a coloured home path? No. Tokens there cannot be captured, so there is no capture to miss.
+Does the penalty apply when I have no capture available? No. The penalty only applies when a capture was possible.
+Do I have to capture a pair if I can? Yes. If two of your tokens can land together on a pair, that capture is also compulsory.
+Can I skip a capture on purpose? Yes, but the token that could have captured goes back to base. Experienced players sometimes accept this deliberately as a tactic. See the Strategies page.
+Extra turns and special features
+When do I get an extra turn? When you roll a 6, after a capture, when you move a token into the centre home, and when Lucky 7 applies.
+What is Lucky 7? If none of your tokens are on the open track, a roll that totals 7 counts as 6+6 and gives you an extra turn.
+When does Lucky 7 work? Only when every one of your tokens is in your base, on your coloured home path or in the centre home.
+Does Lucky 7 work if one of my tokens is on the open track? No. In that case a total of 7 is an ordinary 7.
+What are the chances of rolling a total of 7? Six out of 36 combinations total 7, about 17% of rolls.
+What is the Lucky Wish? A once-per-match guaranteed roll. You choose two dice numbers before the match, and you can use the Golden Star once to roll exactly those numbers.
+When do I choose my wish numbers? Before the match.
+Can I choose 6 and 6? No. 6 and 6 is not allowed.
+How many times can I use the Lucky Wish? Once per match.
+Can my Lucky Wish trigger Lucky 7? Yes. If your wish numbers add up to 7 and none of your tokens are on the open track, Lucky 7 applies.
+What is the Golden Star? The control you use to activate your Lucky Wish.
+Does Lucky 7 bring out two tokens? Yes, when several of your tokens are in base. Each of the two 6s can bring one token out.
+Can I use the Lucky Wish on any turn? Yes. You can use it on any turn, but only once per match.
+Turn timer
+Is there a turn timer? Yes, and it is optional. The room host chooses 60, 90 or 120 seconds, or turns it off.
+What happens when the timer runs out? Your turn passes to the next player.
+Can the turn timer be turned off? Yes. The room host can turn it off.
+Who sets the turn timer? The room host.
+The leader and strategy
+Who is the leader? The player who is closest to winning.
+Do AI opponents go after the leader? Yes. AI opponents are designed to hunt the leader.
+Why do opponents sometimes place their tokens in front of each other? When a player is close to winning, trailing players may set up captures for each other. A capture gives a reroll, which can then be used to hit the leader.
+How can I stop a leader? Hunt the leader’s tokens on the open track. Star squares and the coloured home path are safe, so only tokens on the open track can be captured.
+How can I protect myself when I am the leader? Stop on star squares, move tokens in pairs where you can, and get tokens onto your coloured home path quickly.
+Which capture should I choose when I have a choice? The leader’s token is usually the best target.
+What is a good strategy for beginners? Bring tokens out when you roll a 6, check for captures before every move, use the safe places, and watch the leader. The Strategies page has more.
+Where can I read the full rules? On the Rules page, which lists all 12 rules with examples.
+8. Not confirmed — do not publish yet
+The creator has not yet confirmed the points below. Do not state any of them on the website, in schema, in tutorial slides or in rule cards. They will be added only after the creator confirms them in writing.
+1.	The exact number of squares on the board, the positions of the star squares and the start squares, and whether start squares are safe. (The board has five wings, one for each player colour.)
+2.	Whether a single die that cannot be used is skipped while the other die is still played.
+3.	How the progress percentage is calculated.
+4.	How voice chat, emoji reactions and the Play with Friends option work. The old tutorial describes them, and the game screenshot shows a voice channel and a Play with Friends button, but their exact behaviour has not been described. Do not describe how they work.
+9. Removal and replacement checklist
+Remove: claims that are invented or unverified
+•	The “$10,000 Neon Cup”, the 512-player tournament and any prize, money or “custom stakes” wording.
+•	“Play free in your browser today”, “100% playable”, “low-latency matchmaking” and similar claims, until a real play link exists.
+•	“Founded in 2026”, “our community engineering team”, “GDPR & CCPA compliant zero-tracking framework” and any other unverified statement in the About, Privacy, Terms and Contact text.
+•	Contact details and profiles that do not exist: support@ludoemperor.com, partnerships@ludoemperor.com, the Discord invite, the BoardGameGeek page and the Twitter profile in the schema. Use only real details supplied by the creator.
+•	“Why it beats the top 10 apps”, “Quick Start for Ludo King Pros”, and the comparison table about a named competitor, unless every statement in it has been checked.
+Remove: features and rules that do not exist
+•	The Bounty Beacon, “bounty bonuses”, “automated alliance”, “Hunter-Killer Coalition” and “4v1 coalition” as a rule, and “crowned Emperor at two tokens”. The leader hunt is AI behaviour and player strategy, not a rule (Section 6.8).
+•	Decree 05 and all blockade and sanctuary text.
+•	“16 decrees”, “10 decrees”, “Sacred Decrees”. The game has 12 rules.
+•	The fixed “90-second Royal Turn Clock” and the claim that it prevents stalling. The timer is optional (Rule 11).
+•	The Google Search Grounding Oracle component, its /api/search-grounding endpoint and the Gemini key requirement. The page must not show AI answers about the game’s rules.
+•	The fake “Create 5-Seat Lounge” button, the Lucky 7 sandbox that always shows 4+3, and the “LIVE HUD” label. Remove them, or label them clearly as demos.
+Replace: wording that conflicts with this brief
+•	Every statement that any roll totalling 7 becomes 6+6: replace with Rule 9, including the condition that none of your tokens are on the open track.
+•	Every statement that a 7 or a single 6 deploys tokens: replace with Rule 3 and Rule 9.
+•	Every statement about how to win (“two tokens”, “home stretch”, “finish”): replace with Rule 1.
+•	Every mention of the Missed Capture Penalty: replace with Rule 7.
+•	Every mention of the Lucky Wish: replace with Rule 10.
+•	Every statement about sixes or the “3-six limit”: replace with Rule 3 (there is no limit).
+•	Every statement about extra turns: replace with the sources in Rule 3, Rule 4, Rule 8 and Rule 9.
+•	Every statement about the turn timer: replace with Rule 11 (set by the room host).
+•	Every statement about how the match ends, the ranking or the progress bar: replace with Rule 12.
+•	Player colours: red, green, yellow, blue and orange. Remove every mention of purple.
+•	Slogan: use one version everywhere. The creator will confirm it; until then, do not use “Match” in one place and “Game” in another.
+Rewrite the tutorial slides
+Use at most nine slides, each matching this brief exactly: 1) The goal. 2) Two dice. 3) Sixes and leaving base (every 6 gives an extra turn, with no limit). 4) Capturing and the reroll. 5) Safe places and pairs. 6) The Missed Capture Penalty. 7) Lucky 7 and the Lucky Wish. 8) The centre home, extra turns and the optional turn timer. 9) How the match ends: the first winner ends it, and the progress percentage ranks the other players. Keep a slide about the five-wing board, but remove wording such as “72-degree” and “zero passive corners”. Remove “Ludo King” from the tutorial heading.
+Fix: technical, SEO and readability problems
+•	Remove the hidden header in #root that uses opacity 0.01, and the duplicate text in the noscript block. Put the real content in visible HTML.
+•	Add the missing body tag, a favicon and a proper 1200x630 share image (the current one is the background wallpaper).
+•	Mark any Urdu text with lang=ur and dir=rtl.
+•	Replace clickable div cards with real buttons or links so they work from the keyboard. Make every modal closable with Escape and give it a dialog role.
+•	Make About, Privacy, Terms and Contact real pages with real links in the footer, not pop-ups.
+•	Remove the custom die cursor on touch devices, or remove it altogether. Stop playing a sound on every click. Replace autoplaying background videos with one compressed image, and load any video only on request.
+•	Remove the Express server and the API key if nothing else needs them, so the site can be hosted as a static site.
+•	Remove schema claims that are not true: playMode CoOp, native operating systems, and sameAs links.
+10. Quick facts (single source of truth)
+•	One-sentence description: Ludo Emperor 5 Way is a five-player, Ludo-style strategy game played with two dice, where the first player to get all four tokens onto their coloured home path wins.
+•	Players and tokens: five players, four tokens each. Player colours: red, green, yellow, blue and orange.
+•	Dice: two per turn. Use both on one token, or one on each of two tokens. If you have no legal move, the turn passes. Tokens and turns move clockwise.
+•	Sixes: a single 6 brings a token out of base. Every 6 gives an extra turn, with no limit on how many in a row.
+•	Capturing: landing on a lone opponent token on the open track sends it to base and gives you a reroll. It can be done with one die or the total.
+•	Safe from capture: star squares, coloured home paths and base. A pair is safe from a single token.
+•	Pairs: captured only when two opposing tokens land together, one with each die. Capturing a pair gives one reroll. A pair can be split freely.
+•	Missed Capture Penalty: if you could capture and did not, the token that could have captured goes back to base. Rule 7 lists every case.
+•	Centre home: reaching it needs an exact roll and gives an extra turn, but it is not needed to win.
+•	Lucky 7: with no token on the open track, a total of 7 counts as 6+6 and gives an extra turn. Two tokens can come out of base.
+•	Lucky Wish: two numbers chosen before the match, used once on any turn, 6 and 6 not allowed. A wish totalling 7 can trigger Lucky 7.
+•	Turn timer: optional, set by the room host (60, 90, 120 seconds or off). When it runs out, the turn passes.
+•	Extra turns come from: rolling a 6, a capture, moving a token into the centre home, and Lucky 7.
+•	End of the match: the match ends as soon as a player wins. The other players are ranked by progress percentage.
+•	Number of rules: 12.
+•	Winning: all four tokens on the coloured home path, whether or not any reached the centre.

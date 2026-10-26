@@ -1,6 +1,16 @@
-# User-agent rules for Ludo Emperor 5 Way
+# User-agent rules for Ludo Dethroned 5 Way & 4 Way Two Dice
 User-agent: *
 Allow: /
+Allow: /play-4-way
+Allow: /play-5-way
+Allow: /how-to-play
+Allow: /rules
+Allow: /strategies
+Allow: /global-compendium
+Allow: /faq
+Allow: /about
+Allow: /contact
+Allow: /privacy
 
 # Explicitly allow AI search crawlers for GEO / Answer Engine indexing
 User-agent: GPTBot
@@ -22,4 +32,4 @@ User-agent: CCBot
 Allow: /
 
 # Sitemap declaration
-Sitemap: https://ludoemperor.com/sitemap.xml
+Sitemap: https://ludodethroned.com/sitemap.xml

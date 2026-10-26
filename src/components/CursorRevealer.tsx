@@ -1,54 +1,55 @@
 import React, { useEffect, useState } from 'react';
-import { BackgroundMode, CursorMode } from '../types';
-import { NeonDieCursor } from './NeonDieCursor';
+import { CursorMode, BackgroundMode } from '../types';
 
 interface CursorRevealerProps {
   cursorMode: CursorMode;
   bgMode: BackgroundMode;
   hoveredRuleColor: string | null;
-  spotlightRadius?: number;
 }
 
 export const CursorRevealer: React.FC<CursorRevealerProps> = ({
-  cursorMode,
-  bgMode,
   hoveredRuleColor,
-  spotlightRadius = 260,
 }) => {
-  const [mousePos, setMousePos] = useState<{ x: number; y: number }>({
-    x: typeof window !== 'undefined' ? window.innerWidth / 2 : 500,
-    y: typeof window !== 'undefined' ? window.innerHeight / 2 : 300,
-  });
+  const [pos, setPos] = useState({ x: -200, y: -200 });
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const handleMove = (e: MouseEvent) => {
-      setMousePos({ x: e.clientX, y: e.clientY });
+    const handleMouseMove = (e: MouseEvent) => {
+      setPos({ x: e.clientX, y: e.clientY });
+      if (!isVisible) setIsVisible(true);
     };
-    window.addEventListener('mousemove', handleMove);
-    return () => window.removeEventListener('mousemove', handleMove);
-  }, []);
 
-  const activeColor = hoveredRuleColor || '#00f3ff';
+    const handleMouseLeave = () => {
+      setIsVisible(false);
+    };
+
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
+    document.addEventListener('mouseleave', handleMouseLeave);
+
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('mouseleave', handleMouseLeave);
+    };
+  }, [isVisible]);
+
+  if (!isVisible) return null;
+
+  const glowColor = hoveredRuleColor || 'rgba(6, 182, 212, 0.25)';
 
   return (
-    <>
-      {/* 
-        NOIR CURSOR COLOR REVEALING SPOTLIGHT
-        Reveals colorful vibrancy, high contrast, and vivid neon glow right under the cursor in real time
-      */}
+    <div
+      className="pointer-events-none fixed inset-0 z-20 transition-opacity duration-300 overflow-hidden"
+      aria-hidden="true"
+    >
+      {/* Soft spotlight following cursor */}
       <div
-        className="fixed inset-0 pointer-events-none z-30 transition-opacity duration-300 select-none mix-blend-screen"
+        className="absolute w-[450px] h-[450px] -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl opacity-25 mix-blend-multiply transition-[background] duration-300"
         style={{
-          background: `radial-gradient(circle ${spotlightRadius}px at ${mousePos.x}px ${mousePos.y}px, ${activeColor}40 0%, ${activeColor}15 45%, transparent 70%)`,
+          left: `${pos.x}px`,
+          top: `${pos.y}px`,
+          background: `radial-gradient(circle, ${glowColor} 0%, rgba(59, 130, 246, 0.08) 45%, transparent 70%)`,
         }}
       />
-
-      {/* Die Cursor icon tracker */}
-      <NeonDieCursor
-        cursorMode={cursorMode}
-        bgMode={bgMode}
-        hoveredRuleColor={hoveredRuleColor}
-      />
-    </>
+    </div>
   );
 };
