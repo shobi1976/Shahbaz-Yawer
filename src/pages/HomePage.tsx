@@ -1,10 +1,18 @@
-import React from 'react';
+import React, { lazy } from 'react';
 import { HeroSection } from '../components/HeroSection';
-import { RulesTeaser } from '../components/RulesTeaser';
-import { FeaturesHub } from '../components/FeaturesHub';
-import { ContentAndFaqSection } from '../components/ContentAndFaqSection';
+import { DeferredSection } from '../components/DeferredSection';
 import { SEO } from '../components/SEO';
 import { BackgroundMode, RuleCard } from '../types';
+
+const RulesTeaser = lazy(() =>
+  import('../components/RulesTeaser').then((m) => ({ default: m.RulesTeaser }))
+);
+const FeaturesHub = lazy(() =>
+  import('../components/FeaturesHub').then((m) => ({ default: m.FeaturesHub }))
+);
+const ContentAndFaqSection = lazy(() =>
+  import('../components/ContentAndFaqSection').then((m) => ({ default: m.ContentAndFaqSection }))
+);
 
 interface HomePageProps {
   bgMode: BackgroundMode;
@@ -26,13 +34,13 @@ export const HomePage: React.FC<HomePageProps> = ({
   return (
     <>
       <SEO
-        title="Ludo Dethroned 5 Way & 4 Way Two Dice | Official 3D Ludo-style strategy game"
-        description="Ludo Dethroned 5 Way & 4 Way Two Dice is a 3D Ludo-style strategy game with two dice, 5 Way & 4 Way matrix, Lucky 7, pairs, and compulsory missed capture penalty."
+        title="Ludo Dethroned 5 Way &amp; 4 Way Two Dice | Official Strategy Game"
+        description="Play Ludo Dethroned: The 5-Way &amp; 4-Way Two Dice strategy board game. Master anti-leader mechanics, dual-dice tactical split, and competitive warfare rules."
         canonicalPath="/"
       />
 
       <main className="relative z-10">
-        {/* 1. Hero Section with Central Video & Surrounding 12-Card Dynamic Orbit Matrix */}
+        {/* 1. Hero Section with Central Video & Surrounding 10-Card Dynamic Orbit Matrix */}
         <HeroSection
           onExitClick={onExitClick}
           onRuleJump={onRuleJump}
@@ -42,14 +50,20 @@ export const HomePage: React.FC<HomePageProps> = ({
           onSelectRule={onSelectRule}
         />
 
-        {/* 2. The 12 Rules Teaser (with normal link to /rules) */}
-        <RulesTeaser />
+        {/* 2. The 12 Rules Teaser — Lazy-loaded & mounted near viewport */}
+        <DeferredSection id="rules-section" minHeightClass="min-h-[340px]">
+          <RulesTeaser />
+        </DeferredSection>
 
-        {/* 3. Cyber Lounges, Social, Voice & Synth Soundtrack Hub */}
-        <FeaturesHub />
+        {/* 3. Cyber Lounges, Social, Voice & Synth Soundtrack Hub — Lazy-loaded & mounted near viewport */}
+        <DeferredSection id="features-hub" minHeightClass="min-h-[420px]">
+          <FeaturesHub />
+        </DeferredSection>
 
-        {/* 4. How to Play, Strategy, FAQ Teasers & Global Compendium */}
-        <ContentAndFaqSection />
+        {/* 4. Global Compendium, Essay & FAQ Teasers — Lazy-loaded & mounted near viewport */}
+        <DeferredSection id="faq-section" minHeightClass="min-h-[540px]">
+          <ContentAndFaqSection />
+        </DeferredSection>
       </main>
     </>
   );

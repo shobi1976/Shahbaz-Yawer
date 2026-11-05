@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { CursorMode, BackgroundMode } from '../types';
 
 interface CursorRevealerProps {
@@ -7,20 +7,58 @@ interface CursorRevealerProps {
   hoveredRuleColor: string | null;
 }
 
+/**
+ * GPU-accelerated spotlight using direct DOM transform updates via requestAnimationFrame.
+ * Avoids React setState on mousemove (0 re-renders/sec) and skips mounting on touch devices.
+ */
 export const CursorRevealer: React.FC<CursorRevealerProps> = ({
   hoveredRuleColor,
 }) => {
-  const [pos, setPos] = useState({ x: -200, y: -200 });
-  const [isVisible, setIsVisible] = useState(false);
+  const [hasFinePointer, setHasFinePointer] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const spotlightRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (typeof window === 'undefined' || !window.matchMedia) return;
+    const mq = window.matchMedia('(pointer: fine)');
+    setHasFinePointer(mq.matches);
+    const onChange = (e: MediaQueryListEvent) => setHasFinePointer(e.matches);
+    mq.addEventListener('change', onChange);
+    return () => mq.removeEventListener('change', onChange);
+  }, []);
+
+  useEffect(() => {
+    if (!hasFinePointer) return;
+
+    let rafId = 0;
+    let targetX = -400;
+    let targetY = -400;
+    let visible = false;
+
+    const flushPosition = () => {
+      rafId = 0;
+      if (spotlightRef.current) {
+        spotlightRef.current.style.transform = `translate3d(${targetX}px, ${targetY}px, 0) translate(-50%, -50%)`;
+      }
+      if (containerRef.current) {
+        containerRef.current.style.opacity = visible ? '1' : '0';
+      }
+    };
+
     const handleMouseMove = (e: MouseEvent) => {
-      setPos({ x: e.clientX, y: e.clientY });
-      if (!isVisible) setIsVisible(true);
+      targetX = e.clientX;
+      targetY = e.clientY;
+      visible = true;
+      if (!rafId) {
+        rafId = requestAnimationFrame(flushPosition);
+      }
     };
 
     const handleMouseLeave = () => {
-      setIsVisible(false);
+      visible = false;
+      if (!rafId) {
+        rafId = requestAnimationFrame(flushPosition);
+      }
     };
 
     window.addEventListener('mousemove', handleMouseMove, { passive: true });
@@ -29,25 +67,28 @@ export const CursorRevealer: React.FC<CursorRevealerProps> = ({
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
       document.removeEventListener('mouseleave', handleMouseLeave);
+      if (rafId) cancelAnimationFrame(rafId);
     };
-  }, [isVisible]);
+  }, [hasFinePointer]);
 
-  if (!isVisible) return null;
+  if (!hasFinePointer) return null;
 
-  const glowColor = hoveredRuleColor || 'rgba(6, 182, 212, 0.25)';
+  const glowColor = hoveredRuleColor || 'rgba(2, 151, 222, 0.36)';
 
   return (
     <div
+      ref={containerRef}
+      style={{ opacity: 0 }}
       className="pointer-events-none fixed inset-0 z-20 transition-opacity duration-300 overflow-hidden"
       aria-hidden="true"
     >
-      {/* Soft spotlight following cursor */}
+      {/* Electric Blue & Cantaloupe Orange spotlight following cursor via GPU transform */}
       <div
-        className="absolute w-[450px] h-[450px] -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl opacity-25 mix-blend-multiply transition-[background] duration-300"
+        ref={spotlightRef}
+        className="absolute left-0 top-0 w-[450px] h-[450px] rounded-full blur-3xl opacity-35 mix-blend-screen transition-[background] duration-300 will-change-transform"
         style={{
-          left: `${pos.x}px`,
-          top: `${pos.y}px`,
-          background: `radial-gradient(circle, ${glowColor} 0%, rgba(59, 130, 246, 0.08) 45%, transparent 70%)`,
+          transform: 'translate3d(-400px, -400px, 0) translate(-50%, -50%)',
+          background: `radial-gradient(circle, ${glowColor} 0%, rgba(252, 115, 77, 0.18) 45%, transparent 70%)`,
         }}
       />
     </div>

@@ -1,6 +1,6 @@
 {
   "name": "Ludo Dethroned 5 Way & 4 Way Two Dice",
-  "description": "Ludo Dethroned 5 Way & 4 Way Two Dice is a five-player, 3D Ludo-style strategy game played with two dice, where the first player to get all four tokens onto their coloured home path wins.",
+  "description": "Play Ludo Dethroned: The 5-Way & 4-Way Two Dice strategy board game. Master anti-leader mechanics, dual-dice tactical split, and competitive warfare rules.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

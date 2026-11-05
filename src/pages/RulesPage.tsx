@@ -19,24 +19,24 @@ export const RulesPage: React.FC<RulesPageProps> = ({ onHoverRule, onSelectRule 
         canonicalPath="/rules"
       />
 
-      {/* Header & Single H1 — Unified Frosted Glass Header Card */}
-      <div className="text-center mb-10 p-6 sm:p-10 rounded-3xl bg-white/26 hover:bg-white/36 border-2 border-white/70 backdrop-blur-md shadow-xl relative overflow-hidden transition-all">
-        <div className="absolute inset-0 bg-gradient-to-br from-white/35 via-white/10 to-transparent pointer-events-none opacity-85" />
+      {/* Header & Single H1 — Unified Midnight Black Frosted Glass Header Card */}
+      <div className="text-center mb-10 p-6 sm:p-10 rounded-3xl bg-[#02070A]/80 hover:bg-[#05121d]/88 border-2 border-[#0297DE]/30 backdrop-blur-md shadow-2xl relative overflow-hidden transition-all">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0297DE]/14 via-transparent to-[#FC734D]/12 pointer-events-none opacity-85" />
         <div className="relative z-10 max-w-4xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/35 backdrop-blur-sm border border-[#0077be]/80 text-[#0077be] text-xs font-mono font-black tracking-widest uppercase mb-4 shadow-xs">
-            <ShieldAlert className="w-4 h-4 text-[#0077be]" style={{ color: '#0077be' }} />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#05121d]/85 backdrop-blur-sm border border-[#0297DE]/60 text-[#0297DE] text-xs font-mono font-black tracking-widest uppercase mb-4 shadow-xs">
+            <ShieldAlert className="w-4 h-4 text-[#0297DE]" />
             <span>CANONICAL CODEX • SECTION 5</span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black font-['Chakra_Petch'] text-slate-950 uppercase tracking-tight leading-tight">
-            The 12 Canonical Rules of <span className="text-[#0077be]" style={{ color: '#0077be' }}>Ludo Dethroned 5 Way & 4 Way Two Dice</span>
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black font-['Chakra_Petch'] text-white uppercase tracking-tight leading-tight">
+            The 12 Canonical Rules of <span className="text-[#FC734D]">Ludo Dethroned 5 Way & 4 Way Two Dice</span>
           </h1>
 
-          <p className="text-slate-800 font-medium text-sm sm:text-base mt-3 leading-relaxed font-['Outfit'] max-w-3xl mx-auto">
+          <p className="text-slate-300 font-medium text-sm sm:text-base mt-3 leading-relaxed font-['Outfit'] max-w-3xl mx-auto">
             Played on a 3D board with 3D tokens and animated 3D dice.
           </p>
 
-          <p className="text-slate-800 font-medium text-sm sm:text-base mt-2 leading-relaxed font-['Outfit'] max-w-3xl mx-auto">
+          <p className="text-slate-300 font-medium text-sm sm:text-base mt-2 leading-relaxed font-['Outfit'] max-w-3xl mx-auto">
             Ludo Dethroned 5 Way & 4 Way Two Dice is governed by 12 canonical rules confirmed by the game’s creator. Master the 5 Way & 4 Way board, dual-dice movement, Lucky 7 boosts, pairs, and the compulsory missed capture penalty.
           </p>
         </div>

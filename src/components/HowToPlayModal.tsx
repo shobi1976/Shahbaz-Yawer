@@ -20,8 +20,8 @@ export const TUTORIAL_SLIDES: TutorialSlideItem[] = [
     icon: '🏆',
     title: 'The Goal',
     desc: 'The first player to get all four of their tokens onto their coloured home path wins. A token does not need to reach the centre home. A token that reaches the centre home also counts.',
-    urduDesc: 'سب سے پہلے اپنے چاروں ٹوکنز کو اپنے رنگین ہوم پاتھ پر پہنچانے والا کھلاڑی جیت جائے گا۔ سنٹر ہوم پہنچنا لازمی نہیں ہے۔',
-    badge: 'RULE 1: THE GOAL',
+    urduDesc: 'Sab se pehle apne chaaron tokens ko apne rangeen home path par pohanchane wala khilari jeet jata hai. Centre home pohanchna lazmi nahi hai, lekin wahan pohanchne wala token bhi count hota hai.',
+    badge: 'GUIDE 1: THE GOAL',
     color: '#eab308'
   },
   {
@@ -29,17 +29,17 @@ export const TUTORIAL_SLIDES: TutorialSlideItem[] = [
     icon: '🎲🎲',
     title: 'Two Dice',
     desc: 'On your turn you roll two dice. You can use both dice on one token, which moves the total of the two dice, or use one die on each of two different tokens. Tokens and turns move clockwise around the board.',
-    urduDesc: 'ہر باری میں دو ڈائس رول کریں۔ دونوں ڈائس ایک ٹوکن پر چلیں یا دو الگ ٹوکنز میں تقسیم کریں۔ ٹوکنز اور باریاں گھڑی کی سمت میں چلتی ہیں۔',
-    badge: 'RULE 2: TWO DICE',
+    urduDesc: 'Har baari mein aap do dice roll karte hain. Dono dice aik hi token par chala kar total chal sakte hain, ya do alag tokens par aik-aik die istemal kar sakte hain. Tokens aur baariyan clockwise chalti hain.',
+    badge: 'GUIDE 2: TWO DICE',
     color: '#06b6d4'
   },
   {
     id: 3,
     icon: '🎲',
     title: 'Sixes and Leaving Base',
-    desc: 'A single 6 brings a token out of base onto the open track. Rolling a 6 also gives you an extra turn, and there is no limit on how many extra turns you can earn in a row.',
-    urduDesc: 'ایک اکیلا چھکا ٹوکن کو بیس سے باہر نکال لاتا ہے۔ ہر چھکے پر ایکسٹرا باری ملتی ہے، جس پر کوئی حد نہیں۔',
-    badge: 'RULE 3: SIXES',
+    desc: 'All four tokens start in base. A single 6 brings one token out of base onto the open track. Rolling a 6 also gives you an extra turn, and there is no limit on how many extra turns you can earn in a row.',
+    urduDesc: 'Aap ke chaaron tokens base se shuru hote hain. Aik akela 6 token ko base se bahar open track par le aata hai. Har 6 par extra baari milti hai aur lagatar chhakkon par koi had nahi hai.',
+    badge: 'GUIDE 3: SIXES & LEAVING BASE',
     color: '#10b981'
   },
   {
@@ -47,53 +47,80 @@ export const TUTORIAL_SLIDES: TutorialSlideItem[] = [
     icon: '⚔️',
     title: 'Capturing and the Reroll',
     desc: 'If your token lands on a square where a single opponent token stands on the open track, that token is captured and returns to its base. A capture can be made with one die or the total of both dice. Every capture gives you a reroll.',
-    urduDesc: 'اگر آپ کا ٹوکن اوپن ٹریک پر اکیلے مخالف ٹوکن پر اترے تو وہ کٹ کر بیس واپس چلا جاتا ہے اور آپ کو دوبارہ رول ملتا ہے۔',
-    badge: 'RULE 4: CAPTURING',
+    urduDesc: 'Agar aap ka token open track par kisi akele mukhalif token ke khane par utre to woh cut kar apne base wapas chala jata hai. Capture aik die ya dono ke total se ho sakta hai, aur har capture par dobara roll milta hai.',
+    badge: 'GUIDE 4: CAPTURING & REROLL',
     color: '#ef4444'
   },
   {
     id: 5,
     icon: '⭐',
-    title: 'Safe Places and Pairs',
-    desc: 'A token cannot be captured when it is on a star square, on its coloured home path or in base. Star squares are safe for every player. Two tokens of the same colour form a pair, which cannot be captured by a single token.',
-    urduDesc: 'سٹار خانے، رنگین ہوم پاتھ اور بیس پر ٹوکن نہیں کٹ سکتا۔ ایک ہی رنگ کے دو ٹوکن مل کر پیئر بناتے ہیں جو اکیلے ٹوکن سے محفوظ رہتا ہے۔',
-    badge: 'RULES 5 & 6: SAFE PLACES & PAIRS',
+    title: 'Safe Places',
+    desc: 'A token cannot be captured when it is on a star square, on its coloured home path, or in base. Star squares are safe for every player on the board.',
+    urduDesc: 'Star square, apne rangeen home path aur base mein mojood token kabhi capture nahi ho sakta. Star squares har khilari ke liye mukammal mehfooz hote hain.',
+    badge: 'GUIDE 5: SAFE PLACES',
     color: '#38bdf8'
   },
   {
     id: 6,
-    icon: '⚠️',
-    title: 'The Missed Capture Penalty',
-    desc: 'Capturing is compulsory. If one of your tokens could capture an opponent’s token on the open track and you finish your move without capturing, that token is sent back to its base.',
-    urduDesc: 'کیپچر کرنا لازمی ہے۔ اگر آپ کے ٹوکن کے پاس کیپچر کا موقع تھا اور آپ نے کیپچر کے بغیر باری ختم کی، تو وہ ٹوکن بیس واپس بھیج دیا جائے گا۔',
-    badge: 'RULE 7: MISSED CAPTURE PENALTY',
-    color: '#ff007f'
+    icon: '🛡️',
+    title: 'Pairs',
+    desc: 'Two tokens of the same colour on the same square form a pair. A single token cannot capture a pair. A pair is only captured when two opponent tokens land on that square together, one with each die, giving one reroll. Pairs on star squares are always safe, and you can split your pair freely.',
+    urduDesc: 'Aik hi rang ke do tokens aik khane par mil kar pair banate hain jise akela token nahi kaat sakta. Pair sirf tab kat-ta hai jab mukhalif ke do tokens dono dice se aik sath us khane par utrein. Aap apna pair jab chahein alag chala sakte hain.',
+    badge: 'GUIDE 6: PAIRS',
+    color: '#fb923c'
   },
   {
     id: 7,
-    icon: '✨7',
-    title: 'Lucky 7 & Lucky Wish',
-    desc: 'If none of your tokens are on the open track, a roll that totals 7 counts as 6+6 and gives you an extra turn. Lucky Wish: once per match, use the Golden Star to roll the two numbers you chose before the match (6 and 6 not allowed).',
-    urduDesc: 'اگر اوپن ٹریک پر کوئی ٹوکن نہ ہو تو 7 کا مجموعہ 6+6 بن جاتا ہے اور ایکسٹرا باری ملتی ہے۔ لکی وش میچ میں ایک بار اپنے طے شدہ دو نمبر لاتا ہے۔',
-    badge: 'RULES 9 & 10: LUCKY 7 & WISH',
-    color: '#f59e0b'
+    icon: '⚠️',
+    title: 'The Missed Capture Penalty',
+    desc: 'Capturing is compulsory. If one of your tokens could capture an opponent’s token on the open track and you finish your move without capturing, the token that could have captured is sent back to its base.',
+    urduDesc: 'Open track par capture karna lazmi hai. Agar aap ke token ke paas mukhalif ko kaatne ka mauqa ho aur aap capture kiye baghair baari khatam kar dein, to woh token saza ke taur par base wapas bhej diya jata hai.',
+    badge: 'GUIDE 7: MISSED CAPTURE PENALTY',
+    color: '#ff007f'
   },
   {
     id: 8,
-    icon: '⏳',
-    title: 'Centre Home & Turn Timer',
-    desc: 'Moving a token into the centre home needs an exact roll and gives an extra turn. The room host sets the optional turn timer: 60, 90 or 120 seconds, or off. Extra turns come from sixes, captures, centre home, and Lucky 7.',
-    urduDesc: 'سینٹر ہوم میں داخلے کے لیے صحیح نمبر درکار ہے اور ایکسٹرا باری ملتی ہے۔ روم ہوسٹ 60، 90، 120 سیکنڈ یا ٹائمر آف کا انتخاب کرتا ہے۔',
-    badge: 'RULES 8 & 11: BONUSES & TIMER',
-    color: '#2dd4bf'
+    icon: '👑',
+    title: 'Centre Home Bonus',
+    desc: 'Moving a token into the centre home requires an exact roll and rewards you with an extra turn. Reaching the centre home counts toward victory, though reaching the coloured home path is already enough to win.',
+    urduDesc: 'Centre home mein dakhil hone ke liye exact dice number chahiye hota hai aur is par extra baari milti hai. Jeetne ke liye centre home pohanchna zaroori nahi, rangeen home path hi kaafi hai.',
+    badge: 'GUIDE 8: CENTRE HOME BONUS',
+    color: '#f97316'
   },
   {
     id: 9,
+    icon: '✨7',
+    title: 'Lucky 7',
+    desc: 'If none of your tokens are on the open track (all are in base, on your coloured home path, or in centre home), rolling a total of 7 counts as 6+6 and gives you an extra turn so two tokens can leave base together.',
+    urduDesc: 'Agar open track par aap ka koi bhi token na ho, to dono dice ka total 7 aane par woh 6+6 ban jata hai aur extra baari bhi milti hai, jis se do tokens aik sath base se bahar aa sakte hain.',
+    badge: 'GUIDE 9: LUCKY 7',
+    color: '#eab308'
+  },
+  {
+    id: 10,
+    icon: '🌟',
+    title: 'Lucky Wish',
+    desc: 'Before the match, choose two dice numbers (6 and 6 is not allowed). Once per match on any turn, tap the Golden Star to roll those exact two numbers instead of a random roll.',
+    urduDesc: 'Match shuru hone se pehle apni pasand ke do dice numbers chunein (6 aur 6 ki ijazat nahi). Poore match mein aik baar kisi bhi baari par Golden Star daba kar wahi do numbers hasil kiye ja sakte hain.',
+    badge: 'GUIDE 10: LUCKY WISH',
+    color: '#a855f7'
+  },
+  {
+    id: 11,
+    icon: '⏳',
+    title: 'Turn Timer',
+    desc: 'The room host chooses the optional turn timer before play: 60, 90, or 120 seconds, or turns it off completely. When the timer is active and runs out, your turn automatically passes to the next player.',
+    urduDesc: 'Room host match ke liye 60, 90, ya 120 seconds ka turn timer set karta hai ya isay off rakh sakta hai. Waqt khatam hone par baari khud-bakhud agle khilari ko chali jati hai.',
+    badge: 'GUIDE 11: TURN TIMER',
+    color: '#14b8a6'
+  },
+  {
+    id: 12,
     icon: '🏁',
     title: 'How the Match Ends',
-    desc: 'The match ends as soon as a player wins. The other players are ranked by the progress percentage shown on the progress bar. Once a winner is decided there is nothing left to play for, so every other player aims to win or to stop the winner.',
-    urduDesc: 'جیسے ہی کوئی کھلاڑی جیتتا ہے، میچ فوراً ختم ہو جاتا ہے۔ باقی کھلاڑیوں کی درجہ بندی پروگریس بار کے فیصد سے ہوتی ہے۔',
-    badge: 'RULE 12: END OF MATCH',
+    desc: 'The match ends immediately as soon as one player wins. Remaining players are ranked by the percentage on the progress bar. Because play stops the instant someone wins, every rival fights to win or stop the leader.',
+    urduDesc: 'Jaise hi koi aik khilari jeetta hai, match foran khatam ho jata hai. Baqi khilariyon ki ranking progress bar ke percentage se tay hoti hai, is liye har khilari jeetne ya leader ko rokne ki koshish karta hai.',
+    badge: 'GUIDE 12: END OF MATCH',
     color: '#ec4899'
   }
 ];
@@ -165,32 +192,34 @@ export const HowToPlayModal: React.FC<HowToPlayModalProps> = ({
 
   return (
     <div 
-      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-900/35 backdrop-blur-sm animate-fadeIn"
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/75 backdrop-blur-sm animate-fadeIn"
       role="dialog"
       aria-modal="true"
       aria-labelledby="guide-main-title"
+      onClick={onClose}
     >
-      {/* Frosted Glass Modal Container */}
+      {/* Midnight Black Frosted Glass Modal Container */}
       <div 
         id="tutorial-modal-container"
-        className="relative w-full max-w-xl rounded-3xl bg-white/55 backdrop-blur-2xl border-2 p-5 sm:p-8 shadow-2xl overflow-hidden flex flex-col justify-between min-h-[520px] transition-all duration-300"
+        onClick={(e) => e.stopPropagation()}
+        className="relative w-full max-w-xl rounded-3xl bg-[#02070A]/94 backdrop-blur-2xl border-2 p-5 sm:p-8 shadow-2xl overflow-hidden flex flex-col justify-between min-h-[520px] transition-all duration-300 text-slate-100"
         style={{
           borderColor: slide.color,
-          boxShadow: `0 0 50px -10px ${slide.color}45, 0 20px 40px -15px rgba(15, 23, 42, 0.3)`,
+          boxShadow: `0 0 50px -10px ${slide.color}55, 0 20px 45px -15px rgba(0, 0, 0, 0.88)`,
         }}
       >
         {/* Header Bar */}
-        <div className="relative z-10 flex items-center justify-between gap-3 border-b border-white/70 pb-3">
+        <div className="relative z-10 flex items-center justify-between gap-3 border-b border-[#0297DE]/30 pb-3">
           <div className="flex items-center gap-2">
-            <span className="p-1.5 rounded-lg bg-white/50 border border-[#0077be]/60 text-[#0077be]">
+            <span className="p-1.5 rounded-lg bg-[#05121d] border border-[#0297DE]/70 text-[#0297DE]">
               <BookOpen className="w-4 h-4" />
             </span>
             <div>
-              <h2 id="guide-main-title" className="text-xs sm:text-sm font-['Chakra_Petch'] font-black uppercase tracking-wider text-slate-950">
+              <h2 id="guide-main-title" className="text-xs sm:text-sm font-['Chakra_Petch'] font-black uppercase tracking-wider text-white">
                 Official How to Play Guide
               </h2>
-              <div className="text-[10px] font-mono font-bold text-[#0077be]">
-                SLIDE {currentSlide + 1} OF {TUTORIAL_SLIDES.length}
+              <div className="text-[10px] font-mono font-bold text-[#FC734D]">
+                GUIDE {currentSlide + 1} OF {TUTORIAL_SLIDES.length}
               </div>
             </div>
           </div>
@@ -198,21 +227,24 @@ export const HowToPlayModal: React.FC<HowToPlayModalProps> = ({
           <div className="flex items-center gap-2">
             <button
               id="guide-skip-btn"
+              type="button"
               onClick={() => {
                 sound.playClick(300);
                 onClose();
               }}
-              className="text-[11px] font-mono font-black uppercase tracking-wider px-2.5 py-1 rounded-md bg-white/45 hover:bg-white/70 border border-white/80 text-slate-900 hover:text-black transition-colors cursor-pointer"
+              className="min-h-[40px] text-xs sm:text-sm font-mono font-black uppercase tracking-wider px-3.5 py-1.5 rounded-xl bg-[#05121d] hover:bg-[#081f30] border border-[#FC734D]/70 text-[#FC734D] hover:text-white transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0297DE]"
             >
-              SKIP
+              Skip
             </button>
             <button
+              type="button"
               onClick={() => {
                 sound.playClick(300);
                 onClose();
               }}
-              className="p-1.5 rounded-lg bg-white/45 hover:bg-white/70 border border-white/80 text-slate-900 hover:text-black transition-colors cursor-pointer"
+              className="min-h-[40px] min-w-[40px] p-2 rounded-xl bg-[#05121d] hover:bg-[#081f30] border border-[#0297DE]/40 text-slate-200 hover:text-white transition-colors cursor-pointer inline-flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0297DE]"
               title="Close Guide"
+              aria-label="Close Guide"
             >
               <X className="w-4 h-4" />
             </button>
@@ -221,14 +253,8 @@ export const HowToPlayModal: React.FC<HowToPlayModalProps> = ({
 
         {/* Dynamic Slider Content Box */}
         <div id="tutorial-slider" className="relative z-10 my-auto py-4 text-center">
-          {/* Badge — Black Font on Slide Color */}
-          <div
-            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md text-[10px] font-mono font-black tracking-widest uppercase mb-4 shadow-xs transition-colors duration-500"
-            style={{
-              color: '#000000',
-              backgroundColor: slide.color,
-            }}
-          >
+          {/* Badge — Silver Background + Black Font */}
+          <div className="dice-silver-badge inline-flex items-center gap-1.5 px-3 py-1 rounded-md text-[10px] font-mono font-black tracking-widest uppercase mb-4">
             <Sparkles className="w-3 h-3" />
             <span>{slide.badge}</span>
           </div>
@@ -236,10 +262,10 @@ export const HowToPlayModal: React.FC<HowToPlayModalProps> = ({
           {/* Slide Icon Presentation */}
           <div className="mb-4">
             <div 
-              className="w-20 h-20 sm:w-24 sm:h-24 mx-auto rounded-3xl bg-white/40 backdrop-blur-md border-2 flex items-center justify-center text-3xl sm:text-4xl shadow-md transition-all duration-500 transform hover:scale-105"
+              className="w-20 h-20 sm:w-24 sm:h-24 mx-auto rounded-3xl bg-[#05121d]/85 backdrop-blur-md border-2 flex items-center justify-center text-3xl sm:text-4xl shadow-md transition-all duration-500 transform hover:scale-105"
               style={{
                 borderColor: slide.color,
-                boxShadow: `0 0 25px ${slide.color}35`
+                boxShadow: `0 0 25px ${slide.color}40`
               }}
             >
               <span className="select-none">
@@ -249,32 +275,32 @@ export const HowToPlayModal: React.FC<HowToPlayModalProps> = ({
           </div>
 
           {/* Slide Title */}
-          <h3 className="text-xl sm:text-2xl font-black font-['Chakra_Petch'] text-slate-950 uppercase tracking-wide mb-3">
+          <h3 className="text-xl sm:text-2xl font-black font-['Chakra_Petch'] text-white uppercase tracking-wide mb-3">
             {slide.title}
           </h3>
 
           {/* English Description */}
-          <p className="text-slate-900 text-xs sm:text-sm max-w-md mx-auto leading-relaxed font-['Outfit'] font-medium mb-3 min-h-[50px]">
+          <p className="text-slate-200 text-xs sm:text-sm max-w-md mx-auto leading-relaxed font-['Outfit'] font-medium mb-3 min-h-[50px]">
             "{slide.desc}"
           </p>
 
-          {/* Urdu / Bilingual Helpful Translation */}
+          {/* Roman Urdu Helpful Translation */}
           <div 
-            lang="ur" 
-            dir="rtl"
-            className="max-w-md mx-auto px-3 py-2 rounded-xl bg-white/40 backdrop-blur-sm border border-white/80 text-xs text-slate-950 font-bold font-sans leading-relaxed"
+            lang="ur-Latn" 
+            dir="ltr"
+            className="max-w-md mx-auto px-3.5 py-2.5 rounded-xl bg-[#05121d]/80 backdrop-blur-sm border border-[#0297DE]/35 text-xs text-slate-100 font-bold font-['Outfit'] leading-relaxed"
           >
             {slide.urduDesc}
           </div>
         </div>
 
         {/* Navigation Bar (Prev, Dots, Next) */}
-        <div className="relative z-10 pt-3 border-t border-white/70">
+        <div className="relative z-10 pt-3 border-t border-[#0297DE]/30">
           <div className="tutorial-nav flex items-center justify-between gap-2 mb-4">
             <button
               id="tutorial-prev"
               onClick={handlePrev}
-              className="nav-btn p-2 sm:px-3 sm:py-2 rounded-xl bg-white/45 hover:bg-white/75 border border-white/80 text-slate-950 transition-colors cursor-pointer flex items-center gap-1 font-mono text-xs font-black"
+              className="nav-btn p-2 sm:px-3 sm:py-2 rounded-xl bg-[#05121d] hover:bg-[#081f30] border border-[#0297DE]/40 text-slate-100 transition-colors cursor-pointer flex items-center gap-1 font-mono text-xs font-black"
               title="Previous Slide"
             >
               <ChevronLeft className="w-4 h-4" />
@@ -292,8 +318,8 @@ export const HowToPlayModal: React.FC<HowToPlayModalProps> = ({
                     aria-label={`Go to slide ${index + 1}`}
                     className={`dot rounded-full transition-all duration-300 cursor-pointer ${
                       isActive 
-                        ? 'w-7 sm:w-8 h-2 bg-cyan-400 shadow-[0_0_10px_#22d3ee]' 
-                        : 'w-2 h-2 bg-slate-700 hover:bg-slate-500'
+                        ? 'w-7 sm:w-8 h-2 bg-[#0297DE] shadow-[0_0_10px_rgba(2,151,222,0.8)]' 
+                        : 'w-2 h-2 bg-slate-600 hover:bg-slate-400'
                     }`}
                   />
                 );
@@ -303,7 +329,7 @@ export const HowToPlayModal: React.FC<HowToPlayModalProps> = ({
             <button
               id="tutorial-next"
               onClick={handleNext}
-              className="nav-btn p-2 sm:px-3 sm:py-2 rounded-xl bg-white/45 hover:bg-white/75 border border-white/80 text-slate-950 transition-colors cursor-pointer flex items-center gap-1 font-mono text-xs font-black"
+              className="nav-btn p-2 sm:px-3 sm:py-2 rounded-xl bg-[#05121d] hover:bg-[#081f30] border border-[#0297DE]/40 text-slate-100 transition-colors cursor-pointer flex items-center gap-1 font-mono text-xs font-black"
               title="Next Slide"
             >
               <span className="hidden sm:inline">NEXT</span>
@@ -315,9 +341,9 @@ export const HowToPlayModal: React.FC<HowToPlayModalProps> = ({
           <div className="flex items-center justify-between gap-3">
             <button
               onClick={handleToggleAutoPlay}
-              className="text-[11px] font-mono font-bold text-slate-800 hover:text-black transition-colors cursor-pointer flex items-center gap-1.5"
+              className="text-[11px] font-mono font-bold text-slate-300 hover:text-white transition-colors cursor-pointer flex items-center gap-1.5"
             >
-              <span className={`w-2 h-2 rounded-full ${isAutoPlaying ? 'bg-emerald-600' : 'bg-slate-500'}`} />
+              <span className={`w-2 h-2 rounded-full ${isAutoPlaying ? 'bg-[#FC734D]' : 'bg-slate-500'}`} />
               <span>{isAutoPlaying ? 'Autoplay On (5s)' : 'Autoplay Paused'}</span>
             </button>
 
@@ -328,10 +354,10 @@ export const HowToPlayModal: React.FC<HowToPlayModalProps> = ({
                 onClose();
                 if (onExploreRules) onExploreRules();
               }}
-              className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-black text-xs font-mono tracking-wider flex items-center gap-2 transition-all shadow-[0_0_20px_rgba(6,182,212,0.4)] cursor-pointer"
+              className="px-5 py-2.5 rounded-xl bg-[#FC734D] hover:bg-[#ff8866] text-[#02070A] font-black text-xs font-mono tracking-wider flex items-center gap-2 transition-all shadow-[0_0_20px_rgba(252,115,77,0.48)] cursor-pointer"
             >
               <BookOpen className="w-3.5 h-3.5" />
-              <span>EXPLORE 12 RULES</span>
+              <span>VIEW ALL DETAILS</span>
             </button>
           </div>
         </div>

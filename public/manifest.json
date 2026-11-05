@@ -1,0 +1,30 @@
+{
+  "name": "Ludo Dethroned 5 Way & 4 Way Two Dice",
+  "short_name": "Ludo Dethroned",
+  "description": "Play Ludo Dethroned: The 5-Way & 4-Way Two Dice strategy board game. Master anti-leader mechanics, dual-dice tactical split, and competitive warfare rules.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#02070A",
+  "theme_color": "#02070A",
+  "orientation": "any",
+  "categories": ["games", "entertainment", "strategy"],
+  "icons": [
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

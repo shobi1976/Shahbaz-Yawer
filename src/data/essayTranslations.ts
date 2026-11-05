@@ -8,7 +8,7 @@ export interface LanguageOption {
 
 export const TOP_15_LANGUAGES: LanguageOption[] = [
   { code: 'en', name: 'English', nativeName: 'English', flag: '🇬🇧', dir: 'ltr' },
-  { code: 'ur', name: 'Urdu', nativeName: 'اردو', flag: '🇵🇰', dir: 'rtl' },
+  { code: 'ur', name: 'Urdu', nativeName: 'Roman Urdu', flag: '🇵🇰', dir: 'ltr' },
   { code: 'hi', name: 'Hindi', nativeName: 'हिन्दी', flag: '🇮🇳', dir: 'ltr' },
   { code: 'ar', name: 'Arabic', nativeName: 'العربية', flag: '🇸🇦', dir: 'rtl' },
   { code: 'es', name: 'Spanish', nativeName: 'Español', flag: '🇪🇸', dir: 'ltr' },
@@ -100,56 +100,56 @@ export const ESSAY_TRANSLATIONS: Record<string, EssayTranslation> = {
     ]
   },
 
-  // Urdu (Original Literary Masterpiece)
+  // Roman Urdu (Complete Literary Edition)
   ur: {
-    part1Title: "حصہ اول: افسانہ نہیں، انسان کی برہنہ جبلت: \"جیتنے والے کو میچ مت جیتنے دو\"",
-    part1Subtitle: "مروجہ لڈو (Ludo King وغیرہ) کا بے باک تقابلی جائزہ، فلسفہ، اور تفصیلی قوانین",
-    part1Body1: "لوگ کہتے ہیں کہ لڈو محض بچوں کا کھیل ہے؛ پتے کی رنگین گوٹیاں، لکڑی یا گتے کا چوکور تختہ، اور ایک ننھا سا دانہ جس کے چھ چہرے ہیں۔ میں کہتا ہوں، یہ سفید جھوٹ ہے۔ تم نے انسان کو تب تک پہچانا ہی نہیں جب تک تم نے اسے تختۂ بساط پر اپنے ہی بھائی، اپنے ہی یار کا گلا گھونٹتے نہیں دیکھا۔",
-    part1Body2: "روایتی لڈو — جسے آج کل کے بابو لوگ موبائلوں میں 'لڈو کنگ' کہہ کر انگلیاں رگڑتے ہیں — ایک افیونی تماشا ہے۔ چار خانے، ایک دوسرے کے آمنے سامنے بیٹھے چار مسکین، قسمت کے آگے ہاتھ پھیلائے دانہ پھینکتے ہیں: \"یا قسمت، چھکا دے دے!\" اگر چھکا آ گیا تو گوٹی سرک گئی، نہ آیا تو بیٹھے مکھیاں مار رہے ہیں۔ تین چھکے آ گئے تو حاکمِ وقت نے فیصلہ سنا دیا: \"تمہارا تیسرا چھکا ضبط!\" یہ لڈو نہیں تھا، یہ تقدیر کے آگے انسان کی بے بسی کا ماتم تھا۔",
-    part1Body3: "لیکن \"لڈو ڈیتھرونڈ 5 وے اینڈ 4 وے\"؟ یہ کوئی کھیل نہیں، یہ انسانی سرشت کا ننگا بازار ہے۔ یہاں 5 وے اور 4 وے میدان ہیں۔ چوکور قید ٹوٹ چکی ہے۔ اور سب سے بڑا کفر، جس پر لڈو کے پرانے پجاری دانت پیسیں گے، وہ ہمارا اصول ہے: \"DON'T LET THE WINNER WIN THE MATCH\" — جیتنے والے کو میچ مت جیتنے دو!",
-    part1Body4: "سنو! دنیا کا سب سے بڑا مجرم وہ ہوتا ہے جو سب سے پہلے کامیابی کے برج پر چڑھنے کی کوشش کرتا ہے۔ معاشرہ کمزور کو کچھ نہیں کہتا، مگر جو آگے بڑھتا ہے، باقی چاروں کی آنکھوں میں خون اتر آتا ہے۔ یہی سچائی ہے۔ جب ایک گوٹی لال قلعے کی فصیل کے قریب پہنچتی ہے، تو باقی چاروں کھلاڑی — جو ایک دوسرے کے جانی دشمن تھے — خاموش نظروں سے ایک دوسرے سے مصافحہ کرتے ہیں۔ ان کے پانسے ایک ہو جاتے ہیں، ان کی نیتیں ایک ہو جاتی ہیں۔ وہ کہتے ہیں: \"اسے گراؤ! اسے گھسیٹ کر واپس اڈے پر پھینکو!\"",
-    part2Title: "حصہ دوم: روایتی گیمز کی بوریت اور لڈو ڈیتھرونڈ کا انقلاب",
-    part2Subtitle: "وکٹورین فرسودگی کا خاتمہ: 90 سیکنڈز کے ہیجان خیز مقابلے",
-    part2Body1: "سچ بتائیے، آخری بار کب کسی موبائل بورڈ گیم نے آپ کی ہتھیلیاں پسینے سے تر کی تھیں؟ کب ایسا ہوا کہ چار کھلاڑی مل کر آپ کا پورا ہفتہ برباد کرنے کی سازشیں کر رہے ہوں اور آپ ہنس بھی رہے ہوں اور تلملا بھی رہے ہوں؟ روایتی لڈو میں ایک دانہ ہے، جو گرا اسی پر رینگے۔ کوئی آگے نکل گیا تو باقی منہ تکتے رہ جاتے ہیں۔ یہ مقابلہ نہیں، اسکرین سیور ہے۔",
-    part2Body2: "لڈو ڈیتھرونڈ 5 وے اینڈ 4 وے کا اصول نعرہ نہیں، پروڈکٹ کا انجن ہے: \"جیتنے والے کو مت جیتنے دو!\" انسانوں کو کسی آگے نکلنے والے کے خلاف جتنی جلدی متحد کیا جا سکتا ہے، اتنی جلدی دنیا کی کوئی طاقت انہیں ایک نہیں کر سکتی۔ جب لیڈر کے ماتھے پر نشانہ لگ جائے اور باقی چاروں کو پٹخنی دینے والے ہتھیار مل جائیں، تو یہ محض گیم نہیں رہتی—یہ ہر 90 سیکنڈ میں برپا ہونے والا المیہ اور ڈراما بن جاتی ہے۔",
-    part3Title: "حصہ سوم: کھیل کا تفصیلی تعارف، مقاصد، اور تمام قوانین",
-    coreAimTitle: "کھیل کا بنیادی مقصد و فلسفہ",
-    coreAimText: "ظاہری مقصد اپنی تمام 4 شاہی گوٹیوں کو 5 وے اور 4 وے کے سنسنی خیز راستوں سے گزار کر اپنے رنگین ہوم پاتھ میں پہنچانا ہے۔ لیکن اصل باطنی مقصد یہ ہے: \"جو جیت رہا ہو، اسے ہرگز جیتنے نہ دیا جائے!\" آخری گوٹی تک بازی کسی بھی وقت 180 ڈگری الٹ سکتی ہے۔",
-    tenRulesTitle: "لڈو ڈیتھرونڈ 5 وے اینڈ 4 وے کے 12 بنیادی قوانین",
+    part1Title: "Hissa Awwal: Afsana Nahi, Insaan Ki Khuli Fitri Jibillat: \"Jeetne Wale Ko Match Mat Jeetne Do\"",
+    part1Subtitle: "Rawayati Ludo (Ludo King Waghera) Ka Bebaak Taqabuli Jaiza, Falsafa, Aur Tafseeli Qawaneen",
+    part1Body1: "Log kehte hain ke Ludo mehez bachon ka khel hai; rangeen gotiyan, lakri ya gattay ka chaukor takhta, aur aik nanha sa daana jis ke chhe chehre hain. Main kehta hoon, yeh safaid jhoot hai. Tum ne insaan ko tab tak pehchana hi nahi jab tak tum ne usay takhta-e-bisaat par apne hi bhai, apne hi yaar ka gala ghont-te nahi dekha.",
+    part1Body2: "Rawayati Ludo — jise aaj kal ke log mobile mein 'Ludo King' keh kar ungliyan ragarte hain — aik afyooni tamasha hai. Chaar khane, aik doosre ke aamne saamne baithe chaar miskeen, qismat ke aage haath phailaye daana phenkte hain: \"Ya qismat, chhakka de de!\" Agar chhakka aa gaya to goti sarak gayi, na aaya to baithe makhiyan maar rahe hain. Teen chhakke aa gaye to faisla suna diya: \"Tumhara teesra chhakka zabt!\" Yeh Ludo nahi tha, yeh taqdeer ke aage insaan ki bebasi ka matam tha.",
+    part1Body3: "Lekin \"Ludo Dethroned 5 Way & 4 Way Two Dice\"? Yeh koi mamooli khel nahi, yeh insaani sirisht ka khula maidan hai. Yahan 5 Way aur 4 Way maidan hain. Chaukor qaid toot chuki hai. Aur sab se bara usool, jis par purane khilari hairan reh jayenge, woh hamara bunyadi qanoon hai: \"DON'T LET THE WINNER WIN THE MATCH\" — Jeetne wale ko match mat jeetne do!",
+    part1Body4: "Suno! Maidan mein sab se bara nishana woh banta hai jo sab se pehle kamyabi ki manzil par charhne ki koshish karta hai. Jab koi peeche ho to koi parwah nahi karta, magar jo aage barhta hai, baqi chaaron ki nazrein us par jam jati hain. Yahi sachai hai. Jab aik goti apne rangeen home path ke qareeb pohanchti hai, to baqi chaaron khilari — jo aik doosre ke hareef the — khamosh ishare se muttahid ho jate hain. Un ke paanse aik ho jate hain, un ka maqsad aik ho jata hai: \"Is leader ko roko aur kheench kar wapas base bhejo!\"",
+    part2Title: "Hissa Dom: Rawayati Games Ki Boriyat Aur Ludo Dethroned Ka Inqilaab",
+    part2Subtitle: "Purani Sust Ravi Ka Khatma: 90 Seconds Ke Sansani Khez Muqable",
+    part2Body1: "Sach batayiye, aakhri baar kab kisi mobile board game ne aap ki hatheliyan paseene se tar ki theen? Kab aisa hua ke chaar khilari mil kar aap ki baazi palatne ki tadbeerein kar rahe hon aur aap hans bhi rahe hon aur muqabla bhi kar rahe hon? Rawayati Ludo mein aik daana hai, jo gira usi par chalna majboori hai. Koi aage nikal gaya to baqi munh takte reh jate hain. Yeh muqabla nahi, screensaver hai.",
+    part2Body2: "Ludo Dethroned 5 Way & 4 Way ka usool sirf naara nahi, game ka engine hai: \"Jeetne wale ko mat jeetne do!\" Insaanon ko kisi aage nikalne wale leader ke khilaf jitni jaldi muttahid kiya ja sakta hai, utni jaldi koi aur cheez unhein aik nahi kar sakti. Jab leader par nishana lag jaye aur baqi khilariyon ko double dice ke hathyar mil jayein, to yeh mehez game nahi rehti — yeh har 90 second mein barpa hone wala sansani khez drama ban jati hai.",
+    part3Title: "Hissa Som: Khel Ka Tafseeli Taaruf, Maqasid, Aur Tamam Qawaneen",
+    coreAimTitle: "Khel Ka Bunyadi Maqsad O Falsafa",
+    coreAimText: "Zahiri maqsad apni tamam 4 shahi gotiyon ko 5 Way aur 4 Way ke sansani khez raston se guzaar kar apne rangeen home path mein pohanchana hai. Lekin asal maqsad yeh hai: \"Jo jeet raha ho, usay hargiz jeetne na diya jaye!\" Aakhri goti tak baazi kisi bhi waqt 180 degree palat sakti hai.",
+    tenRulesTitle: "Ludo Dethroned 5 Way & 4 Way Ke 12 Bunyadi Qawaneen",
     rules: [
-      { num: 1, title: "5 وے اینڈ 4 وے میدانِ جنگ", desc: "بورڈ میں 5 وے اور 4 وے موڈز موجود ہیں (Red, Green, Yellow, Blue, Orange)۔ غیر متوقع کونوں سے حملہ آور پہنچ جاتا ہے۔" },
-      { num: 2, title: "ڈوئل ڈائس فیصلہ سازی (Split Movement)", desc: "ہر موڑ پر 2 پانسے گھومتے ہیں۔ فیصلہ کھلاڑی کا ہے کہ دونوں نمبر ایک گوٹی پر چلائے یا دو گوٹیوں میں تقسیم کر کے بیک وقت حملہ اور دفاع کرے۔" },
-      { num: 3, title: "تین چھکوں کی کوئی قید نہیں", desc: "روایتی لڈو کا تیسرے چھکے پر باری منسوخ کرنے کا بیہودہ اصول ختم! جب تک چھکے آ رہے ہیں، دوڑتے رہیے۔" },
-      { num: 4, title: "رول آف سیون — لکی 7 بونس", desc: "دونوں ڈائس کا مجموعہ 7 بنے (4+3، 5+2، 6+1) تو جادوئی گھنٹی بجتی ہے اور وہ فوری طور پر ڈبل چھکے (6+6=12) اور مفت اضافی باری میں تبدیل ہو جاتا ہے۔" },
-      { num: 5, title: "مسڈ کیپچر پینالٹی (بزدلی کی سزا)", desc: "اگر سامنے موجود گوٹی کاٹنے کا موقع ملا لیکن بزدلی یا غفلت سے دوسری گوٹی چلی، تو جس گوٹی نے شکار چھوڑا تھا وہ خود بخود مر کر اڈے واپس چلی جائے گی!" },
-      { num: 6, title: "لکی وش (مقدر کا خفیہ وار)", desc: "میچ سے پہلے منتخب کردہ دو خفیہ نمبرز۔ پورے میچ میں ایک بار گولڈن اسٹار دبا کر یہ من چاہا نمبر حاصل کیا جا سکتا ہے۔" },
-      { num: 7, title: "اے آئی کا متحرک شکار (Leader-Targeting)", desc: "کمپیوٹر باٹس اندھے نہیں ہیں۔ getMatchLeader() ہر لمحے لیڈر کا تعاقب کرتا ہے اور چاروں باٹس سب کچھ چھوڑ کر لیڈر کی گوٹی کاٹنے لپکتے ہیں۔" },
-      { num: 8, title: "رائل ٹرن ٹائمر (90 سیکنڈز)", desc: "ہر باری کے لیے 90 سیکنڈ کا اسمارٹ ٹائمر۔ وقت ختم ہوتے ہی باری خودبخود اگلے کھلاڑی کو منتقل ہو جاتی ہے۔" },
-      { num: 9, title: "متحرک رہنمائی (سنہری ہاتھ 👇)", desc: "جادوئی ہاتھ ہمیشہ پانسے اور ہر ممکنہ قانونی چال کے خانوں کی نشاندہی کرتا ہے تاکہ کوئی غلطی نہ ہو۔" },
-      { num: 10, title: "ریئل ٹائم سوشل چیٹ اور وائس رومز", desc: "کھلاڑی کی تختی پر کلک کر کے فوری وائس میسج یا کسٹم چیٹ بھیجی جا سکتی ہے۔ لائیو 5 سیٹوں والے کسٹم لاؤنجز۔" }
+      { num: 1, title: "5 Way & 4 Way Maidan-e-Jang", desc: "Board mein 5 Way aur 4 Way modes mojood hain (Red, Green, Yellow, Blue, Orange). Ghair mutawaqqa konon se hamla aawar pohanch jata hai." },
+      { num: 2, title: "Dual Dice Faisla Saazi (Split Movement)", desc: "Har baari par 2 paanse ghoomte hain. Faisla khilari ka hai ke dono numbers aik goti par chalaye ya do alag gotiyon mein taqseem kar ke hamla aur difa aik sath kare." },
+      { num: 3, title: "Teen Chhakkon Ki Koi Qaid Nahi", desc: "Rawayati Ludo ka teesre chhakke par baari mansookh karne ka usool khatam! Jab tak chhakke aa rahe hain, aage barhte rahiye." },
+      { num: 4, title: "Lucky 7 Bonus Ka Jadoo", desc: "Agar open track par koi token na ho aur dono dice ka majmooa 7 bane (4+3, 5+2, 6+1), to woh foran double chhakke (6+6) aur muft extra baari mein tabdeel ho jata hai." },
+      { num: 5, title: "Missed Capture Penalty (Shikaar Chhorne Ki Saza)", desc: "Agar open track par saamne mojood goti kaatne ka mauqa mila lekin aap ne capture kiye baghair baari khatam ki, to jis goti ne shikaar chhora tha woh khud wapas base chali jayegi!" },
+      { num: 6, title: "Lucky Wish (Muqaddar Ka Khufiya Waar)", desc: "Match se pehle muntakhib karda do khufiya numbers (6 aur 6 ke ilawa). Poore match mein aik baar Golden Star daba kar yeh man-chaha roll hasil kiya ja sakta hai." },
+      { num: 7, title: "AI Ka Mutaharrik Shikaar (Leader-Targeting)", desc: "Computer bots andhe nahi hain. getMatchLeader() har lamhe leader ka taaqub karta hai aur tamam bots sab kuch chhor kar leader ki goti kaatne lapakte hain." },
+      { num: 8, title: "Royal Turn Timer (60, 90, 120 Seconds Ya Off)", desc: "Room host har baari ke liye 60, 90, ya 120 second ka smart timer lagata hai ya off rakhta hai. Waqt khatam hote hi baari agle khilari ko muntakil ho jati hai." },
+      { num: 9, title: "Mutaharrik Rehnumai (Sunehri Haath 👇)", desc: "Jadooi sunehri haath hamesha paanse aur har mumkin qanooni chaal ke khano ki nishandahi karta hai taake koi ghalti na ho." },
+      { num: 10, title: "Real-Time Social Chat Aur Voice Rooms", desc: "Khilari ke naam par click kar ke fori voice taunt ya custom chat bheji ja sakti hai. Live 5 Way aur 4 Way custom lounges mojood hain." }
     ],
-    part5Title: "حصہ چہارم: ابھرتے ہوئے سوالات اور ان کے جوابات (FAQs)",
+    part5Title: "Hissa Chaharum: Ahem Sawalaat Aur Un Ke Jawabaat (FAQs)",
     faqs: [
-      { q: "تھیم کا نام 'DON'T LET THE WINNER WIN' کیوں رکھا گیا؟ کیا یہ منفی رویہ نہیں؟", a: "منافقت چھوڑیے صاحب! کیا جب آپ کسی کو جیتتے دیکھتے ہیں تو دل میں یہ خواہش نہیں ہوتی کہ کاش اس کا پانسہ الٹا پڑ جائے؟ یہ منفی رویہ نہیں، یہ انسان کا ازلی سچ ہے۔ اگر کھیل میں آگے نکلنے والے کو گرانے کا حق نہ ہو تو وہ کھیل نہیں، فاتح کی تاجپوشی کی تقریب ہے۔ ہم نے بس اس خواہش کو قانون بنا دیا ہے۔" },
-      { q: "اگر دو پانسے ہیں، تو کیا گیم بہت جلدی ختم نہیں ہو جائے گی؟", a: "قطعی نہیں۔ کیونکہ بورڈ پر اب 4 کے بجائے 5 کھلاڑی ہیں، یعنی 20 گوٹیاں ایک دوسرے کے خون کی پیاسی گھوم رہی ہیں۔ ڈبل ڈائس آپ کو تیز دوڑنے کی طاقت دیتا ہے، تو ساتھ ہی باقی چار کھلاڑیوں کو آپ پر جھپٹنے کے دگنے مواقع فراہم کرتا ہے۔" },
-      { q: "کیا 'مسڈ کیپچر پینالٹی' نئے کھلاڑیوں کے ساتھ ناانصافی نہیں؟", a: "بالکل نہیں! یہ قانون کھیل کو تماشائیوں کی سستی سے نکال کر شطرنج جیسی چوکنا توجہ دیتا ہے۔ اگر آپ اسکرین پر دھیان نہیں دیں گے اور حریف کو رعایت دیں گے، تو آپ کا اپنا پیادہ قتل ہو گا۔ یہی قانون کھیل کو سنسنی خیز بناتا ہے۔" },
-      { q: "لکی 7 بونس کیسے کام کرتا ہے؟", a: "جب بھی دونوں پانسوں کے پوائنٹس مل کر 7 بنیں (جیسے 4+3، 5+2، 6+1)، سسٹم اسے روایتی 7 کے بجائے فوری طور پر 6+6 (12) کر دیتا ہے اور ساتھ ہی ایک مفت اضافی باری بھی دیتا ہے۔ یہ پیچھے رہ جانے والے کھلاڑیوں کے لیے بازی پلٹنے کا شاہکار ہتھیار ہے۔" },
-      { q: "کمپیوٹر (AI) جیتنے والے کو کیسے پہچانتا ہے؟", a: "گیم کا الگورتھم ہر موڑ پر تمام کھلاڑیوں کے اسکور (پاتھ پر پوزیشن اور گھر پہنچنے والی گوٹیوں) کا تجزیہ کرتا ہے۔ جو کھلاڑی سب سے زیادہ پوائنٹس کے ساتھ جیت کی دہلیز پر ہوتا ہے، تمام AI باٹس اسے اپنا 'پرائمری ٹارگٹ' منتخب کر لیتے ہیں اور ان کی چالیں لیڈر کے گرد گھیرا تنگ کر دیتی ہیں۔" }
+      { q: "Theme ka naam 'DON'T LET THE WINNER WIN' kyun rakha gaya?", a: "Sach sochiye! Jab aap kisi hareef ko jeet ke qareeb dekhte hain to kya dil mein yeh khwahish nahi hoti ke us ka paansa ruk jaye? Agar khel mein aage nikalne wale ko rokne ka haq na ho to woh muqabla nahi, sirf rasmi tajposhi hai. Hum ne is jazbe ko behtareen strategy qanoon bana diya hai." },
+      { q: "Agar do paanse hain, to kya game bohat jaldi khatam nahi ho jayegi?", a: "Hargiz nahi. Kyunke 5 khilariyon ke sath 20 gotiyan maidan mein ghoom rahi hoti hain. Double dice aap ko tez chalne ki taqat deta hai, to sath hi baqi khilariyon ko aap par hamla karne ke dugne mawaqe bhi faraham karta hai." },
+      { q: "Kya 'Missed Capture Penalty' naye khilariyon ke liye sakht nahi?", a: "Bilkul nahi! Yeh qanoon khel ko susti se nikal kar shatranj jaisi chaukas tawajjoh deta hai. Agar aap screen par dhiyan nahi denge aur hareef ko chhor denge, to aap ki apni goti base wapas jayegi. Yahi qanoon khel ko sansani khez banata hai." },
+      { q: "Lucky 7 Bonus kaise kaam karta hai?", a: "Jab open track par aap ka koi token na ho aur dono paanson ka total 7 bane (jaise 4+3, 5+2, 6+1), to woh aam 7 ke bajaye foran 6+6 ban jata hai aur sath hi aik muft extra baari bhi deta hai. Yeh peeche reh jane wale khilariyon ke liye baazi palatne ka shandaar hathyar hai." },
+      { q: "Computer (AI) jeetne wale leader ko kaise pehchanta hai?", a: "Game ka algorithm har baari par tamam khilariyon ki progress aur home path mein pohanchne wali gotiyon ka jaiza leta hai. Jo khilari jeet ke sab se qareeb hota hai, tamam AI bots usay apna 'Primary Target' bana lete hain." }
     ],
     tableHeaders: {
-      feature: "خصوصیت",
-      classic: "روایتی لڈو (Ludo King وغیرہ)",
-      dethroned: "لڈو ڈیتھرونڈ 5 وے اینڈ 4 وے (Ludo Dethroned)",
-      commentary: "منٹو کا بے باک تبصرہ"
+      feature: "Khusoosiyat",
+      classic: "Rawayati Ludo (Ludo King Waghera)",
+      dethroned: "Ludo Dethroned 5 Way & 4 Way Two Dice",
+      commentary: "Bebaak Tabsara"
     },
     tableRows: [
-      { feature: "کھلاڑیوں کی تعداد", classic: "4 کھلاڑی (چوکور قید خانہ)", dethroned: "5 وے اینڈ 4 وے میدانِ جنگ", commentary: "چار میں توازن تھا، پانچ میں فتنہ ہے۔ طاق عدد ہمیشہ بغاوت لاتا ہے۔" },
-      { feature: "پانسے (Dice)", classic: "صرف 1 پانسہ (بے دست و پا قسمت)", dethroned: "2 پانسے (حکمت، فریب اور انتخاب)", commentary: "ایک پانسہ غلامی ہے، دو پانسے انسان کی آزاد مرضی ہیں کہ کس کو بچائے، کس کو مارے۔" },
-      { feature: "تین چھکوں کی سزا", classic: "3 چھکے آئے تو باری ضبط", dethroned: "کوئی قید نہیں! جتنا دم ہے چلو!", commentary: "قانون جب انسان کو آگے بڑھنے پر سزا دے، تو وہ قانون گناہ ہے۔ یہاں چھکے پر چھکا برستا ہے۔" },
-      { feature: "سات کا جادو (Lucky 7)", classic: "کوئی وجود نہیں", dethroned: "مجموعہ 7 = ڈبل چھکا (6+6) اور مفت باری", commentary: "قسمت کا دھڑن تختہ! 4+3 آئے یا 5+2، قسمت پلٹ جاتی ہے۔" },
-      { feature: "گوٹی نہ کاٹنے کی سزا", classic: "کوئی پرواہ نہیں", dethroned: "Missed Capture: گوٹی مر کر گھر جائے گی!", commentary: "بزدلی کی کوئی معافی نہیں۔ اگر تم دشمن کو سامنے دیکھ کر رحم کھاؤ گے، تو قدرت تمہیں قتل کر دے گی۔" },
-      { feature: "لکی وش (Lucky Wish)", classic: "صفر", dethroned: "پہلے سے طے شدہ تقدیر (من چاہا نمبر)", commentary: "انسان کا وہ خفیہ کارڈ جو وہ آخری وقت تک جیب میں چھپا کر رکھتا ہے۔" },
-      { feature: "مصنوعی ذہانت (AI)", classic: "روبوٹ کی طرح گھومتی کٹھ پتلی", dethroned: "خونی بھیڑیا — ہمیشہ نمبر 1 کھلاڑی کے پیچھے", commentary: "AI کوئی مشین نہیں، وہ تمہارے حسد کا آئینہ ہے۔ وہ جیتنے والے کو نہیں بخشتا۔" }
+      { feature: "Khilariyon Ki Tadaad", classic: "4 Khilari (Chaukor Daaira)", dethroned: "5 Way & 4 Way Maidan-e-Jang", commentary: "Chaar mein sukoon tha, paanch mein hulchul aur nayi strategy hai." },
+      { feature: "Paanse (Dice)", classic: "Sirf 1 Paansa (Majboor Qismat)", dethroned: "2 Paanse (Hikmat Aur Intikhab)", commentary: "Aik paansa majboori hai; do paanse insaan ki azaad marzi aur strategy hain." },
+      { feature: "Teen Chhakkon Ki Saza", classic: "3 chhakke aaye to baari zabt", dethroned: "Koi qaid nahi! Jitna dam hai chalo!", commentary: "Raftar par pabandi khatam; yahan chhakke par chhakka barasta hai." },
+      { feature: "Saat Ka Jadoo (Lucky 7)", classic: "Koi wajood nahi", dethroned: "Total 7 = Double Chhakka (6+6) + Muft Baari", commentary: "Open track khali ho to 4+3 ya 5+2 aate hi poori baazi palat jati hai." },
+      { feature: "Goti Na Kaatne Ki Saza", classic: "Koi farq nahi parta", dethroned: "Missed Capture: Goti wapas Base jayegi!", commentary: "Ghaflat ki koi maafi nahi. Shikaar chhoro ge to apna token wapas base jayega." },
+      { feature: "Lucky Wish", classic: "Sifar", dethroned: "Pehle Se Tay Shuda Roll (Man-chaha Number)", commentary: "Woh khufiya hukum ka ikka jo aakhri waqt par baazi palat deta hai." },
+      { feature: "Masnooi Zahanat (AI)", classic: "Be-maqsad ghoomti kath-putli", dethroned: "Shikari AI — Hamesha #1 Leader Ke Peeche", commentary: "AI koi sust bot nahi, woh har lamhe leader ko rokne ki tadbeer karta hai." }
     ]
   },
 

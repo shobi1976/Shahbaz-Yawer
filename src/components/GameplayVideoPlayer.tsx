@@ -127,6 +127,20 @@ export const GameplayVideoPlayer: React.FC<GameplayVideoPlayerProps> = ({ hovere
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   const htmlVideoRef = useRef<HTMLVideoElement | null>(null);
   const playerContainerRef = useRef<HTMLDivElement | null>(null);
+  const [isStageVisible, setIsStageVisible] = useState(true);
+
+  useEffect(() => {
+    const node = playerContainerRef.current;
+    if (!node || typeof IntersectionObserver === 'undefined') return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        setIsStageVisible(entries.some((entry) => entry.isIntersecting));
+      },
+      { rootMargin: '150px 0px' }
+    );
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
 
   // Current active event in simulation
   const effectiveTime = currentTime % 12;
@@ -140,11 +154,12 @@ export const GameplayVideoPlayer: React.FC<GameplayVideoPlayerProps> = ({ hovere
     return `${m}:${s < 10 ? '0' : ''}${s}`;
   };
 
-  // Playback timer tick for simulated clip (when no real video is playing)
+  // Playback timer tick for simulated clip (paused automatically when scrolled off-screen or tab hidden)
   useEffect(() => {
-    if (!isPlaying || customVideoUrl || viewMode !== 'video-clip') return;
+    if (!isPlaying || !isStageVisible || customVideoUrl || viewMode !== 'video-clip') return;
 
     const interval = setInterval(() => {
+      if (document.hidden) return;
       setCurrentTime((prev) => {
         const next = prev + 0.1 * playbackSpeed;
         if (next >= clipLength) {
@@ -155,7 +170,7 @@ export const GameplayVideoPlayer: React.FC<GameplayVideoPlayerProps> = ({ hovere
     }, 100);
 
     return () => clearInterval(interval);
-  }, [isPlaying, clipLength, playbackSpeed, customVideoUrl, viewMode]);
+  }, [isPlaying, isStageVisible, clipLength, playbackSpeed, customVideoUrl, viewMode]);
 
   // Trigger speech sound when speech bubble appears in simulation
   const prevSpeechRef = useRef<string>('');
@@ -342,8 +357,8 @@ export const GameplayVideoPlayer: React.FC<GameplayVideoPlayerProps> = ({ hovere
       onDragEnter={handleDragOver}
       onDragLeave={handleDragLeave}
       onDrop={handleDrop}
-      className={`relative w-full rounded-xl overflow-hidden bg-white/25 backdrop-blur-md border transition-all duration-300 ${
-        isDraggingOver ? 'ring-4 ring-cyan-400 border-cyan-400' : 'border-white/70'
+      className={`relative w-full rounded-xl overflow-hidden bg-[#02070A]/88 backdrop-blur-md border transition-all duration-300 ${
+        isDraggingOver ? 'ring-4 ring-[#0297DE] border-[#0297DE]' : 'border-[#0297DE]/35'
       }`}
       style={{
         borderColor: hoveredColor ? `${hoveredColor}90` : undefined,
@@ -351,12 +366,12 @@ export const GameplayVideoPlayer: React.FC<GameplayVideoPlayerProps> = ({ hovere
     >
       {/* Drag & Drop Visual Glow Overlay */}
       {isDraggingOver && (
-        <div className="absolute inset-0 z-50 bg-white/75 backdrop-blur-xl flex flex-col items-center justify-center p-6 text-center animate-fadeIn border-2 border-dashed border-[#0077be]">
-          <Upload className="w-12 h-12 text-[#0077be] animate-bounce mb-3" />
-          <h4 className="text-lg font-black font-['Chakra_Petch'] text-slate-950 uppercase tracking-wider">
+        <div className="absolute inset-0 z-50 bg-[#02070A]/92 backdrop-blur-xl flex flex-col items-center justify-center p-6 text-center animate-fadeIn border-2 border-dashed border-[#0297DE]">
+          <Upload className="w-12 h-12 text-[#0297DE] animate-bounce mb-3" />
+          <h4 className="text-lg font-black font-['Chakra_Petch'] text-white uppercase tracking-wider">
             Drop Video File Here
           </h4>
-          <p className="text-xs font-mono font-bold text-slate-800 mt-1 max-w-xs">
+          <p className="text-xs font-mono font-bold text-slate-300 mt-1 max-w-xs">
             Release to play your gameplay MP4, WebM, or MOV directly inside the arena.
           </p>
         </div>
@@ -364,21 +379,21 @@ export const GameplayVideoPlayer: React.FC<GameplayVideoPlayerProps> = ({ hovere
 
       {/* Upload Success Alert */}
       {uploadSuccess && (
-        <div className="absolute top-12 left-3 right-3 z-40 p-2.5 rounded-xl bg-white/80 backdrop-blur-md border border-emerald-500 text-emerald-950 text-xs font-mono font-bold flex items-center justify-between shadow-lg animate-fadeIn">
+        <div className="absolute top-12 left-3 right-3 z-40 p-2.5 rounded-xl bg-[#02070A]/95 backdrop-blur-md border border-[#0297DE] text-[#38bdf8] text-xs font-mono font-bold flex items-center justify-between shadow-lg animate-fadeIn">
           <div className="flex items-center gap-2">
-            <Check className="w-4 h-4 text-emerald-700 shrink-0" />
+            <Check className="w-4 h-4 text-[#FC734D] shrink-0" />
             <span className="truncate">{uploadSuccess}</span>
           </div>
-          <button onClick={() => setUploadSuccess(null)} className="text-emerald-800 hover:text-black p-1">
+          <button onClick={() => setUploadSuccess(null)} className="text-[#FC734D] hover:text-white p-1">
             <X className="w-3.5 h-3.5" />
           </button>
         </div>
       )}
 
-      {/* Top Bar with Mode Switchers and Upload Trigger — Frosted Glass */}
-      <div className="px-2.5 sm:px-3 py-1.5 bg-white/28 backdrop-blur-md border-b border-white/65 flex items-center justify-between gap-2 text-xs font-mono text-slate-950">
+      {/* Top Bar with Mode Switchers and Upload Trigger — Midnight Black Frosted Glass */}
+      <div className="px-2.5 sm:px-3 py-1.5 bg-[#02070A]/88 backdrop-blur-md border-b border-[#0297DE]/30 flex items-center justify-between gap-2 text-xs font-mono text-slate-100">
         {/* View Mode Toggle: Interactive Board vs Clip */}
-        <div className="flex items-center gap-1 bg-white/35 p-0.5 rounded-lg border border-white/75">
+        <div className="flex items-center gap-1 bg-[#05121d]/80 p-0.5 rounded-lg border border-[#0297DE]/30">
           <button
             onClick={() => {
               setViewMode('arena-image');
@@ -386,8 +401,8 @@ export const GameplayVideoPlayer: React.FC<GameplayVideoPlayerProps> = ({ hovere
             }}
             className={`px-2 py-0.5 rounded text-[10px] font-black flex items-center gap-1 transition-all cursor-pointer ${
               viewMode === 'arena-image'
-                ? 'bg-cyan-400 text-black shadow-xs'
-                : 'text-slate-900 hover:text-black'
+                ? 'bg-[#0297DE] text-white shadow-xs'
+                : 'text-slate-300 hover:text-white'
             }`}
           >
             <Sparkles className="w-3 h-3" />
@@ -401,8 +416,8 @@ export const GameplayVideoPlayer: React.FC<GameplayVideoPlayerProps> = ({ hovere
             }}
             className={`px-2 py-0.5 rounded text-[10px] font-black flex items-center gap-1 transition-all cursor-pointer ${
               viewMode === 'video-clip'
-                ? 'bg-cyan-400 text-black shadow-xs'
-                : 'text-slate-900 hover:text-black'
+                ? 'bg-[#0297DE] text-white shadow-xs'
+                : 'text-slate-300 hover:text-white'
             }`}
           >
             <Video className="w-3 h-3" />
@@ -414,11 +429,11 @@ export const GameplayVideoPlayer: React.FC<GameplayVideoPlayerProps> = ({ hovere
         {/* Right Section: Board theme / Upload Options */}
         <div className="flex items-center gap-1.5">
           {viewMode === 'arena-image' ? (
-            <div className="flex items-center gap-0.5 bg-white/35 p-0.5 rounded-lg border border-white/75 text-[9px]">
+            <div className="flex items-center gap-0.5 bg-[#05121d]/80 p-0.5 rounded-lg border border-[#0297DE]/30 text-[9px]">
               <button
                 onClick={() => { setBoardTheme('flame'); sound.playClick(450); }}
                 className={`px-1.5 py-0.5 rounded transition-all cursor-pointer font-bold ${
-                  boardTheme === 'flame' ? 'bg-cyan-400 text-black font-black' : 'text-slate-900 hover:text-black'
+                  boardTheme === 'flame' ? 'bg-[#FC734D] text-[#02070A] font-black' : 'text-slate-300 hover:text-white'
                 }`}
               >
                 Flame
@@ -426,7 +441,7 @@ export const GameplayVideoPlayer: React.FC<GameplayVideoPlayerProps> = ({ hovere
               <button
                 onClick={() => { setBoardTheme('neon'); sound.playClick(450); }}
                 className={`px-1.5 py-0.5 rounded transition-all cursor-pointer font-bold ${
-                  boardTheme === 'neon' ? 'bg-cyan-400 text-black font-black' : 'text-slate-900 hover:text-black'
+                  boardTheme === 'neon' ? 'bg-[#0297DE] text-white font-black' : 'text-slate-300 hover:text-white'
                 }`}
               >
                 Neon
@@ -434,7 +449,7 @@ export const GameplayVideoPlayer: React.FC<GameplayVideoPlayerProps> = ({ hovere
               <button
                 onClick={() => { setBoardTheme('monochrome'); sound.playClick(450); }}
                 className={`px-1.5 py-0.5 rounded transition-all cursor-pointer font-bold ${
-                  boardTheme === 'monochrome' ? 'bg-slate-800 text-white font-black shadow-xs' : 'text-slate-900 hover:text-black'
+                  boardTheme === 'monochrome' ? 'bg-slate-700 text-white font-black shadow-xs' : 'text-slate-300 hover:text-white'
                 }`}
               >
                 Noir
@@ -444,7 +459,7 @@ export const GameplayVideoPlayer: React.FC<GameplayVideoPlayerProps> = ({ hovere
             customVideoUrl && (
               <button
                 onClick={handleResetVideo}
-                className="px-1.5 py-0.5 rounded bg-white/40 hover:bg-white/70 text-slate-900 hover:text-red-700 text-[9px] font-bold cursor-pointer transition-colors border border-white/75"
+                className="px-1.5 py-0.5 rounded bg-[#05121d]/80 hover:bg-[#071e30] text-slate-300 hover:text-[#FC734D] text-[9px] font-bold cursor-pointer transition-colors border border-[#0297DE]/30"
                 title="Unload custom video and return to simulation"
               >
                 Reset Demo
@@ -452,13 +467,13 @@ export const GameplayVideoPlayer: React.FC<GameplayVideoPlayerProps> = ({ hovere
             )
           )}
 
-          {/* Prominent Upload Video Button */}
+          {/* Prominent Upload Video Button — Cantaloupe Orange Highlight */}
           <button
             onClick={() => {
               setShowUploadModal(true);
               sound.playClick(500);
             }}
-            className="px-2 py-0.5 rounded-md bg-cyan-400 hover:bg-cyan-300 text-black font-black text-[10px] flex items-center gap-1 cursor-pointer shadow-xs transition-all"
+            className="px-2 py-0.5 rounded-md bg-[#FC734D] hover:bg-[#ff8866] text-[#02070A] font-black text-[10px] flex items-center gap-1 cursor-pointer shadow-xs transition-all"
             title="Upload MP4/WebM video or paste video link"
           >
             <Upload className="w-3 h-3" />
@@ -468,42 +483,58 @@ export const GameplayVideoPlayer: React.FC<GameplayVideoPlayerProps> = ({ hovere
       </div>
 
       {/* Screen Frame / Content Container */}
-      <div className="relative aspect-video w-full bg-[#050814] overflow-hidden select-none flex items-center justify-center group">
+      <div className="relative aspect-video w-full bg-[#02070A] overflow-hidden select-none flex items-center justify-center group">
         {viewMode === 'arena-image' ? (
-          /* High-Resolution Board Image Showcase */
+          /* High-Resolution Board Image Showcase — Served in Modern WebP */
           <div className="relative w-full h-full">
-            <img
-              src={
-                boardTheme === 'flame'
-                  ? '/neon_flame_dice_bg.jpg?v=6'
-                  : boardTheme === 'neon'
-                  ? '/neon_glowing_cubes.jpg'
-                  : '/monochrome_ludo_board.jpg'
-              }
-              alt={
-                boardTheme === 'flame'
-                  ? 'Glowing Blue Flaming Neon Dice Arena'
-                  : boardTheme === 'neon'
-                  ? 'Neon Glowing Cubes Ludo Arena'
-                  : 'Monochrome Ludo Arena'
-              }
-              referrerPolicy="no-referrer"
-              className="w-full h-full object-cover object-center transition-all duration-700 group-hover:scale-105"
-            />
+            <picture className="w-full h-full block">
+              <source
+                srcSet={
+                  boardTheme === 'flame'
+                    ? '/neon_flame_dice_bg.webp'
+                    : boardTheme === 'neon'
+                    ? '/neon_glowing_cubes.webp'
+                    : '/monochrome_ludo_board.webp'
+                }
+                type="image/webp"
+              />
+              <img
+                src={
+                  boardTheme === 'flame'
+                    ? '/neon_flame_dice_bg.jpg'
+                    : boardTheme === 'neon'
+                    ? '/neon_glowing_cubes.jpg'
+                    : '/monochrome_ludo_board.jpg'
+                }
+                alt={
+                  boardTheme === 'flame'
+                    ? 'Ludo Dethroned 5 Player Pentagonal Board Layout with Glowing Blue Flaming Neon Dice Arena'
+                    : boardTheme === 'neon'
+                    ? 'Ludo Dethroned 5 Way & 4 Way Two Dice Neon Glowing Cubes Strategy Arena'
+                    : 'Ludo Dethroned Noir Monochrome Tactical Board Layout'
+                }
+                width={880}
+                height={495}
+                decoding="async"
+                fetchPriority="high"
+                referrerPolicy="no-referrer"
+                className="w-full h-full object-cover object-center transition-all duration-700 group-hover:scale-105"
+              />
+            </picture>
             {/* Ambient Shadow Vignette */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 pointer-events-none" />
 
             {/* Bottom Sector Tags Overlay */}
             <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between pointer-events-none">
               <div className="flex items-center gap-1.5">
-                <span className="px-2 py-1 rounded bg-black/80 backdrop-blur-md border border-cyan-400/50 text-cyan-300 text-[10px] font-mono font-bold flex items-center gap-1">
+                <span className="px-2 py-1 rounded bg-[#02070A]/85 backdrop-blur-md border border-[#0297DE]/70 text-[#38bdf8] text-[10px] font-mono font-bold flex items-center gap-1">
                   <span>🎲</span> 5 WAY & 4 WAY WARZONE
                 </span>
-                <span className="px-2 py-1 rounded bg-black/80 backdrop-blur-md border border-pink-500/50 text-pink-300 text-[10px] font-mono font-bold">
+                <span className="px-2 py-1 rounded bg-[#02070A]/85 backdrop-blur-md border border-[#FC734D]/70 text-[#FC734D] text-[10px] font-mono font-bold">
                   {boardTheme === 'flame' ? 'FLAMING NEON DICE' : 'GLOWING DICE CUBES'}
                 </span>
               </div>
-              <span className="text-[10px] text-white/70 font-mono bg-black/80 px-2 py-1 rounded border border-white/20">
+              <span className="text-[10px] text-slate-100 font-mono bg-[#02070A]/85 px-2 py-1 rounded border border-[#0297DE]/40">
                 {boardTheme === 'flame' ? 'FLAMING DICE' : boardTheme === 'neon' ? 'FULL NEON' : 'NOIR MONOCHROME'}
               </span>
             </div>
@@ -514,6 +545,7 @@ export const GameplayVideoPlayer: React.FC<GameplayVideoPlayerProps> = ({ hovere
             <video
               ref={htmlVideoRef}
               src={customVideoUrl}
+              preload="metadata"
               className="w-full h-full object-contain cursor-pointer"
               autoPlay
               loop
@@ -539,8 +571,8 @@ export const GameplayVideoPlayer: React.FC<GameplayVideoPlayerProps> = ({ hovere
 
             {/* Custom Video Top Badge */}
             <div className="absolute top-2 left-3 right-3 flex items-center justify-between z-20 pointer-events-none">
-              <div className="px-2.5 py-1 rounded-full bg-black/80 border border-cyan-500/50 text-cyan-300 text-[10px] font-mono font-bold flex items-center gap-1.5 shadow-md">
-                <FileVideo className="w-3 h-3 text-cyan-400" />
+              <div className="px-2.5 py-1 rounded-full bg-black/80 border border-teal-500/60 text-teal-300 text-[10px] font-mono font-bold flex items-center gap-1.5 shadow-md">
+                <FileVideo className="w-3 h-3 text-teal-400" />
                 <span className="truncate max-w-[160px] sm:max-w-[240px]">{videoTitle || 'Custom Video'}</span>
                 {videoFileSize && <span className="text-slate-400">({videoFileSize})</span>}
               </div>
@@ -554,7 +586,7 @@ export const GameplayVideoPlayer: React.FC<GameplayVideoPlayerProps> = ({ hovere
               onClick={togglePlay}
               className="absolute inset-0 bg-black/25 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center cursor-pointer"
             >
-              <div className="w-14 h-14 rounded-full bg-cyan-500/90 hover:bg-cyan-400 text-slate-950 flex items-center justify-center shadow-xl transform transition-transform group-hover:scale-110">
+              <div className="w-14 h-14 rounded-full bg-[#0297DE]/95 hover:bg-[#0284c7] text-white flex items-center justify-center shadow-xl transform transition-transform group-hover:scale-110">
                 {isPlaying ? <Pause className="w-6 h-6 fill-current" /> : <Play className="w-6 h-6 fill-current ml-1" />}
               </div>
             </button>
@@ -562,8 +594,8 @@ export const GameplayVideoPlayer: React.FC<GameplayVideoPlayerProps> = ({ hovere
         ) : (
           /* High-Fidelity Gameplay Simulation Stage */
           <div className="relative w-full h-full flex items-center justify-center p-3">
-            {/* Ambient Hex Grid Background */}
-            <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#00f3ff_1px,transparent_1px)] [background-size:16px_16px]" />
+            {/* Ambient Metallic Silver Dot Grid Background */}
+            <div className="absolute inset-0 opacity-35 bg-[radial-gradient(#cbd5e1_1.25px,transparent_1.25px)] [background-size:16px_16px]" />
 
             {/* Top Match HUD */}
             <div className="absolute top-2 left-3 right-3 flex items-center justify-between z-20 pointer-events-none">
@@ -667,7 +699,7 @@ export const GameplayVideoPlayer: React.FC<GameplayVideoPlayerProps> = ({ hovere
             {/* Dynamic Bot Speech Bubble */}
             {currentEvent.speechBubble && (
               <div className="absolute bottom-12 left-4 z-30 animate-fade-in">
-                <div className="px-3 py-1.5 rounded-lg bg-black/90 border border-cyan-400 text-cyan-300 text-xs font-mono flex items-center gap-2 shadow-[0_0_15px_rgba(0,243,255,0.4)]">
+                <div className="px-3 py-1.5 rounded-lg bg-black/90 border border-teal-400 text-teal-300 text-xs font-mono flex items-center gap-2 shadow-[0_0_15px_rgba(20,184,166,0.4)]">
                   <span>{currentEvent.speechBubble.icon}</span>
                   <div>
                     <strong className="text-white text-[10px] block leading-none">
@@ -699,7 +731,7 @@ export const GameplayVideoPlayer: React.FC<GameplayVideoPlayerProps> = ({ hovere
               onClick={togglePlay}
               className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center cursor-pointer"
             >
-              <div className="w-12 h-12 rounded-full bg-cyan-500/90 text-slate-950 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+              <div className="w-12 h-12 rounded-full bg-[#0297DE]/95 text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
                 {isPlaying ? <Pause className="w-5 h-5 fill-current" /> : <Play className="w-5 h-5 fill-current ml-0.5" />}
               </div>
             </button>
@@ -708,15 +740,15 @@ export const GameplayVideoPlayer: React.FC<GameplayVideoPlayerProps> = ({ hovere
 
         {/* Global Error Banner inside Screen Frame */}
         {uploadError && (
-          <div className="absolute inset-x-3 bottom-3 z-40 p-3 rounded-xl bg-red-950/95 border border-red-500/80 text-red-200 text-xs font-mono flex items-start gap-2 shadow-2xl animate-fadeIn">
-            <AlertCircle className="w-4 h-4 text-red-400 shrink-0 mt-0.5" />
+          <div className="absolute inset-x-3 bottom-3 z-40 p-3 rounded-xl bg-[#02070A]/95 border border-[#FC734D] text-slate-100 text-xs font-mono flex items-start gap-2 shadow-2xl animate-fadeIn">
+            <AlertCircle className="w-4 h-4 text-[#FC734D] shrink-0 mt-0.5" />
             <div className="flex-1">
               <p className="font-bold text-white">Video Load Notice</p>
-              <p className="text-[11px] text-red-200 mt-0.5">{uploadError}</p>
+              <p className="text-[11px] text-slate-200 mt-0.5">{uploadError}</p>
             </div>
             <button
               onClick={() => setUploadError(null)}
-              className="p-1 text-red-400 hover:text-white"
+              className="p-1 text-[#FC734D] hover:text-white"
             >
               <X className="w-4 h-4" />
             </button>
@@ -724,10 +756,10 @@ export const GameplayVideoPlayer: React.FC<GameplayVideoPlayerProps> = ({ hovere
         )}
       </div>
 
-      {/* Interactive Timeline Scrubber (Video Clip Mode) — Frosted Glass */}
+      {/* Interactive Timeline Scrubber (Video Clip Mode) — Midnight Black Frosted Glass */}
       {viewMode === 'video-clip' && (
-        <div className="px-4 py-2 bg-white/30 backdrop-blur-md border-t border-white/65 flex items-center gap-3 text-[10px] font-mono select-none">
-          <span className="text-[#0077be] font-black min-w-[32px]">{formatTime(currentTime)}</span>
+        <div className="px-4 py-2 bg-[#02070A]/88 backdrop-blur-md border-t border-[#0297DE]/30 flex items-center gap-3 text-[10px] font-mono select-none">
+          <span className="text-[#0297DE] font-black min-w-[32px]">{formatTime(currentTime)}</span>
           <div
             onClick={(e) => {
               const rect = e.currentTarget.getBoundingClientRect();
@@ -735,24 +767,24 @@ export const GameplayVideoPlayer: React.FC<GameplayVideoPlayerProps> = ({ hovere
               const ratio = Math.max(0, Math.min(1, clickX / rect.width));
               handleSeek(ratio);
             }}
-            className="flex-1 h-2 rounded-full bg-white/50 border border-white/80 relative overflow-hidden cursor-pointer group/bar hover:h-2.5 transition-all"
+            className="flex-1 h-2 rounded-full bg-[#05121d] border border-[#0297DE]/35 relative overflow-hidden cursor-pointer group/bar hover:h-2.5 transition-all"
           >
             <div
-              className="h-full bg-gradient-to-r from-[#0077be] to-pink-500 transition-all rounded-full"
+              className="h-full bg-gradient-to-r from-[#0297DE] to-[#FC734D] transition-all rounded-full"
               style={{ width: `${(currentTime / Math.max(1, activeDuration)) * 100}%` }}
             />
           </div>
-          <span className="text-slate-800 font-bold min-w-[32px] text-right">{formatTime(activeDuration)}</span>
+          <span className="text-slate-300 font-bold min-w-[32px] text-right">{formatTime(activeDuration)}</span>
         </div>
       )}
 
-      {/* Bottom Media Controls Bar — Frosted Glass */}
-      <div className="px-2.5 sm:px-3 py-1.5 bg-white/28 backdrop-blur-md border-t border-white/65 flex items-center justify-between gap-2 text-xs font-mono text-slate-950">
+      {/* Bottom Media Controls Bar — Midnight Black Frosted Glass */}
+      <div className="px-2.5 sm:px-3 py-1.5 bg-[#02070A]/88 backdrop-blur-md border-t border-[#0297DE]/30 flex items-center justify-between gap-2 text-xs font-mono text-slate-100">
         {viewMode === 'video-clip' ? (
           <div className="flex items-center gap-1">
             <button
               onClick={togglePlay}
-              className="p-1 rounded-md bg-white/40 hover:bg-white/65 border border-white/75 text-slate-950 cursor-pointer transition-colors"
+              className="p-1 rounded-md bg-[#05121d] hover:bg-[#081f30] border border-[#0297DE]/35 text-white cursor-pointer transition-colors"
               title={isPlaying ? 'Pause Clip' : 'Play Clip'}
             >
               {isPlaying ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5" />}
@@ -760,7 +792,7 @@ export const GameplayVideoPlayer: React.FC<GameplayVideoPlayerProps> = ({ hovere
 
             <button
               onClick={handleRestart}
-              className="p-1 rounded-md bg-white/40 hover:bg-white/65 border border-white/75 text-slate-900 hover:text-black cursor-pointer transition-colors"
+              className="p-1 rounded-md bg-[#05121d] hover:bg-[#081f30] border border-[#0297DE]/35 text-slate-300 hover:text-white cursor-pointer transition-colors"
               title="Restart Clip"
             >
               <RotateCcw className="w-3.5 h-3.5" />
@@ -775,15 +807,15 @@ export const GameplayVideoPlayer: React.FC<GameplayVideoPlayerProps> = ({ hovere
                   htmlVideoRef.current.muted = nextMuted;
                 }
               }}
-              className="p-1 rounded-md bg-white/40 hover:bg-white/65 border border-white/75 text-slate-900 hover:text-black cursor-pointer transition-colors"
+              className="p-1 rounded-md bg-[#05121d] hover:bg-[#081f30] border border-[#0297DE]/35 text-slate-300 hover:text-white cursor-pointer transition-colors"
               title={isMuted ? 'Unmute Audio' : 'Mute Audio'}
             >
-              {isMuted ? <VolumeX className="w-3.5 h-3.5 text-red-600" /> : <Volume2 className="w-3.5 h-3.5 text-[#0077be]" />}
+              {isMuted ? <VolumeX className="w-3.5 h-3.5 text-[#FC734D]" /> : <Volume2 className="w-3.5 h-3.5 text-[#0297DE]" />}
             </button>
           </div>
         ) : (
-          <div className="flex items-center gap-2 text-[11px] font-bold text-slate-900">
-            <Image className="w-3.5 h-3.5 text-[#0077be]" />
+          <div className="flex items-center gap-2 text-[11px] font-bold text-slate-200">
+            <Image className="w-3.5 h-3.5 text-[#0297DE]" />
             <span>4K Arena Board View</span>
           </div>
         )}
@@ -798,7 +830,7 @@ export const GameplayVideoPlayer: React.FC<GameplayVideoPlayerProps> = ({ hovere
                   sound.playClick(450);
                 }}
                 className={`px-1.5 py-0.5 rounded cursor-pointer transition-all font-bold ${
-                  playbackSpeed === speed ? 'bg-cyan-400 text-black font-black' : 'text-slate-900 hover:bg-white/45'
+                  playbackSpeed === speed ? 'bg-[#0297DE] text-white font-black' : 'text-slate-300 hover:bg-[#071826]'
                 }`}
               >
                 {speed}x
@@ -819,16 +851,16 @@ export const GameplayVideoPlayer: React.FC<GameplayVideoPlayerProps> = ({ hovere
 
           <label
             htmlFor="gameplay-video-upload-native"
-            className="px-2.5 py-1 rounded bg-white/40 hover:bg-white/65 border border-white/75 text-[10px] font-bold text-slate-950 flex items-center gap-1 cursor-pointer transition-colors"
+            className="px-2.5 py-1 rounded bg-[#05121d] hover:bg-[#081f30] border border-[#0297DE]/35 text-[10px] font-bold text-slate-100 flex items-center gap-1 cursor-pointer transition-colors"
             title="Browse your computer to upload any video file directly"
           >
-            <Upload className="w-3 h-3 text-[#0077be]" />
+            <Upload className="w-3 h-3 text-[#FC734D]" />
             <span>Browse File</span>
           </label>
 
           <button
             onClick={handleFullscreen}
-            className="p-1 rounded bg-white/40 hover:bg-white/65 border border-white/75 text-slate-900 hover:text-black cursor-pointer transition-colors"
+            className="p-1 rounded bg-[#05121d] hover:bg-[#081f30] border border-[#0297DE]/35 text-slate-300 hover:text-white cursor-pointer transition-colors"
             title="Toggle Arena Fullscreen"
           >
             <Maximize2 className="w-3 h-3" />
@@ -836,33 +868,33 @@ export const GameplayVideoPlayer: React.FC<GameplayVideoPlayerProps> = ({ hovere
         </div>
       </div>
 
-      {/* Upload Modal — Frosted Glass */}
+      {/* Upload Modal — Midnight Black Frosted Glass */}
       {showUploadModal && (
         <div 
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/35 backdrop-blur-sm animate-fadeIn"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-sm animate-fadeIn"
           onClick={() => setShowUploadModal(false)}
         >
           <div 
-            className="relative w-full max-w-lg rounded-3xl bg-white/60 backdrop-blur-2xl border-2 border-white/80 p-6 shadow-2xl text-slate-950"
+            className="relative w-full max-w-lg rounded-3xl bg-[#02070A]/95 backdrop-blur-2xl border-2 border-[#0297DE]/45 p-6 shadow-2xl text-slate-100"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex items-center justify-between pb-4 border-b border-white/70">
+            <div className="flex items-center justify-between pb-4 border-b border-[#0297DE]/30">
               <div className="flex items-center gap-2">
-                <div className="p-2 rounded-xl bg-white/50 border border-[#0077be]/60 text-[#0077be]">
+                <div className="p-2 rounded-xl bg-[#05121d] border border-[#0297DE]/60 text-[#0297DE]">
                   <Video className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="font-['Chakra_Petch'] font-black text-lg text-slate-950">
+                  <h3 className="font-['Chakra_Petch'] font-black text-lg text-white">
                     UPLOAD GAMEPLAY VIDEO
                   </h3>
-                  <p className="text-xs font-mono font-bold text-slate-800">
-                    Play your recorded matches inside the central cyber arena
+                  <p className="text-xs font-mono font-bold text-slate-300">
+                    Play your recorded matches inside the central arena
                   </p>
                 </div>
               </div>
               <button
                 onClick={() => setShowUploadModal(false)}
-                className="p-1.5 rounded-full bg-white/50 hover:bg-white/80 text-slate-900 hover:text-black transition-colors cursor-pointer"
+                className="p-1.5 rounded-full bg-[#05121d] hover:bg-[#081f30] text-slate-300 hover:text-white transition-colors cursor-pointer"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -875,7 +907,7 @@ export const GameplayVideoPlayer: React.FC<GameplayVideoPlayerProps> = ({ hovere
                 onDragEnter={handleDragOver}
                 onDragLeave={handleDragLeave}
                 onDrop={handleDrop}
-                className="flex flex-col items-center justify-center p-6 sm:p-8 rounded-2xl border-2 border-dashed border-[#0077be] bg-white/35 hover:bg-white/55 cursor-pointer transition-all group text-center"
+                className="flex flex-col items-center justify-center p-6 sm:p-8 rounded-2xl border-2 border-dashed border-[#0297DE] bg-[#05121d]/60 hover:bg-[#05121d]/90 cursor-pointer transition-all group text-center"
               >
                 <input
                   id="modal-file-upload"
@@ -884,21 +916,21 @@ export const GameplayVideoPlayer: React.FC<GameplayVideoPlayerProps> = ({ hovere
                   onChange={handleCustomFileUpload}
                   className="sr-only"
                 />
-                <div className="w-12 h-12 rounded-2xl bg-white/55 border border-[#0077be] flex items-center justify-center text-[#0077be] group-hover:scale-110 transition-transform mb-3">
+                <div className="w-12 h-12 rounded-2xl bg-[#02070A] border border-[#0297DE] flex items-center justify-center text-[#0297DE] group-hover:scale-110 transition-transform mb-3">
                   <Upload className="w-6 h-6" />
                 </div>
-                <div className="text-sm font-black text-slate-950">
+                <div className="text-sm font-black text-white">
                   Click to Browse or Drag & Drop Video
                 </div>
-                <div className="text-xs font-mono font-bold text-slate-800 mt-1">
+                <div className="text-xs font-mono font-bold text-slate-400 mt-1">
                   Supports MP4, WebM, MOV, MKV, M4V (up to 500 MB)
                 </div>
               </label>
             </div>
 
-            <div className="mt-5 pt-4 border-t border-white/70">
-              <label className="text-xs font-mono font-black text-slate-950 block mb-2 flex items-center gap-1.5">
-                <Link className="w-3.5 h-3.5 text-[#0077be]" />
+            <div className="mt-5 pt-4 border-t border-[#0297DE]/30">
+              <label className="text-xs font-mono font-black text-white block mb-2 flex items-center gap-1.5">
+                <Link className="w-3.5 h-3.5 text-[#FC734D]" />
                 <span>Or Stream from Web / Direct Video URL:</span>
               </label>
               <div className="flex gap-2">
@@ -907,42 +939,42 @@ export const GameplayVideoPlayer: React.FC<GameplayVideoPlayerProps> = ({ hovere
                   placeholder="https://example.com/match-replay.mp4"
                   value={urlInput}
                   onChange={(e) => setUrlInput(e.target.value)}
-                  className="flex-1 px-3 py-2 rounded-xl bg-white/45 border border-white/80 text-xs font-mono font-bold text-slate-950 placeholder-slate-700 focus:outline-none focus:border-[#0077be]"
+                  className="flex-1 px-3 py-2 rounded-xl bg-[#02070A] border border-[#0297DE]/35 text-xs font-mono font-bold text-white placeholder-slate-400 focus:outline-none focus:border-[#0297DE]"
                 />
                 <button
                   onClick={handleLoadUrl}
-                  className="px-4 py-2 rounded-xl bg-cyan-400 hover:bg-cyan-300 text-black font-black font-mono text-xs cursor-pointer transition-colors shadow-sm"
+                  className="px-4 py-2 rounded-xl bg-[#FC734D] hover:bg-[#ff8866] text-[#02070A] font-black font-mono text-xs cursor-pointer transition-colors shadow-sm"
                 >
                   Load URL
                 </button>
               </div>
             </div>
 
-            <div className="mt-5 pt-4 border-t border-white/70">
-              <div className="text-xs font-mono font-bold text-slate-800 mb-2">
+            <div className="mt-5 pt-4 border-t border-[#0297DE]/30">
+              <div className="text-xs font-mono font-bold text-slate-300 mb-2">
                 Or test immediately with bundled sample gameplay clips:
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 <button
                   onClick={() => handleLoadPresetVideo('/neon_ludo_bg.mp4', 'Neon Cyber Match Replay')}
-                  className="p-2.5 rounded-xl bg-white/40 hover:bg-white/65 border border-white/80 text-left transition-all cursor-pointer group"
+                  className="p-2.5 rounded-xl bg-[#05121d]/75 hover:bg-[#081f30] border border-[#0297DE]/35 text-left transition-all cursor-pointer group"
                 >
-                  <div className="text-xs font-black text-[#0077be] flex items-center justify-between">
+                  <div className="text-xs font-black text-[#0297DE] flex items-center justify-between">
                     <span>Neon Cyber Arena</span>
                     <Play className="w-3 h-3 fill-current" />
                   </div>
-                  <div className="text-[10px] font-mono font-bold text-slate-800 mt-0.5">High-energy MP4 loop</div>
+                  <div className="text-[10px] font-mono font-bold text-slate-400 mt-0.5">High-energy MP4 loop</div>
                 </button>
 
                 <button
                   onClick={() => handleLoadPresetVideo('/neon_ludo_bg_monochrome.mp4', 'Noir Ludo Championship')}
-                  className="p-2.5 rounded-xl bg-white/40 hover:bg-white/65 border border-white/80 text-left transition-all cursor-pointer group"
+                  className="p-2.5 rounded-xl bg-[#05121d]/75 hover:bg-[#081f30] border border-[#0297DE]/35 text-left transition-all cursor-pointer group"
                 >
-                  <div className="text-xs font-black text-slate-950 flex items-center justify-between">
+                  <div className="text-xs font-black text-[#FC734D] flex items-center justify-between">
                     <span>Monochrome Edition</span>
                     <Play className="w-3 h-3 fill-current" />
                   </div>
-                  <div className="text-[10px] font-mono font-bold text-slate-800 mt-0.5">Noir tournament loop</div>
+                  <div className="text-[10px] font-mono font-bold text-slate-400 mt-0.5">Noir tournament loop</div>
                 </button>
               </div>
             </div>

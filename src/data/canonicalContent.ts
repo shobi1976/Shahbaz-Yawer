@@ -433,7 +433,95 @@ export const CANONICAL_FAQS: FaqItem[] = [
   {
     category: "Language Based Searches",
     q: "How do people write and search for Ludo in different languages?",
-    a: "People search for Ludo in their native scripts worldwide. It is written as لڈو in Urdu, लूडो in Hindi, and 飞行棋 (Flying Chess) in Chinese. Other scripts include Bengali (লুডু), Tamil (லுடோ), Arabic (لودو), Russian (Лудо), and Spanish (Parchís). Ludo Dethroned 5 Way & 4 Way Two Dice supports this global community by offering localized gameplay experiences."
+    a: "People search for Ludo in their native scripts worldwide. It is written as Ludo in Roman Urdu, लूडो in Hindi, and 飞行棋 (Flying Chess) in Chinese. Other scripts include Bengali (লুডু), Tamil (லுடோ), Arabic (لودو), Russian (Лудо), and Spanish (Parchís). Ludo Dethroned 5 Way & 4 Way Two Dice supports this global community by offering localized gameplay experiences."
+  },
+
+  // Getting started
+  {
+    category: "Getting started",
+    q: "Do I need to read the rules before I play?",
+    a: "You can start right away, but reading the How to Play page takes a few minutes and covers the rules that surprise people most: compulsory capture, two dice and sixes."
+  },
+  {
+    category: "Getting started",
+    q: "Is there a tutorial?",
+    a: "Yes. There is the How to Play page, and there are tutorial slides in the game."
+  },
+  {
+    category: "Getting started",
+    q: "What are the five rules to know before my first match?",
+    a: "Capturing is compulsory. You roll two dice and can combine or split them. Every 6 gives an extra turn. Star squares and your coloured home path are safe. The match ends the moment someone wins."
+  },
+  {
+    category: "Getting started",
+    q: "Is the game really 3D?",
+    a: "Yes. The board, the tokens and the dice are shown in 3D."
+  },
+
+  // Compared with traditional Ludo
+  {
+    category: "Compared with traditional Ludo",
+    q: "How is it different from traditional Ludo?",
+    a: "It has five players, two dice, compulsory capturing, a win on the coloured path and a match that ends at the first win. It also adds Lucky 7 and the Lucky Wish."
+  },
+  {
+    category: "Compared with traditional Ludo",
+    q: "Why is capturing compulsory?",
+    a: "So that everyone plays for the same goal. Sparing a friend costs you a token, which keeps the table competitive."
+  },
+  {
+    category: "Compared with traditional Ludo",
+    q: "Can I spare a friend’s token?",
+    a: "Not for free. If you can capture and do not, the token that could have captured goes back to base."
+  },
+  {
+    category: "Compared with traditional Ludo",
+    q: "Why don’t I need to reach the centre to win?",
+    a: "Reaching your coloured home path is enough, so you never wait for an exact number to finish. The centre is a bonus: moving into it needs an exact roll and gives an extra turn."
+  },
+  {
+    category: "Compared with traditional Ludo",
+    q: "Do I have to wait for the other players to finish?",
+    a: "No. The match ends as soon as one player wins, and the others are ranked by progress percentage."
+  },
+
+  // Dice
+  {
+    category: "Dice",
+    q: "What is the difference between one die and two dice?",
+    a: "Two dice move you about twice as far per roll (an average of 7 against 3.5), show at least one 6 on about 31% of rolls instead of about 17%, and let you combine or split the dice."
+  },
+  {
+    category: "Dice",
+    q: "Which total is the most common with two dice?",
+    a: "7. It comes up on 6 of 36 rolls, about 17%."
+  },
+  {
+    category: "Dice",
+    q: "How likely is it that an opponent hits my token?",
+    a: "For one opponent token behind you, about 31% to 44% when it is 1 to 6 squares behind, about 17% at 7 squares, and then falling to about 3% at 12 squares. Beyond 12 squares it cannot reach you in one roll."
+  },
+
+  // Strategy
+  {
+    category: "Strategy",
+    q: "Is it better to play aggressively or defensively?",
+    a: "Both can work if you know when to use each. Defend when the stars ahead are crowded, when a valuable token is exposed, or when you are the leader. Attack when the stars ahead are empty, when a rival has two tokens left, or when you are far behind."
+  },
+  {
+    category: "Strategy",
+    q: "What should I do when the stars ahead are crowded?",
+    a: "Hold your token back, move another one, or wait for the number that lands it on a safe star. You can only hold back when no capture is forced."
+  },
+  {
+    category: "Strategy",
+    q: "What should I do near my coloured home path?",
+    a: "Protect your valuable tokens. Safe progress onto the coloured path is usually better than a risky extra move, unless that move hits the leader."
+  },
+  {
+    category: "Strategy",
+    q: "Can I hold a token back when I could capture?",
+    a: "No. A possible capture is compulsory. Skipping it sends the token that could have captured back to base."
   }
 ];
 
@@ -618,9 +706,32 @@ export const CANONICAL_STRATEGIES: StrategySectionItem[] = [
   }
 ];
 
+export const CAPTAIN_STRATEGY_SECTION = {
+  id: "play-like-a-captain",
+  num: "6.17",
+  title: "Play like a captain: when to defend and when to attack",
+  intro: "Like a T20 captain, you choose when to defend and when to attack. The dice decide what is possible. The skill is reading the table.",
+  readingRisk: "Reading the risk. An opponent token behind you can reach you with a single die or with the total of two dice. The chance that one opponent token hits a token ahead of it is about 31% to 44% when it is 1 to 6 squares behind, about 17% at 7 squares, and then falls to about 14% at 8, 11% at 9, 8% at 10, 6% at 11 and 3% at 12. Beyond 12 squares it cannot reach you in one roll. Extra turns from sixes can change this.",
+  defendHeading: "Defend when:",
+  defendItems: [
+    "The stars ahead are crowded. A token on a star is safe, but tokens leaving the stars must step into the open. Hold your token back, move another one, or wait for the number that lands it on a safe star.",
+    "A token close to your coloured home path is exposed. It is worth a lot, so protect it first with stars, pairs or the coloured path.",
+    "You are the leader. Stop on stars, move in pairs and get tokens onto the coloured path."
+  ],
+  defendNote: "Remember that you can only hold back when no capture is forced. A possible capture is compulsory (Rule 7).",
+  attackHeading: "Attack when:",
+  attackItems: [
+    "The safe stars ahead are empty. Run the token forward to the next star or to the coloured path.",
+    "A rival has only two tokens left to finish. Hunt the tokens they still have on the open track.",
+    "You are far behind and need a swing. Use the Lucky Wish, or give up a capture on purpose to set up Lucky 7.",
+    "An opponent token is near its start. Capturing it costs them little, but you gain a reroll. Prefer a leader’s token whenever you have a choice."
+  ],
+  closing: "The three phases: in the opening, bring tokens out. In the middle, position your tokens and wait for the right number. At the finish, when a rival has two tokens left, everyone attacks."
+} as const;
+
 export const HOW_TO_PLAY_SECTIONS = [
   {
-    num: "4.1",
+    num: "STEP 1",
     title: "The game in 30 seconds",
     items: [
       "5 Way & 4 Way (five or four players), four tokens each, two dice every turn.",
@@ -632,7 +743,7 @@ export const HOW_TO_PLAY_SECTIONS = [
     ]
   },
   {
-    num: "4.2",
+    num: "STEP 2",
     title: "Before the match",
     items: [
       "Choose your Lucky Wish numbers: Pick two dice numbers, but not 6 and 6. You can use the wish once, on any turn.",
@@ -640,11 +751,11 @@ export const HOW_TO_PLAY_SECTIONS = [
     ]
   },
   {
-    num: "4.3",
+    num: "STEP 3",
     title: "Your turn, step by step",
     items: [
       "1. Roll both dice.",
-      "2. Check for captures first. If a capture is possible, it is compulsory (see 4.9).",
+      "2. Check for captures first. If a capture is possible, it is compulsory (see Guide 7).",
       "3. Decide how to use the dice: both on one token, which moves the total, or one die on each of two tokens.",
       "4. Move your token or tokens. If you have no legal move, your turn passes to the next player.",
       "5. If you earned an extra turn, roll again. Extra turns come from rolling a 6, from a capture, from moving a token into the centre home, and from Lucky 7.",
@@ -652,73 +763,7 @@ export const HOW_TO_PLAY_SECTIONS = [
     ]
   },
   {
-    num: "4.4",
-    title: "Bringing tokens out of base",
-    items: [
-      "All four of your tokens start in base. A single 6 brings one token out onto the open track. You do not need a double 6. Tokens in base are safe. Every 6 you roll also gives you an extra turn, and there is no limit on how many times in a row."
-    ]
-  },
-  {
-    num: "4.5",
-    title: "Moving with two dice",
-    items: [
-      "You can use both dice on one token, which then moves the total of the two dice, or use one die on each of two different tokens. Example: you roll 3 and 4. You can move one token 7 squares, or move one token 3 squares and another token 4 squares."
-    ]
-  },
-  {
-    num: "4.6",
-    title: "Capturing",
-    items: [
-      "If your token lands on a square where a single opponent token stands on the open track, that token is captured and returns to its base. You can capture with one die or with the total of both dice. Every capture gives you a reroll."
-    ]
-  },
-  {
-    num: "4.7",
-    title: "Safe places",
-    items: [
-      "A token cannot be captured when it is on a star square, on its coloured home path or in base. Star squares are safe for every player."
-    ]
-  },
-  {
-    num: "4.8",
-    title: "Pairs",
-    items: [
-      "Two tokens of the same colour on the same square form a pair. A single token landing on a pair does not capture it. To capture a pair, two of your tokens must land on that square together, one with each die, even if they start from different squares. Capturing a pair gives you one reroll. A pair on a star square is always safe. A pair is not locked together: you can move its tokens separately whenever you like."
-    ]
-  },
-  {
-    num: "4.9",
-    title: "The Missed Capture Penalty in plain words",
-    items: [
-      "Capturing is compulsory. If one of your tokens could capture an opponent’s token and you finish your move without capturing, that token is sent back to base. The full rule, with every case, is Rule 7 on the Rules page."
-    ]
-  },
-  {
-    num: "4.10",
-    title: "Heading home",
-    items: [
-      "After travelling around the open track, your token enters your coloured home path, where it is safe. A token can go on to reach the centre home, but it needs an exact roll to move into it. Moving into the centre home gives you an extra turn. You do not need to reach the centre to win."
-    ]
-  },
-  {
-    num: "4.11",
-    title: "How to win",
-    items: [
-      "Be the first player to get all four tokens onto your coloured home path. A token that reaches the centre home also counts. The match ends as soon as a player wins, and the other players are ranked by the progress percentage shown on the progress bar."
-    ]
-  },
-  {
-    num: "4.12",
-    title: "Special features",
-    items: [
-      "• Lucky 7: when none of your tokens are on the open track, a total of 7 counts as 6+6 and gives you an extra turn (Rule 9).",
-      "• Lucky Wish: once per match, on any turn, roll the two numbers you chose before the match (Rule 10).",
-      "• Turn timer: optional, set by the room host: 60, 90 or 120 seconds, or off (Rule 11).",
-      "• Progress bar: shows each player’s progress percentage and decides the ranking when the match ends (Rule 12)."
-    ]
-  },
-  {
-    num: "4.13",
+    num: "STEP 4",
     title: "Four example turns",
     items: [
       "Example 1: a capture and a reroll. An opponent’s single token is 5 squares ahead of your token on a normal square. You roll 5 and 2. You use the 5 to land on it and capture it, then use the 2 on another token. Because you captured, you roll again.",
@@ -728,14 +773,14 @@ export const HOW_TO_PLAY_SECTIONS = [
     ]
   },
   {
-    num: "4.14",
+    num: "STEP 5",
     title: "First-match checklist",
     items: [
-      "• Find your base, your coloured home path and the star squares.",
-      "• Check for captures before every move.",
-      "• Keep lone tokens out of an opponent’s reach when you can.",
-      "• Use the safe places.",
-      "• Watch the leader."
+      "Find your base, your coloured home path and the star squares.",
+      "Check for captures before every move.",
+      "Keep lone tokens out of an opponent’s reach when you can.",
+      "Use the safe places.",
+      "Watch the leader."
     ]
   }
 ];

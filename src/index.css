@@ -1,63 +1,78 @@
 @import "tailwindcss";
 
 @layer base {
+  :root {
+    --color-midnight: #02070A;
+    --color-electric-blue: #0297DE;
+    --color-cantaloupe: #FC734D;
+  }
+
   html {
     scroll-behavior: smooth;
-    background-color: #eef6ff;
-    color: #090d16;
+    background-color: #02070A;
+    color: #f8fafc;
     font-size: 16px;
   }
 
   body {
     background-color: transparent;
-    color: #090d16;
+    color: #f8fafc;
     font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
     font-size: 1rem;
     line-height: 1.6;
     margin: 0;
   }
 
-  /* Custom Translucent Scrollbars */
+  /* Custom Midnight Black, Electric Blue & Cantaloupe Orange Scrollbars */
   ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
   }
   ::-webkit-scrollbar-track {
-    background: rgba(241, 245, 249, 0.45);
+    background: rgba(2, 7, 10, 0.92);
   }
   ::-webkit-scrollbar-thumb {
-    background: rgba(148, 163, 184, 0.7);
+    background: rgba(2, 151, 222, 0.72);
     border-radius: 4px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: rgba(100, 116, 139, 0.9);
+    background: #FC734D;
   }
 }
 
 /* ══════════════════════════════════════════════════════════════════════════
    UNIVERSAL FROSTED GLASS SYSTEM
-   Ensures the landing page galaxy & silver-dotted flaming dice background
-   shines cleanly through every box, card, control, and surface across all pages
-   while keeping typography razor-sharp and shadow-free.
+   (MIDNIGHT BLACK #02070A + ELECTRIC BLUE #0297DE + CANTALOUPE ORANGE #FC734D)
    ══════════════════════════════════════════════════════════════════════════ */
 
 .frost-box {
-  background-color: rgba(255, 255, 255, 0.24);
+  background-color: rgba(2, 7, 10, 0.74);
   backdrop-filter: blur(14px) saturate(145%);
   -webkit-backdrop-filter: blur(14px) saturate(145%);
-  border: 1.5px solid rgba(255, 255, 255, 0.65);
-  box-shadow: 0 10px 30px -6px rgba(15, 23, 42, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.55);
+  border: 1.5px solid rgba(2, 151, 222, 0.30);
+  box-shadow: 0 12px 32px -6px rgba(0, 0, 0, 0.72), inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
 .frost-box:hover {
-  background-color: rgba(255, 255, 255, 0.34);
+  background-color: rgba(5, 16, 24, 0.84);
 }
 
 .frost-subbox {
-  background-color: rgba(255, 255, 255, 0.30);
+  background-color: rgba(2, 7, 10, 0.72);
   backdrop-filter: blur(10px) saturate(135%);
   -webkit-backdrop-filter: blur(10px) saturate(135%);
-  border: 1px solid rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(2, 151, 222, 0.26);
+}
+
+/* Browser render-pipeline containment: skip layout, paint & backdrop-blur for off-screen blocks */
+.cv-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 560px;
+}
+
+.cv-card {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 84px;
 }
 
 /* Ensure zero blurry shadows on any font across the entire site */
@@ -65,20 +80,356 @@ h1, h2, h3, h4, h5, h6, p, span, a, button, li, label, strong, em {
   text-shadow: none !important;
 }
 
-/* Interactive form controls: translucent frosted glass so background shows through */
+/* Interactive form controls: Midnight Black frosted glass with Electric Blue rim */
 input, textarea, select {
-  color: #090d16 !important;
-  background-color: rgba(255, 255, 255, 0.34) !important;
+  color: #f8fafc !important;
+  background-color: rgba(2, 7, 10, 0.78) !important;
   backdrop-filter: blur(12px) saturate(140%);
   -webkit-backdrop-filter: blur(12px) saturate(140%);
-  border-color: rgba(255, 255, 255, 0.72) !important;
+  border-color: rgba(2, 151, 222, 0.35) !important;
 }
 
 input::placeholder, textarea::placeholder {
-  color: #334155 !important;
+  color: #94a3b8 !important;
 }
 
 option {
-  background-color: #ffffff;
-  color: #090d16;
+  background-color: #02070A;
+  color: #f8fafc;
 }
+
+/* Gleaming Faceted Diamond-Chrome Silver Badge matching the shining silver dots on the background dice */
+@keyframes diceSilverGleam {
+  0% {
+    background-position: 210% 0, 0 0, 0 0, 0 0;
+  }
+  55%, 100% {
+    background-position: -140% 0, 0 0, 0 0, 0 0;
+  }
+}
+
+.dice-silver-badge {
+  background-color: #e2e8f0 !important;
+  background-image:
+    linear-gradient(
+      115deg,
+      transparent 30%,
+      rgba(255, 255, 255, 0.92) 46%,
+      #ffffff 50%,
+      rgba(255, 255, 255, 0.92) 54%,
+      transparent 70%
+    ),
+    radial-gradient(
+      circle at 22% 22%,
+      #ffffff 0%,
+      rgba(255, 255, 255, 0.85) 20%,
+      transparent 52%
+    ),
+    radial-gradient(
+      circle at 82% 82%,
+      #ffffff 0%,
+      rgba(241, 245, 249, 0.75) 22%,
+      transparent 52%
+    ),
+    linear-gradient(
+      140deg,
+      #ffffff 0%,
+      #e2e8f0 16%,
+      #8492a6 33%,
+      #f8fafc 47%,
+      #ffffff 54%,
+      #cbd5e1 70%,
+      #77869b 86%,
+      #ffffff 100%
+    ) !important;
+  background-size: 250% 100%, 100% 100%, 100% 100%, 100% 100% !important;
+  background-repeat: no-repeat !important;
+  animation: diceSilverGleam 3.2s ease-in-out infinite !important;
+  color: #000000 !important;
+  border: 1.5px solid #ffffff !important;
+  box-shadow:
+    inset 0 1.5px 2px #ffffff,
+    inset 0 -1.5px 2.5px rgba(51, 65, 85, 0.6),
+    inset 0 0 6px rgba(255, 255, 255, 0.85),
+    0 0 10px rgba(255, 255, 255, 0.95),
+    0 0 20px rgba(224, 242, 254, 0.75),
+    0 2px 5px rgba(15, 23, 42, 0.3) !important;
+}
+
+.dice-silver-badge svg {
+  color: #000000 !important;
+  stroke: #000000 !important;
+  stroke-width: 2.5 !important;
+}
+
+/* Machined 3D Metallic Silver Dot for Landing Page Indicators */
+.metallic-silver-dot {
+  background: radial-gradient(
+    circle at 32% 30%,
+    #ffffff 0%,
+    #f1f5f9 24%,
+    #94a3b8 58%,
+    #475569 85%,
+    #cbd5e1 100%
+  ) !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow:
+    inset 0 1px 1px #ffffff,
+    inset 0 -1px 1.5px rgba(30, 41, 59, 0.7),
+    0 0 6px rgba(226, 232, 240, 0.9),
+    0 1px 2px rgba(15, 23, 42, 0.35) !important;
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   10 HEADER CARDS — THEME-SPECIFIC GPU ANIMATIONS (transform & opacity only)
+   ══════════════════════════════════════════════════════════════════════════ */
+
+@keyframes cardImageBreath {
+  0%, 100% {
+    transform: scale(1.04) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: scale(1.11) translate3d(0, -3px, 0);
+  }
+}
+
+@keyframes compassNeedleSweep {
+  0%, 100% {
+    transform: rotate(-26deg);
+  }
+  45% {
+    transform: rotate(32deg);
+  }
+  75% {
+    transform: rotate(6deg);
+  }
+}
+
+@keyframes stepBeaconPulse {
+  0%, 100% {
+    transform: scale(0.88);
+    opacity: 0.45;
+  }
+  50% {
+    transform: scale(1.16);
+    opacity: 1;
+  }
+}
+
+@keyframes splitEnergyWave {
+  0%, 100% {
+    transform: translate3d(-7px, 0, 0) scaleY(0.98);
+    opacity: 0.75;
+  }
+  50% {
+    transform: translate3d(7px, 0, 0) scaleY(1.04);
+    opacity: 1;
+  }
+}
+
+@keyframes diceFloatTilt {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) rotate(-8deg);
+  }
+  50% {
+    transform: translate3d(0, -5px, 0) rotate(10deg);
+  }
+}
+
+@keyframes tokenHopArc {
+  0% {
+    transform: translate3d(0, 0, 0) scale(0.95);
+    opacity: 0.85;
+  }
+  33% {
+    transform: translate3d(26px, -10px, 0) scale(1.12);
+    opacity: 1;
+  }
+  66% {
+    transform: translate3d(52px, -4px, 0) scale(1.08);
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(0.95);
+    opacity: 0.85;
+  }
+}
+
+@keyframes codexRingSpin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes codexRingSpinReverse {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes shieldBreath {
+  0%, 100% {
+    transform: scale(0.93);
+    opacity: 0.55;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 0.95;
+  }
+}
+
+@keyframes floatBob {
+  0%, 100% {
+    transform: translate3d(0, 4px, 0);
+  }
+  50% {
+    transform: translate3d(0, -6px, 0);
+  }
+}
+
+@keyframes emberRise {
+  0% {
+    transform: translate3d(0, 14px, 0) scale(0.65);
+    opacity: 0;
+  }
+  35% {
+    opacity: 0.95;
+  }
+  100% {
+    transform: translate3d(0, -22px, 0) scale(1.1);
+    opacity: 0;
+  }
+}
+
+@keyframes sonarRipple {
+  0% {
+    transform: scale(0.45);
+    opacity: 0.92;
+  }
+  100% {
+    transform: scale(1.55);
+    opacity: 0;
+  }
+}
+
+@keyframes shieldLaserScan {
+  0%, 100% {
+    transform: translate3d(0, -34px, 0);
+    opacity: 0.55;
+  }
+  50% {
+    transform: translate3d(0, 34px, 0);
+    opacity: 1;
+  }
+}
+
+.anim-card-image {
+  animation: cardImageBreath 6.5s ease-in-out infinite;
+  will-change: transform;
+}
+
+.anim-compass-needle {
+  animation: compassNeedleSweep 4.2s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+  transform-origin: center;
+}
+
+.anim-step-1 {
+  animation: stepBeaconPulse 2.4s ease-in-out infinite 0s;
+}
+.anim-step-2 {
+  animation: stepBeaconPulse 2.4s ease-in-out infinite 0.55s;
+}
+.anim-step-3 {
+  animation: stepBeaconPulse 2.4s ease-in-out infinite 1.1s;
+}
+
+.anim-split-beam {
+  animation: splitEnergyWave 3.2s ease-in-out infinite;
+}
+
+.anim-dice-float {
+  animation: diceFloatTilt 3.4s ease-in-out infinite;
+}
+
+.anim-token-hop {
+  animation: tokenHopArc 3.6s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+}
+
+.anim-ring-spin {
+  animation: codexRingSpin 16s linear infinite;
+  transform-origin: center;
+}
+
+.anim-ring-spin-reverse {
+  animation: codexRingSpinReverse 12s linear infinite;
+  transform-origin: center;
+}
+
+.anim-radar-sweep {
+  animation: codexRingSpin 5.5s linear infinite;
+  transform-origin: center;
+}
+
+.anim-shield-breath {
+  animation: shieldBreath 3s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.anim-float-bob {
+  animation: floatBob 3.5s ease-in-out infinite;
+}
+
+.anim-ember-1 {
+  animation: emberRise 3.2s ease-out infinite 0s;
+}
+.anim-ember-2 {
+  animation: emberRise 3.2s ease-out infinite 1.05s;
+}
+.anim-ember-3 {
+  animation: emberRise 3.2s ease-out infinite 2.1s;
+}
+
+.anim-sonar-1 {
+  animation: sonarRipple 2.8s ease-out infinite 0s;
+  transform-origin: center;
+}
+.anim-sonar-2 {
+  animation: sonarRipple 2.8s ease-out infinite 1.4s;
+  transform-origin: center;
+}
+
+.anim-laser-scan {
+  animation: shieldLaserScan 3.2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-card-image,
+  .anim-compass-needle,
+  .anim-step-1,
+  .anim-step-2,
+  .anim-step-3,
+  .anim-split-beam,
+  .anim-dice-float,
+  .anim-token-hop,
+  .anim-ring-spin,
+  .anim-ring-spin-reverse,
+  .anim-radar-sweep,
+  .anim-shield-breath,
+  .anim-float-bob,
+  .anim-ember-1,
+  .anim-ember-2,
+  .anim-ember-3,
+  .anim-sonar-1,
+  .anim-sonar-2,
+  .anim-laser-scan {
+    animation: none !important;
+  }
+}
+
+

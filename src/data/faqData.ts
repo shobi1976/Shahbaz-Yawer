@@ -418,6 +418,6 @@ export const FAQ_DATA: FaqItem[] = [
   {
     category: 'Language Based Searches',
     question: 'How do people write and search for Ludo in different languages?',
-    answer: 'People search for Ludo in their native scripts worldwide. It is written as لڈو in Urdu, लूडो in Hindi, and 飞行棋 (Flying Chess) in Chinese. Other scripts include Bengali (লুডু), Tamil (லுடோ), Arabic (لودو), Russian (Лудо), and Spanish (Parchís). Ludo Dethroned 5 Way & 4 Way Two Dice supports this global community by offering localized gameplay experiences.'
+    answer: 'People search for Ludo in their native scripts worldwide. It is written as Ludo in Roman Urdu, लूडो in Hindi, and 飞行棋 (Flying Chess) in Chinese. Other scripts include Bengali (লুডু), Tamil (லுடோ), Arabic (لودو), Russian (Лудо), and Spanish (Parchís). Ludo Dethroned 5 Way & 4 Way Two Dice supports this global community by offering localized gameplay experiences.'
   }
 ];
