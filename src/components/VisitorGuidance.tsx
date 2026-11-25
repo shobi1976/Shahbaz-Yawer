@@ -9,7 +9,7 @@ const FIVE_KEY_RULES_SYNC_EVENT = 'five-key-rules-sync';
 export const FIVE_KEY_RULES: readonly string[] = [
   'Capturing is compulsory.',
   'You roll two dice and can combine them or split them.',
-  'Every 6 gives an extra turn.',
+  'Rolling 6+6 gives an extra turn.',
   'Star squares and your coloured home path are safe.',
   'The match ends the moment someone wins.',
 ];
@@ -21,8 +21,8 @@ export interface NotTraditionalCardItem {
 
 export const NOT_TRADITIONAL_LUDO_CARDS: readonly NotTraditionalCardItem[] = [
   {
-    title: 'Five players, two dice',
-    text: 'Five players share one 3D board. Each turn you roll two dice and choose: use both on one token, or split them between two.',
+    title: '5 & 4 players, two dice',
+    text: '5 & 4 players share one 3D board. Each turn you roll two dice and choose: use both on one token, or split them between two.',
   },
   {
     title: 'Every roll adds pressure',

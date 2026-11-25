@@ -115,12 +115,12 @@ export const CANONICAL_FAQS: FaqItem[] = [
   {
     category: "Starting and Moving",
     q: "Do I get an extra turn for rolling a 6?",
-    a: "Yes. Every 6 gives you an extra turn."
+    a: "No. A single 6 brings a token out of base onto the open track. Rolling 6+6 (double sixes) gives you an extra turn."
   },
   {
     category: "Starting and Moving",
-    q: "Is there a limit on sixes in a row?",
-    a: "No. There is no limit on how many extra turns you can earn by rolling sixes."
+    q: "Is there a limit on double sixes or extra turns in a row?",
+    a: "No. There is no limit on how many extra turns you can earn."
   },
   {
     category: "Starting and Moving",
@@ -271,7 +271,7 @@ export const CANONICAL_FAQS: FaqItem[] = [
   {
     category: "Extra Turns & Special Features",
     q: "When do I get an extra turn?",
-    a: "When you roll a 6, after a capture, when you move a token into the centre home, and when Lucky 7 applies."
+    a: "When you roll 6+6 (double sixes), after a capture, when you move a token into the centre home, and when Lucky 7 applies."
   },
   {
     category: "Extra Turns & Special Features",
@@ -450,7 +450,7 @@ export const CANONICAL_FAQS: FaqItem[] = [
   {
     category: "Getting started",
     q: "What are the five rules to know before my first match?",
-    a: "Capturing is compulsory. You roll two dice and can combine or split them. Every 6 gives an extra turn. Star squares and your coloured home path are safe. The match ends the moment someone wins."
+    a: "Capturing is compulsory. You roll two dice and can combine or split them. Rolling 6+6 gives an extra turn. Star squares and your coloured home path are safe. The match ends the moment someone wins."
   },
   {
     category: "Getting started",
@@ -462,7 +462,7 @@ export const CANONICAL_FAQS: FaqItem[] = [
   {
     category: "Compared with traditional Ludo",
     q: "How is it different from traditional Ludo?",
-    a: "It has five players, two dice, compulsory capturing, a win on the coloured path and a match that ends at the first win. It also adds Lucky 7 and the Lucky Wish."
+    a: "It has 5 & 4 players, two dice, compulsory capturing, a win on the coloured path and a match that ends at the first win. It also adds Lucky 7 and the Lucky Wish."
   },
   {
     category: "Compared with traditional Ludo",
@@ -546,7 +546,7 @@ export const CANONICAL_STRATEGIES: StrategySectionItem[] = [
     num: "6.2",
     title: "The opening: get tokens out",
     body: [
-      "You need a 6 to leave base. With two dice, the chance that at least one die shows a 6 is 11 in 36, about 31%, on any roll. Every 6 also gives you an extra turn.",
+      "You need a 6 to leave base. With two dice, the chance that at least one die shows a 6 is 11 in 36, about 31%, on any roll. Rolling 6+6 also gives you an extra turn.",
       "Waiting with all four tokens in base wastes turns, so bring a token out when you can. Remember that a token on the open track means Lucky 7 will not work for you."
     ]
   },
@@ -735,7 +735,7 @@ export const HOW_TO_PLAY_SECTIONS = [
     title: "The game in 30 seconds",
     items: [
       "5 Way & 4 Way (five or four players), four tokens each, two dice every turn.",
-      "A single 6 brings a token out of base. Every 6 you roll also gives you an extra turn.",
+      "A single 6 brings a token out of base onto the open track. Rolling 6+6 gives you an extra turn.",
       "Tokens travel around the shared open track. Landing on a lone opponent token captures it, and you roll again.",
       "If you can capture, you must. Skipping a capture sends your token back to base.",
       "Star squares and your coloured home path are safe.",
@@ -758,7 +758,7 @@ export const HOW_TO_PLAY_SECTIONS = [
       "2. Check for captures first. If a capture is possible, it is compulsory (see Guide 7).",
       "3. Decide how to use the dice: both on one token, which moves the total, or one die on each of two tokens.",
       "4. Move your token or tokens. If you have no legal move, your turn passes to the next player.",
-      "5. If you earned an extra turn, roll again. Extra turns come from rolling a 6, from a capture, from moving a token into the centre home, and from Lucky 7.",
+      "5. If you earned an extra turn, roll again. Extra turns come from rolling 6+6, from a capture, from moving a token into the centre home, and from Lucky 7.",
       "6. Otherwise your turn passes to the next player, clockwise around the board."
     ]
   },
@@ -769,7 +769,7 @@ export const HOW_TO_PLAY_SECTIONS = [
       "Example 1: a capture and a reroll. An opponent’s single token is 5 squares ahead of your token on a normal square. You roll 5 and 2. You use the 5 to land on it and capture it, then use the 2 on another token. Because you captured, you roll again.",
       "Example 2: a missed capture. One of your tokens is 4 squares behind an opponent’s single token on a normal square. You roll 4 and 2. A capture is possible with the 4, so it is compulsory. If you use both dice on other tokens, the token that could have captured goes back to base.",
       "Example 3: Lucky 7. Two of your tokens are in base and two are on your coloured home path, so none are on the open track. You roll 4 and 3, a total of 7. Because none of your tokens are on the open track, it counts as 6+6. Each 6 can bring a token out of base, so both tokens in base can come out together, and you also take an extra turn.",
-      "Example 4: sixes and extra turns. You roll 6 and 2. You use the 6 to bring a token out of base and the 2 to move another token. Because you rolled a 6, you roll again."
+      "Example 4: sixes and extra turns. You roll 6 and 6. Each 6 can bring a token out of base, and rolling 6+6 gives you an extra turn, so you roll again."
     ]
   },
   {

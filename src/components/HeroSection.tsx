@@ -47,10 +47,15 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
     const updateDimensions = () => {
       if (arenaRef.current) {
         const { clientWidth } = arenaRef.current;
+        const currentWidth = clientWidth || (typeof window !== 'undefined' ? window.innerWidth : 1200);
         const vpHeight = typeof window !== 'undefined' ? window.innerHeight : 820;
-        const targetHeight = Math.max(490, Math.min(580, vpHeight - 190));
+        const mobile = currentWidth < 640;
+        // On mobile, scale arena height (~310-340px) so the complete landing page fits into the initial screen
+        const targetHeight = mobile
+          ? Math.max(300, Math.min(340, vpHeight * 0.44))
+          : Math.max(490, Math.min(580, vpHeight - 190));
         setDimensions({
-          width: clientWidth || window.innerWidth,
+          width: currentWidth,
           height: targetHeight,
         });
       }
@@ -76,9 +81,16 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
     return () => observer.disconnect();
   }, []);
 
-  // Responsive Ellipse Radii so all 10 orbiting cards stay fully inside the viewport
-  const rx = Math.max(120, Math.min(495, Math.min(dimensions.width * 0.41, (dimensions.width - 150) / 2)));
-  const ry = Math.max(150, Math.min(205, dimensions.height * 0.36));
+  const isMobile = dimensions.width < 640;
+
+  // Responsive Ellipse Radii: 0.75x adjusted on mobile so all 10 orbiting cards stay fully inside viewport
+  const rx = isMobile
+    ? Math.max(95, Math.min(145, (dimensions.width - 60) * 0.40))
+    : Math.max(130, Math.min(495, Math.min(dimensions.width * 0.41, (dimensions.width - 150) / 2)));
+
+  const ry = isMobile
+    ? Math.max(90, Math.min(115, dimensions.height * 0.32))
+    : Math.max(150, Math.min(205, dimensions.height * 0.36));
 
   const applyCardTransforms = useCallback(
     (angle: number) => {
@@ -91,6 +103,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         const tiltY = m.isInside ? m.nx * 8 : 0;
         stageTiltRef.current.style.transform = `rotateX(${tiltX.toFixed(2)}deg) rotateY(${tiltY.toFixed(2)}deg)`;
       }
+
+      // Mobile 0.75x scaling for revolving windows
+      const mobileScaleMult = isMobile ? 0.75 : 1;
 
       for (let index = 0; index < total; index++) {
         const el = cardRefs.current[index];
@@ -119,9 +134,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         if (isNearMouse) zIndex = 50;
         if (isHovered) zIndex = 70;
 
-        const baseScale = 0.86 + 0.18 * ((depthZ + 1) / 2);
-        const effectiveScale = isHovered ? 1.15 : baseScale + proximityRatio * 0.08;
-        const liftZ = isHovered ? 55 : depthZ * 25 + proximityRatio * 28;
+        const baseScale = (0.86 + 0.18 * ((depthZ + 1) / 2)) * mobileScaleMult;
+        const effectiveScale = isHovered
+          ? 1.15 * mobileScaleMult
+          : baseScale + proximityRatio * 0.08 * mobileScaleMult;
+        const liftZ = isHovered ? 55 : depthZ * (isMobile ? 18 : 25) + proximityRatio * 28;
         const effectiveOpacity = isHovered ? 1 : 0.84 + 0.16 * ((depthZ + 1) / 2);
 
         el.style.transform = `translate(-50%, -50%) translate3d(${posX.toFixed(1)}px, ${posY.toFixed(1)}px, ${liftZ.toFixed(1)}px) scale(${effectiveScale.toFixed(3)})`;
@@ -129,7 +146,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         el.style.opacity = effectiveOpacity.toFixed(3);
       }
     },
-    [rx, ry]
+    [rx, ry, isMobile]
   );
 
   // Continuous 60fps orbital physics loop via direct DOM mutation (0 React renders/sec)
@@ -271,10 +288,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   return (
     <section
       ref={sectionRef}
-      className="relative flex flex-col items-center justify-start px-2 sm:px-4 pt-3 pb-8 overflow-x-clip select-none"
+      className="relative flex flex-col items-center justify-start px-2 sm:px-4 pt-1 sm:pt-3 pb-6 sm:pb-8 overflow-x-clip select-none"
     >
       {/* 1. COMPACT ORBIT CONTROLS — Directly Below Header */}
-      <div className="w-full max-w-7xl mx-auto text-center relative z-30 mb-2 px-2 sm:px-4">
+      <div className="w-full max-w-7xl mx-auto text-center relative z-30 mb-1 sm:mb-2 px-2 sm:px-4">
         <div className="inline-flex flex-wrap items-center justify-center gap-1.5">
           <div className="flex items-center gap-1 bg-[#02070A]/82 backdrop-blur-md border border-[#0297DE]/35 rounded-lg p-0.5 shadow-md">
             <button
@@ -349,7 +366,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           perspective: '1400px',
           height: `${dimensions.height}px`,
         }}
-        className="relative w-full max-w-7xl mx-auto flex items-center justify-center cursor-grab active:cursor-grabbing preserve-3d my-2"
+        className="relative w-full max-w-7xl mx-auto flex items-center justify-center cursor-grab active:cursor-grabbing preserve-3d my-1 sm:my-2"
       >
         <div
           ref={stageTiltRef}
@@ -363,8 +380,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           <div className="absolute inset-0 pointer-events-none flex items-center justify-center opacity-55">
             <div
               style={{
-                width: `${rx * 2 + 80}px`,
-                height: `${ry * 2 + 50}px`,
+                width: `${rx * 2 + (isMobile ? 40 : 80)}px`,
+                height: `${ry * 2 + (isMobile ? 25 : 50)}px`,
                 borderColor: hoveredColor || 'rgba(2, 151, 222, 0.55)',
               }}
               className="absolute rounded-[50%] border border-dashed transition-colors duration-500"
@@ -378,22 +395,25 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             />
           </div>
 
-          {/* CENTRAL FOCAL POINT: GAMEPLAY VIDEO PLAYER */}
+          {/* CENTRAL FOCAL POINT: GAMEPLAY VIDEO PLAYER (0.75x scaled & adjusted on mobile) */}
           <div
             style={{
-              transform: 'translate(-50%, -50%) translateZ(10px)',
+              transform: isMobile
+                ? 'translate(-50%, -50%) translateZ(10px) scale(0.75)'
+                : 'translate(-50%, -50%) translateZ(10px) scale(1)',
+              transformOrigin: 'center center',
               boxShadow: hoveredColor
                 ? `0 20px 50px -12px ${hoveredColor}55, 0 0 30px -5px ${hoveredColor}40`
                 : '0 22px 50px -12px rgba(0, 0, 0, 0.85), 0 0 32px -8px rgba(2, 151, 222, 0.32)',
             }}
             onMouseDown={(e) => e.stopPropagation()}
             onTouchStart={(e) => e.stopPropagation()}
-            className="absolute left-1/2 top-1/2 w-[78vw] max-w-[290px] sm:max-w-[360px] md:max-w-[410px] lg:max-w-[440px] z-25 transition-shadow duration-500 rounded-2xl bg-[#02070A]/82 p-1.5 sm:p-2.5 border-2 border-[#0297DE]/40 shadow-2xl backdrop-blur-xl pointer-events-auto"
+            className="absolute left-1/2 top-1/2 w-[84vw] max-w-[290px] sm:w-[78vw] sm:max-w-[360px] md:max-w-[410px] lg:max-w-[440px] z-25 transition-transform transition-shadow duration-300 rounded-2xl bg-[#02070A]/82 p-1.5 sm:p-2.5 border-2 border-[#0297DE]/40 shadow-2xl backdrop-blur-xl pointer-events-auto"
           >
             <GameplayVideoPlayer hoveredColor={hoveredColor} />
           </div>
 
-          {/* 10 REVOLVING HEADER CARDS (Just Animated Image + Heading, Midnight Black at Rest -> Rule-Card Neon Hover) */}
+          {/* 10 REVOLVING HEADER CARDS (0.75x scaled & adjusted on mobile, Midnight Black at Rest -> Rule-Card Neon Hover) */}
           <div className="absolute inset-0 pointer-events-none flex items-center justify-center preserve-3d">
             {HEADER_CARDS_DATA.map((card, index) => {
               const initialAngle = (index / HEADER_CARDS_DATA.length) * 2 * Math.PI;
@@ -428,7 +448,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                     navigate(card.to);
                   }}
                   style={{
-                    transform: `translate(-50%, -50%) translate3d(${initX.toFixed(1)}px, ${initY.toFixed(1)}px, ${(initZ * 25).toFixed(1)}px) scale(${(0.86 + 0.18 * ((initZ + 1) / 2)).toFixed(3)})`,
+                    transform: `translate(-50%, -50%) translate3d(${initX.toFixed(1)}px, ${initY.toFixed(1)}px, ${(initZ * (isMobile ? 18 : 25)).toFixed(1)}px) scale(${((0.86 + 0.18 * ((initZ + 1) / 2)) * (isMobile ? 0.75 : 1)).toFixed(3)})`,
                     zIndex: initZ > 0 ? 32 + Math.round(initZ * 8) : 16 + Math.round(initZ * 8),
                     opacity: isHovered ? 1 : 0.84 + 0.16 * ((initZ + 1) / 2),
                     background: isHovered
@@ -498,8 +518,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       </div>
 
       {/* 3. MAIN HEADING WITH LEFT AND RIGHT VIDEO SCREENS — Positioned Below Revolving Arena */}
-      <div className="w-full max-w-7xl mx-auto text-center relative z-20 mt-8 sm:mt-10 px-2 sm:px-4">
-        <div className="grid grid-cols-2 md:grid-cols-[auto_1fr_auto] items-center justify-items-center gap-3 sm:gap-5 lg:gap-6 w-full">
+      <div className="w-full max-w-7xl mx-auto text-center relative z-20 mt-2 sm:mt-10 px-2 sm:px-4">
+        <div className="grid grid-cols-2 md:grid-cols-[auto_1fr_auto] items-center justify-items-center gap-2.5 sm:gap-5 lg:gap-6 w-full">
           {/* Left Video Screen — Electric Blue (#0297DE) */}
           <div className="col-span-1 order-2 md:order-1 justify-self-center md:justify-self-start">
             <CornerVideoCard
@@ -516,45 +536,45 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           </div>
 
           {/* Center Main Heading Block — Midnight Black Frosted Glass + Electric Blue & Cantaloupe Dual Bloom */}
-          <div className="col-span-2 md:col-span-1 order-1 md:order-2 w-full max-w-2xl text-center p-5 sm:p-7 rounded-3xl bg-[#02070A]/80 hover:bg-[#05121d]/88 border-2 border-[#0297DE]/38 backdrop-blur-md shadow-[0_20px_50px_-12px_rgba(0,0,0,0.85),0_0_36px_-10px_rgba(2,151,222,0.32)] relative overflow-hidden transition-all">
+          <div className="col-span-2 md:col-span-1 order-1 md:order-2 w-full max-w-2xl text-center p-3.5 sm:p-7 rounded-2xl sm:rounded-3xl bg-[#02070A]/85 hover:bg-[#05121d]/88 border-2 border-[#0297DE]/38 backdrop-blur-md shadow-[0_20px_50px_-12px_rgba(0,0,0,0.85),0_0_36px_-10px_rgba(2,151,222,0.32)] relative overflow-hidden transition-all">
             <div className="absolute inset-0 bg-gradient-to-br from-[#0297DE]/16 via-transparent to-[#FC734D]/16 pointer-events-none opacity-95" />
 
             <div className="relative z-10">
-              <div className="text-xs uppercase tracking-[0.25em] text-[#0297DE] font-mono font-black mb-2">
-                5 WAY & 4 WAY · TWO DICE
+              <div className="text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.25em] text-[#0297DE] font-mono font-black mb-1 sm:mb-2">
+                5 WAY &amp; 4 WAY · TWO DICE
               </div>
 
-              <h1 className="text-xl xs:text-2xl sm:text-3xl md:text-3xl lg:text-4xl xl:text-5xl font-black tracking-tight font-['Chakra_Petch'] uppercase leading-tight text-white">
-                LUDO DETHRONED <span className="text-[#FC734D]">5 WAY & 4 WAY TWO DICE</span>
+              <h1 className="text-lg xs:text-xl sm:text-3xl md:text-3xl lg:text-4xl xl:text-5xl font-black tracking-tight font-['Chakra_Petch'] uppercase leading-tight text-white">
+                LUDO DETHRONED <span className="text-[#FC734D]">5 WAY &amp; 4 WAY TWO DICE</span>
               </h1>
 
-              <p className="text-sm sm:text-base font-medium leading-relaxed text-slate-200 font-['Outfit'] mt-2.5">
+              <p className="text-xs sm:text-base font-medium leading-relaxed text-slate-200 font-['Outfit'] mt-1 sm:mt-2.5">
                 A five-player, 3D Ludo-style strategy game played with two dice. Get all four of your tokens onto your coloured home path before anyone else does.
               </p>
 
-              <p className="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-slate-300 font-mono font-bold flex items-center justify-center gap-1.5 mt-2">
-                <Flame className="w-3.5 h-3.5 text-[#FC734D] inline shrink-0" />
-                <span>5 WAY & 4 WAY STRATEGY · 12 CANONICAL RULES</span>
+              <p className="text-[9px] sm:text-xs uppercase tracking-[0.15em] sm:tracking-[0.2em] text-slate-300 font-mono font-bold flex items-center justify-center gap-1.5 mt-1 sm:mt-2">
+                <Flame className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#FC734D] inline shrink-0" />
+                <span>5 WAY &amp; 4 WAY STRATEGY · 12 CANONICAL RULES</span>
               </p>
 
               {/* Play 4 Way (Electric Blue) & Play 5 Way (Cantaloupe Orange) Primary Actions */}
-              <div className="mt-5 pt-4 border-t border-[#0297DE]/25 flex items-center justify-between gap-2 sm:gap-4 w-full">
+              <div className="mt-3 sm:mt-5 pt-2.5 sm:pt-4 border-t border-[#0297DE]/25 flex items-center justify-between gap-2 sm:gap-4 w-full">
                 <Link
                   to="/play-4-way"
                   onClick={() => sound.playClick(550)}
-                  className="min-h-[44px] px-4 sm:px-6 py-2.5 rounded-2xl bg-[#0297DE] hover:bg-[#0284c7] border border-[#38bdf8]/60 text-white text-xs sm:text-sm font-['Chakra_Petch'] font-black uppercase tracking-wider transition-all flex items-center gap-2 shadow-[0_0_20px_rgba(2,151,222,0.48)] hover:scale-105 cursor-pointer"
+                  className="min-h-[40px] sm:min-h-[44px] px-3.5 sm:px-6 py-2 sm:py-2.5 rounded-xl sm:rounded-2xl bg-[#0297DE] hover:bg-[#0284c7] border border-[#38bdf8]/60 text-white text-xs sm:text-sm font-['Chakra_Petch'] font-black uppercase tracking-wider transition-all flex items-center gap-1.5 sm:gap-2 shadow-[0_0_20px_rgba(2,151,222,0.48)] hover:scale-105 cursor-pointer"
                 >
-                  <Play className="w-4 h-4 fill-current shrink-0" />
+                  <Play className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current shrink-0" />
                   <span>Play 4 Way</span>
                 </Link>
 
                 <Link
                   to="/play-5-way"
                   onClick={() => sound.playClick(600)}
-                  className="min-h-[44px] px-4 sm:px-6 py-2.5 rounded-2xl bg-[#FC734D] hover:bg-[#ff8866] border border-[#ff9d80]/70 text-[#02070A] text-xs sm:text-sm font-['Chakra_Petch'] font-black uppercase tracking-wider transition-all flex items-center gap-2 shadow-[0_0_22px_rgba(252,115,77,0.5)] hover:scale-105 cursor-pointer"
+                  className="min-h-[40px] sm:min-h-[44px] px-3.5 sm:px-6 py-2 sm:py-2.5 rounded-xl sm:rounded-2xl bg-[#FC734D] hover:bg-[#ff8866] border border-[#ff9d80]/70 text-[#02070A] text-xs sm:text-sm font-['Chakra_Petch'] font-black uppercase tracking-wider transition-all flex items-center gap-1.5 sm:gap-2 shadow-[0_0_22px_rgba(252,115,77,0.5)] hover:scale-105 cursor-pointer"
                 >
                   <span>Play 5 Way</span>
-                  <Play className="w-4 h-4 fill-current shrink-0" />
+                  <Play className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current shrink-0" />
                 </Link>
               </div>
             </div>

@@ -68,34 +68,34 @@ export const RULES_DATA: RuleCard[] = [
   {
     id: 3,
     title: 'Sixes',
-    subtitle: 'Leaving Base & Extra Turns',
+    subtitle: 'Leaving Base & Double 6s Bonus',
     accentColorName: 'Neon Cyan',
     hex: '#00f0ff',
     glowHex: 'rgba(0, 240, 255, 0.6)',
     iconName: 'RotateCw',
     category: 'Core Rules',
-    shortDesc: 'A single 6 brings a token out of base. Rolling a 6 also gives you an extra turn, with no limit.',
-    fullDesc: 'Rule 3: Sixes. A single 6 brings a token out of base. Rolling a 6 also gives you an extra turn, and there is no limit on how many extra turns you can earn in a row.',
-    tacticalTip: 'You need a 6 to leave base. With two dice, the chance of at least one 6 is 11 in 36 (about 31%) on any roll.',
-    antiLeaderMechanic: 'Extra turns from rolling sixes provide sudden momentum to chase down the leader.',
+    shortDesc: 'A single 6 brings a token out of base. Rolling 6+6 gives you an extra turn.',
+    fullDesc: 'Rule 3: Sixes. A single 6 brings a token out of base onto the open track. Rolling 6+6 (double sixes) gives you an extra turn, with no limit on consecutive double sixes.',
+    tacticalTip: 'You need a 6 to leave base. With two dice, the chance of at least one 6 is 11 in 36 (about 31%) on any roll. Rolling double sixes (6+6) gives an extra turn!',
+    antiLeaderMechanic: 'Extra turns from rolling 6+6 provide sudden momentum to chase down the leader.',
     highlightDetails: {
       ruleNumber: 'RULE 03',
       keyMetric: 'Single 6 Leaves Base',
       impactLevel: 'High',
-      unlockCondition: 'No limit on consecutive sixes'
+      unlockCondition: '6+6 Grants Extra Turn'
     },
     faqs: [
       {
         question: 'How do I bring a token out of base?',
-        answer: 'Roll a 6. A single 6 brings one token out.'
+        answer: 'Roll a 6. A single 6 brings one token out onto the open track.'
+      },
+      {
+        question: 'Do I get an extra turn for rolling a single 6?',
+        answer: 'No. A single 6 brings a token out of base. Rolling 6+6 (double sixes) gives you an extra turn.'
       },
       {
         question: 'Do I need a double 6 to start?',
-        answer: 'No. A single 6 is enough.'
-      },
-      {
-        question: 'Is there a limit on sixes in a row?',
-        answer: 'No. There is no limit on how many extra turns you can earn by rolling sixes.'
+        answer: 'No. A single 6 is enough to bring one token out.'
       }
     ]
   },

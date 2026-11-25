@@ -32,13 +32,64 @@ export const HowToPlayPage: React.FC<HowToPlayPageProps> = ({ onOpenTutorial }) 
             How to Play <span className="text-[#FC734D]">Ludo Dethroned 5 Way & 4 Way Two Dice</span>
           </h1>
 
-          <p className="text-slate-300 font-medium text-sm sm:text-base mt-3 leading-relaxed font-['Outfit'] max-w-3xl mx-auto">
-            Played on a 3D board with 3D tokens and animated 3D dice.
-          </p>
+          {/* Intro copy & Core Battleground & Vibe */}
+          <div className="mt-5 space-y-4">
+            <p className="text-slate-100 font-semibold text-base sm:text-lg leading-relaxed font-['Outfit'] max-w-3xl mx-auto">
+              Ludo Dethroned is an intense, nail-biting 3D strategy board game designed for 5 players (5-Way) and 4 players (4-Way), played using two dice (double dice).
+            </p>
 
-          <p className="text-slate-300 font-medium text-sm sm:text-base mt-2 leading-relaxed font-['Outfit'] max-w-3xl mx-auto">
-            Ludo Dethroned 5 Way & 4 Way Two Dice is a 5 Way & 4 Way (five-player and four-player), 3D Ludo-style strategy game played with two dice (also popular as 2 dice, double dice, or 2 dies). Each player has four tokens. The first player to get all four tokens onto their coloured home path wins, and the match ends as soon as someone wins. Think of it as a T20 match rather than a Test match: the match is over once a winner is decided. Matches can include AI opponents.
-          </p>
+            <p className="text-slate-300 font-medium text-sm sm:text-base leading-relaxed font-['Outfit'] max-w-3xl mx-auto">
+              Set in the same legendary arenas and competing empires you know, this is traditional Ludo turned upside down with brutal, high-stakes dethrone rules.
+            </p>
+
+            <div className="pt-5 border-t border-[#0297DE]/20 text-left">
+              <h2 className="text-[#FC734D] font-['Chakra_Petch'] font-black text-lg sm:text-xl uppercase tracking-wider text-center mb-4">
+                The Core Battleground &amp; Vibe:
+              </h2>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
+                <div className="p-4 sm:p-5 rounded-2xl bg-[#02070A]/85 border border-[#0297DE]/35 hover:border-[#0297DE] transition-all">
+                  <h3 className="text-[#0297DE] font-['Chakra_Petch'] font-bold text-sm sm:text-base mb-1.5 flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-[#0297DE]" />
+                    <span>Nail-Biting Emotion &amp; Leg-Pulling</span>
+                  </h3>
+                  <p className="text-slate-300 text-xs sm:text-sm font-['Outfit'] leading-relaxed">
+                    This is full of tension, laughter, and high emotion. It’s not just about running forward—it’s about the pure joy of pulling the leader’s legs right when they think they've won!
+                  </p>
+                </div>
+
+                <div className="p-4 sm:p-5 rounded-2xl bg-[#02070A]/85 border border-[#FC734D]/35 hover:border-[#FC734D] transition-all">
+                  <h3 className="text-[#FC734D] font-['Chakra_Petch'] font-bold text-sm sm:text-base mb-1.5 flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-[#FC734D]" />
+                    <span>Dethrone the Frontrunner</span>
+                  </h3>
+                  <p className="text-slate-300 text-xs sm:text-sm font-['Outfit'] leading-relaxed">
+                    To claim ultimate victory, you can't just cruise ahead; you have to outsmart and capture the winner. Once someone rushes toward the finish line, everyone else becomes the ultimate blockades and hunters.
+                  </p>
+                </div>
+
+                <div className="p-4 sm:p-5 rounded-2xl bg-[#02070A]/85 border border-[#FC734D]/35 hover:border-[#FC734D] transition-all">
+                  <h3 className="text-[#FC734D] font-['Chakra_Petch'] font-bold text-sm sm:text-base mb-1.5 flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-[#FC734D]" />
+                    <span>Tactical Split-Movement</span>
+                  </h3>
+                  <p className="text-slate-300 text-xs sm:text-sm font-['Outfit'] leading-relaxed">
+                    Roll two dice and choose your destiny—combine them for a heavy push or split them across two tokens to corner your rivals.
+                  </p>
+                </div>
+
+                <div className="p-4 sm:p-5 rounded-2xl bg-[#02070A]/85 border border-[#0297DE]/35 hover:border-[#0297DE] transition-all">
+                  <h3 className="text-[#0297DE] font-['Chakra_Petch'] font-bold text-sm sm:text-base mb-1.5 flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-[#0297DE]" />
+                    <span>T20 Match Intensity</span>
+                  </h3>
+                  <p className="text-slate-300 text-xs sm:text-sm font-['Outfit'] leading-relaxed">
+                    The match ends the immediate second a winner is crowned. It's fast, fierce, and unforgiving—once the crown is taken, the battle is over!
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
 
           {/* Action Button: Open Interactive Slide Guide Modal */}
           <div className="mt-6 flex flex-wrap items-center justify-center gap-4">

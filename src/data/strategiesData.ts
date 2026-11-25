@@ -21,7 +21,7 @@ export const STRATEGIES_DATA: StrategySection[] = [
     number: '6.2',
     title: 'The opening: get tokens out',
     content: [
-      'You need a 6 to leave base. With two dice, the chance that at least one die shows a 6 is 11 in 36, about 31%, on any roll. Every 6 also gives you an extra turn. Waiting with all four tokens in base wastes turns, so bring a token out when you can. Remember that a token on the open track means Lucky 7 will not work for you (see 6.10).'
+      'You need a 6 to leave base. With two dice, the chance that at least one die shows a 6 is 11 in 36, about 31%, on any roll. Rolling 6+6 also gives you an extra turn. Waiting with all four tokens in base wastes turns, so bring a token out when you can. Remember that a token on the open track means Lucky 7 will not work for you (see 6.10).'
     ]
   },
   {

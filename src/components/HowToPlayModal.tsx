@@ -37,8 +37,8 @@ export const TUTORIAL_SLIDES: TutorialSlideItem[] = [
     id: 3,
     icon: '🎲',
     title: 'Sixes and Leaving Base',
-    desc: 'All four tokens start in base. A single 6 brings one token out of base onto the open track. Rolling a 6 also gives you an extra turn, and there is no limit on how many extra turns you can earn in a row.',
-    urduDesc: 'Aap ke chaaron tokens base se shuru hote hain. Aik akela 6 token ko base se bahar open track par le aata hai. Har 6 par extra baari milti hai aur lagatar chhakkon par koi had nahi hai.',
+    desc: 'All four tokens start in base. A single 6 brings one token out of base onto the open track. Rolling 6+6 gives you an extra turn, with no limit on consecutive double sixes.',
+    urduDesc: 'Aap ke chaaron tokens base se shuru hote hain. Aik akela 6 token ko base se bahar open track par le aata hai. 6+6 (double chhakka) aane par extra baari milti hai.',
     badge: 'GUIDE 3: SIXES & LEAVING BASE',
     color: '#10b981'
   },

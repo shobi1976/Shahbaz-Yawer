@@ -11,7 +11,7 @@ export const NotTraditionalLudoPage: React.FC = () => {
     <div className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-10">
       <SEO
         title="Not Traditional Ludo | Ludo Dethroned 5 Way & 4 Way Two Dice"
-        description="The board looks familiar, but Ludo Dethroned 3D plays very differently from traditional Ludo: five players, two dice, compulsory captures, win on the coloured path, Lucky 7, and Lucky Wish."
+        description="The board looks familiar, but Ludo Dethroned 3D plays very differently from traditional Ludo: 5 & 4 players, two dice, compulsory captures, win on the coloured path, Lucky 7, and Lucky Wish."
         canonicalPath="/not-traditional-ludo"
       />
 

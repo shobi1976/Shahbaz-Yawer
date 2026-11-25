@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, BookOpen, Compass, ShieldAlert } from 'lucide-react';
+import { ArrowRight, Compass, ShieldAlert } from 'lucide-react';
 import { SEO } from '../components/SEO';
 import { RelatedPages } from '../components/RelatedPages';
 import { FIVE_KEY_RULES } from '../components/VisitorGuidance';
@@ -32,18 +32,6 @@ export const StartHerePage: React.FC = () => {
           <p className="text-slate-200 font-medium text-base sm:text-lg mt-3 leading-relaxed font-['Outfit'] max-w-3xl mx-auto">
             New to Ludo Dethroned 3D? Learn first, then play. It takes a few minutes.
           </p>
-
-          <div className="mt-7 flex items-center justify-center">
-            <Link
-              to="/how-to-play"
-              onClick={() => sound.playClick(550)}
-              className="min-h-[48px] px-6 sm:px-8 py-3.5 sm:py-4 rounded-2xl bg-[#FC734D] hover:bg-[#ff8866] text-[#02070A] font-black font-['Chakra_Petch'] text-base tracking-wide shadow-[0_0_25px_rgba(252,115,77,0.48)] transition-all cursor-pointer inline-flex items-center justify-center gap-3 transform hover:scale-105 text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0297DE] focus-visible:ring-offset-2 focus-visible:ring-offset-[#02070A]"
-            >
-              <BookOpen className="w-5 h-5 shrink-0" />
-              <span>Start here: learn in a few minutes</span>
-              <ArrowRight className="w-5 h-5 shrink-0" />
-            </Link>
-          </div>
         </div>
       </div>
 

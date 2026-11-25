@@ -104,12 +104,12 @@ export const FAQ_DATA: FaqItem[] = [
   {
     category: 'Starting and moving',
     question: 'Do I get an extra turn for rolling a 6?',
-    answer: 'Yes. Every 6 gives you an extra turn.'
+    answer: 'No. A single 6 brings a token out of base onto the open track. Rolling 6+6 (double sixes) gives you an extra turn.'
   },
   {
     category: 'Starting and moving',
-    question: 'Is there a limit on sixes in a row?',
-    answer: 'No. There is no limit on how many extra turns you can earn by rolling sixes.'
+    question: 'Is there a limit on double sixes or extra turns in a row?',
+    answer: 'No. There is no limit on how many extra turns you can earn.'
   },
   {
     category: 'Starting and moving',
@@ -260,7 +260,7 @@ export const FAQ_DATA: FaqItem[] = [
   {
     category: 'Extra turns and special features',
     question: 'When do I get an extra turn?',
-    answer: 'When you roll a 6, after a capture, when you move a token into the centre home, and when Lucky 7 applies.'
+    answer: 'When you roll 6+6 (double sixes), after a capture, when you move a token into the centre home, and when Lucky 7 applies.'
   },
   {
     category: 'Extra turns and special features',

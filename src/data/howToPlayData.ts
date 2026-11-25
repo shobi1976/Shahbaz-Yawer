@@ -16,8 +16,8 @@ export const TUTORIAL_SLIDES: TutorialSlide[] = [
   {
     number: 3,
     title: 'Guide 3: Sixes and Leaving Base',
-    content: 'All four of your tokens start in base. A single 6 brings a token out of base onto the open track. You do not need a double 6. Tokens in base are safe. Rolling a 6 also gives you an extra turn, and there is no limit on how many extra turns you can earn in a row.',
-    example: 'Example: You roll 6 and 2. The 6 brings a token out, the 2 moves another token, and you roll again.'
+    content: 'All four of your tokens start in base. A single 6 brings a token out of base onto the open track. You do not need a double 6 to leave base. Tokens in base are safe. Rolling 6+6 gives you an extra turn, with no limit on consecutive double sixes.',
+    example: 'Example: You roll 6 and 6. Each 6 can bring a token out of base, and rolling 6+6 gives you an extra turn, so you roll again.'
   },
   {
     number: 4,
@@ -47,7 +47,7 @@ export const TUTORIAL_SLIDES: TutorialSlide[] = [
     number: 8,
     title: 'Guide 8: Centre Home Bonus',
     content: 'Moving a token into the centre home needs an exact roll and gives you an extra turn. Reaching the centre home is not required to win, because getting all four tokens onto your coloured home path is enough.',
-    example: 'Extra turns come from: rolling a 6, a capture, entering centre home, and Lucky 7.'
+    example: 'Extra turns come from: rolling 6+6, a capture, entering centre home, and Lucky 7.'
   },
   {
     number: 9,

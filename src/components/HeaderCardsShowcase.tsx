@@ -14,7 +14,7 @@ import {
 
 import startHereImg from '../assets/images/card_start_here_1793619412731.webp';
 import notTraditionalImg from '../assets/images/card_not_traditional_1793619413728.webp';
-import howToPlayImg from '../assets/images/card_how_to_play_1793619415424.webp';
+import howToPlayImg from '../assets/images/card_how_to_play_pentagon_dice.webp';
 import twelveRulesImg from '../assets/images/card_twelve_rules_1793619417848.webp';
 import strategiesImg from '../assets/images/card_strategies_1793619418828.webp';
 import globalCompendiumImg from '../assets/images/card_global_compendium_1793619420803.webp';
@@ -68,7 +68,7 @@ export const HEADER_CARDS_DATA: readonly HeaderCardItem[] = [
     to: '/how-to-play',
     hex: '#00f0ff',
     imageSrc: howToPlayImg,
-    imageAlt: 'How to Play Ludo Dethroned 5 Way & 4 Way Two Dice Rules and Token Movement',
+    imageAlt: 'How to Play Ludo Dethroned 5-Player Pentagonal Board Layout and Two Glowing Dice',
     themeKey: 'how-to-play',
     icon: <BookOpen className="w-4 h-4" />,
   },
@@ -185,7 +185,7 @@ export const AnimatedCardVisual: React.FC<AnimatedCardVisualProps> = ({
           referrerPolicy="no-referrer"
           draggable={false}
           onError={() => setImgFailed(true)}
-          className="w-full h-full object-cover object-center anim-card-image transition-transform duration-500 group-hover:scale-110"
+          className="w-full h-full object-contain object-center anim-card-image transition-transform duration-500 group-hover:scale-110"
         />
       ) : (
         <div
